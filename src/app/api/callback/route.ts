@@ -5,7 +5,7 @@ const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const PORT = process.env.AUTH_SETUP_PORT;
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url)
     const code = searchParams.get('code')?.toString()
 
@@ -28,7 +28,7 @@ export default async function GET(req: NextRequest) {
 
     const refresh_token = response.data.refresh_token;
     console.log("Refresh Token:", refresh_token);
-    Response.json("Token received. Check your console.");
+    return Response.json("Token received. Check your console.");
   } catch (error) {
     if(error instanceof AxiosError) {
         console.error(
@@ -36,6 +36,6 @@ export default async function GET(req: NextRequest) {
             error.response ? error.response.data : error.message
           );
     }
-    Response.json("Error occurred");
+    return Response.json("Error occurred");
   }
 }

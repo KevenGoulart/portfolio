@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { getAccessToken } from "../../../lib/spotify"
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
     const access_token = await getAccessToken();
 
