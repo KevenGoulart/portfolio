@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { getAccessToken } from "../../../lib/spotify"
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
     const access_token = await getAccessToken();
 
@@ -36,7 +36,7 @@ export default async function GET(req: NextRequest) {
     const progress = song.progress_ms;
     const duration = song.item.duration_ms;
 
-    Response.json({
+    return Response.json({
       isPlaying,
       title,
       artists,
@@ -50,6 +50,6 @@ export default async function GET(req: NextRequest) {
     });
   } catch (error) {
     console.error("Error in /api/now-playing:", error);
-    Response.json({ error: "Internal Server Error" }, { status: 500 });
+    return Response.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

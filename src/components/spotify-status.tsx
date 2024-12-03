@@ -7,22 +7,21 @@ import {
   parseISO,
   differenceInSeconds,
 } from "date-fns";
-import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url:string) => fetch(url).then((r) => r.json());
 
 const SpotifyStatus = () => {
   const {
     data: nowPlaying,
-    error: nowPlayingError,
     mutate: mutateNowPlaying,
   } = useSWR(
     "/api/now-playing",
     fetcher,
     { refreshInterval: 3000 }
   );
-  const { data: recentlyPlayed, error: recentError } = useSWR(
+  const { data: recentlyPlayed } = useSWR(
     "/api/recently-played",
     fetcher,
     { refreshInterval: 60000 }
@@ -82,11 +81,6 @@ const SpotifyStatus = () => {
     }
   }, [recentlyPlayed]);
 
-  if (nowPlayingError)
-    console.error("Error fetching now playing:", nowPlayingError);
-  if (recentError)
-    console.error("Error fetching recently played:", recentError);
-
   if (!nowPlaying || !recentlyPlayed) return <div>Loading...</div>;
 
   const formatTime = (ms) => {
@@ -98,7 +92,7 @@ const SpotifyStatus = () => {
   const getStatusAndTrack = () => {
     if (nowPlaying.isPlaying) {
       return {
-        status: "Currently Playing",
+        status: "Tocando agora",
         track: nowPlaying,
         progressText: `${formatTime(progress)} / ${formatTime(
           nowPlaying.duration
@@ -136,24 +130,23 @@ const SpotifyStatus = () => {
         <>
           <a href={track.albumUrl} target="_blank" rel="noopener noreferrer">
             <Image
+              width={400}
+              height={500}
               src={track.albumImageUrl}
               alt={`${track.album} by ${track.albumArtists}`}
             />
           </a>
-          <p>
-            <a href={track.songUrl} target="_blank" rel="noopener noreferrer">
+          <div>
+            <Link href={track.songUrl} target="_blank" rel="noopener noreferrer">
               {track.title}
-            </a>{" "}
+              </Link>{" "}
             by{" "}
             {track.artists.map((artist, index) => (
-              <span key={artist.name}>
-                {index > 0 && ", "}
-                <a href={artist.url} target="_blank" rel="noopener noreferrer">
-                  {artist.name}
-                </a>
-              </span>
+              <Link key={artist.name} href={artist.url} target="_blank" rel="noopener noreferrer">
+              {index > 0 && ", "}{artist.name}
+              </Link>
             ))}
-          </p>
+          </div>
         </>
       )}
       <p>{progressText}</p>
