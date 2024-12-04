@@ -1,10 +1,12 @@
-import dotenv from "dotenv"
-dotenv.config({ path: ".env" })
-
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const PORT = process.env.AUTH_SETUP_PORT;
 
 const REDIRECT_URI = `http://localhost:${PORT}/callback`;
+
+if (!CLIENT_ID) {
+    console.error("Spotify client ID is not defined.");
+    process.exit(1);
+  }
 
 const scopes = [
   'user-read-currently-playing',

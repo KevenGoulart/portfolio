@@ -19,7 +19,7 @@ const SpotifyStatus = () => {
   } = useSWR(
     "/api/now-playing",
     fetcher,
-    { refreshInterval: 3000 }
+    { refreshInterval: 5000 }
   );
   const { data: recentlyPlayed } = useSWR(
     "/api/recently-played",
@@ -83,7 +83,7 @@ const SpotifyStatus = () => {
 
   if (!nowPlaying || !recentlyPlayed) return <div>Loading...</div>;
 
-  const formatTime = (ms) => {
+  const formatTime = (ms: number) => {
     const seconds = Math.floor((ms / 1000) % 60);
     const minutes = Math.floor((ms / 1000 / 60) % 60);
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
@@ -92,7 +92,7 @@ const SpotifyStatus = () => {
   const getStatusAndTrack = () => {
     if (nowPlaying.isPlaying) {
       return {
-        status: "Tocando agora",
+        status: "Ouvindo agora",
         track: nowPlaying,
         progressText: `${formatTime(progress)} / ${formatTime(
           nowPlaying.duration
@@ -100,7 +100,7 @@ const SpotifyStatus = () => {
       };
     } else if (nowPlaying.title) {
       return {
-        status: "Paused",
+        status: "Pausado",
         track: nowPlaying,
         progressText: `${formatTime(progress)} / ${formatTime(
           nowPlaying.duration
@@ -130,17 +130,17 @@ const SpotifyStatus = () => {
         <>
           <a href={track.albumUrl} target="_blank" rel="noopener noreferrer">
             <Image
-              width={400}
-              height={500}
+              width={600}
+              height={800}
               src={track.albumImageUrl}
               alt={`${track.album} by ${track.albumArtists}`}
             />
           </a>
           <div>
-            <Link href={track.songUrl} target="_blank" rel="noopener noreferrer">
+              <Link href={track.songUrl} target="_blank" rel="noopener noreferrer">
               {track.title}
               </Link>{" "}
-            by{" "}
+              by{" "}
             {track.artists.map((artist, index) => (
               <Link key={artist.name} href={artist.url} target="_blank" rel="noopener noreferrer">
               {index > 0 && ", "}{artist.name}
