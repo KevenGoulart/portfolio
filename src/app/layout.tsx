@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from 'next/font/local'
+
+const evaFont = localFont({
+  src: "../../public/fonts/EvaMatisse.ttf",
+  variable: '--font-eva',
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: "Keven's Portfolio",
@@ -13,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body>
+      <body className={`${evaFont.className}`}>
         {children}
       </body>
     </html>
