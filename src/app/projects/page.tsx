@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { FaGithub } from 'react-icons/fa';
 
 export default function About() {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -12,6 +13,7 @@ export default function About() {
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const [githubPosition, setGithubPosition] = useState({ x: 0, y: 0 });
 
   useLayoutEffect(() => {
     if (!mountRef.current) return;
@@ -62,7 +64,7 @@ export default function About() {
     };
 
     const calculateAstroPosition = () => {
-      if (!astroRef.current || !cameraRef.current) return;
+      if (!astroRef.current || !cameraRef.current || !rendererRef.current) return;
       
       const distance = cameraRef.current.position.z - astroRef.current.position.z;
       const aspect = cameraRef.current.aspect;
@@ -73,10 +75,20 @@ export default function About() {
       const marginY = visibleHeight * 0.25;
       
       astroRef.current.position.set(
-        visibleWidth / 1.78 - marginX,
-        -visibleHeight / 2.5 + marginY,
+        visibleWidth / 1.775 - marginX,
+        -visibleHeight / 2.6 + marginY,
         0
       );
+
+      // Atualizar posição do ícone
+      const vector = new THREE.Vector3();
+      astroRef.current.getWorldPosition(vector);
+      vector.project(cameraRef.current);
+      
+      const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+      const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
+      
+      setGithubPosition({ x, y });
     };
 
     loader.load(
@@ -188,13 +200,34 @@ export default function About() {
     <div className="relative w-screen h-screen overflow-hidden">
       <div ref={mountRef} className="absolute inset-0 z-0 pointer-events-none" />
 
-      <div className="absolute left-32 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
+      {/* Seção Esquerda - Texto sobre a Terra */}
+      <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
         <p className="mb-6">GeekLog</p>
         <p>My biggest project yet, a social network based on rating different types of media and sharing with friends</p>
       </div>
 
-      <div className="absolute right-32 top-1/2 transform -translate-y-[40%] z-10 max-w-sm text-white text-3xl text-center space-y-4">
+      {/* Seção Direita - Texto acima */}
+      <div className="absolute max-lg:right-12 right-28 top-2/4 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
         <p>You can check my other projects on my GitHub</p>
+      </div>
+
+      {/* Ícone do GitHub posicionado sobre o astronauta */}
+      <div 
+        style={{
+          position: 'absolute',
+          left: `${githubPosition.x}px`,
+          top: `${githubPosition.y}px`,
+          transform: 'translate(-50%, -135%)'
+        }}
+      >
+        <a 
+          href="https://github.com/KevenGoulart?tab=repositories" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-white hover:text-gray-300 transition-colors pointer-events-auto"
+        >
+          <FaGithub className="w-16 h-16" />
+        </a>
       </div>
     </div>
   );
