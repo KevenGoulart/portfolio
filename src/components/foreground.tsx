@@ -103,7 +103,6 @@ const CombinedScene: React.FC = () => {
     const mouse = new THREE.Vector2();
     const loader = new GLTFLoader();
 
-    // --- Load Models ---
     loader.load('/models/planet.glb', gltf => {
       planet = gltf.scene;
       planet.position.set(-30, -5, -20);
