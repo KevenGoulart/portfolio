@@ -8,10 +8,39 @@ import { useRouter } from 'next/navigation';
 
 const CombinedScene = () => {
   const mountRef = useRef(null);
+  const videoRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
+    // Setup video background
+    const video = document.createElement('video');
+    video.src = '/fundomain.mp4';
+    video.loop = true;
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.style.position = 'fixed';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.width = '100vw';
+    video.style.height = '100vh';
+    video.style.objectFit = 'cover';
+    video.style.zIndex = '0';
+    
+    document.body.appendChild(video);
+    videoRef.current = video;
+
+    // Handle autoplay restrictions
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log('Autoplay prevented:', error);
+      });
+    }
+
+    // Three.js Scene Setup
     const scene = new THREE.Scene();
+    scene.background = null; // Make scene transparent
     const camera = new THREE.PerspectiveCamera(
       75,
       mountRef.current.clientWidth / mountRef.current.clientHeight,
@@ -20,7 +49,10 @@ const CombinedScene = () => {
     );
     camera.position.set(0, 2, 30);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true, 
+      alpha: true 
+    });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     renderer.setClearColor(0x000000, 0);
     mountRef.current.appendChild(renderer.domElement);
@@ -229,9 +261,10 @@ const CombinedScene = () => {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      if (planet) planet.rotation.y += 0.007;
-      if (earth) earth.rotation.y += 0.007;
-      if (whitePlanet) whitePlanet.rotation.y += 0.007;
+      if (planet) planet.rotation.y += 0.00175;
+      if (earth) earth.rotation.y += 0.00175;
+      if (whitePlanet) whitePlanet.rotation.y += 0.00175;
+
 
       updateTextPositions();
       controls.update();
@@ -258,14 +291,28 @@ const CombinedScene = () => {
       if (mountRef.current && renderer.domElement) {
         mountRef.current.removeChild(renderer.domElement);
       }
+      if (videoRef.current) {
+        videoRef.current.pause();
+        document.body.removeChild(videoRef.current);
+      }
     };
   }, [router]);
 
   return (
-    <div
-      ref={mountRef}
-      style={{ width: '100vw', height: '100vh', position: 'absolute', top: 0, left: 0 }}
-    />
+    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+      <div
+        ref={mountRef}
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          zIndex: 1,
+          pointerEvents: 'auto'
+        }}
+      />
+    </div>
   );
 };
 

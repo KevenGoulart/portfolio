@@ -15,11 +15,9 @@ export default function About() {
   useLayoutEffect(() => {
     if (!mountRef.current) return;
 
-    // Certifica-se de que o mountRef possui dimensões
     const { clientWidth, clientHeight } = mountRef.current;
     if (clientWidth === 0 || clientHeight === 0) return;
 
-    // Inicialização da cena
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
@@ -33,7 +31,6 @@ export default function About() {
     mountRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Iluminação
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
 
@@ -65,7 +62,6 @@ export default function About() {
       );
     };
 
-    // Carregamento do planeta
     loader.load(
       '/models/whitePlanet.glb',
       (gltf) => {
@@ -78,7 +74,6 @@ export default function About() {
       (error) => console.error('Erro ao carregar planeta:', error)
     );
 
-    // Carregamento da nave
     loader.load(
       '/models/naveAlien.glb',
       (gltf) => {
@@ -92,16 +87,15 @@ export default function About() {
       (error) => console.error('Erro ao carregar nave:', error)
     );
 
-    // Animação
     const animate = () => {
       requestAnimationFrame(animate);
 
       if (planetRef.current) {
-        planetRef.current.rotation.y += 0.007;
+        planetRef.current.rotation.y += 0.007 / 6;
       }
 
       if (spaceshipRef.current) {
-        spaceshipRef.current.rotation.y += 0.02;
+        spaceshipRef.current.rotation.y += 0.02 / 6;
       }
 
       if (rendererRef.current && cameraRef.current && sceneRef.current) {
@@ -110,7 +104,6 @@ export default function About() {
     };
     animate();
 
-    // Event Listeners
     const handleResize = () => {
       if (!mountRef.current || !cameraRef.current || !rendererRef.current) return;
       const { clientWidth, clientHeight } = mountRef.current;
@@ -147,7 +140,6 @@ export default function About() {
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('click', handleClick);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('pointermove', handlePointerMove);
@@ -161,39 +153,49 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-  <div ref={mountRef} className="absolute inset-0 z-0" />
-  
-  <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
-    <p className='mb-6'>
-      Academic background:
-    </p>
-    <p className='mb-6'>
-      Information Systems <br/> Bachelor&apos;s degree
-    </p>
-    <p className='mb-6'>
-      Universidade Vale do Rio Doce - Univale <br/> Governador Valadares
-    </p>
-  </div>
+      {/* Fundo em vídeo */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-[-10]"
+        src="/fundo2.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
-  <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
-    <p className='mb-6'>
-      FullStack Developer <br/> Bttis <br/> Governador Valadares (2025-04 - currently)
-    </p>
-    <p className='mb-6'>
-      Systems Analyst <br/> X3 Contabilidade <br/> Governador Valadares (2023-08 - 2025-04)
-    </p>
-    <p>
-      Intern Developer <br/> Ols Tecnologia <br/> Governador Valadares (2023-01 - 2023-03)
-    </p>
-    
-    
-  </div>
+      {/* Three.js canvas */}
+      <div ref={mountRef} className="absolute inset-0 z-0" />
 
-  <div className="relative z-10 flex items-center justify-center h-full">
-    <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center">
-      Work Experience <br/> and Studies
-    </h1>
-  </div>
-</div>
+      {/* Conteúdo textual */}
+      <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
+        <p className="mb-6">
+          Academic background:
+        </p>
+        <p className="mb-6">
+          Information Systems <br /> Bachelor&apos;s degree
+        </p>
+        <p className="mb-6">
+          Universidade Vale do Rio Doce - Univale <br /> Governador Valadares
+        </p>
+      </div>
+
+      <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
+        <p className="mb-6">
+          FullStack Developer <br /> Bttis <br /> Governador Valadares (2025-04 - currently)
+        </p>
+        <p className="mb-6">
+          Systems Analyst <br /> X3 Contabilidade <br /> Governador Valadares (2023-08 - 2025-04)
+        </p>
+        <p>
+          Intern Developer <br /> Ols Tecnologia <br /> Governador Valadares (2023-01 - 2023-03)
+        </p>
+      </div>
+
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center">
+          Work Experience <br /> and Studies
+        </h1>
+      </div>
+    </div>
   );
 }

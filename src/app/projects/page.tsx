@@ -47,7 +47,7 @@ export default function About() {
 
     const calculateSpaceshipPosition = () => {
       if (!spaceshipRef.current || !cameraRef.current) return;
-      
+
       const distance = cameraRef.current.position.z - spaceshipRef.current.position.z;
       const aspect = cameraRef.current.aspect;
       const fov = cameraRef.current.fov * (Math.PI / 180);
@@ -55,7 +55,7 @@ export default function About() {
       const visibleWidth = visibleHeight * aspect;
       const marginX = visibleWidth * 0.05;
       const marginY = visibleHeight * 0.05;
-      
+
       spaceshipRef.current.position.set(
         -visibleWidth / 2 + marginX,
         visibleHeight / 2 - marginY,
@@ -65,7 +65,7 @@ export default function About() {
 
     const calculateAstroPosition = () => {
       if (!astroRef.current || !cameraRef.current || !rendererRef.current) return;
-      
+
       const distance = cameraRef.current.position.z - astroRef.current.position.z;
       const aspect = cameraRef.current.aspect;
       const fov = cameraRef.current.fov * (Math.PI / 180);
@@ -73,21 +73,20 @@ export default function About() {
       const visibleWidth = visibleHeight * aspect;
       const marginX = visibleWidth * 0.23;
       const marginY = visibleHeight * 0.25;
-      
+
       astroRef.current.position.set(
         visibleWidth / 1.775 - marginX,
         -visibleHeight / 2.6 + marginY,
         0
       );
 
-      // Atualizar posição do ícone
       const vector = new THREE.Vector3();
       astroRef.current.getWorldPosition(vector);
       vector.project(cameraRef.current);
-      
+
       const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
       const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
-      
+
       setGithubPosition({ x, y });
     };
 
@@ -132,9 +131,9 @@ export default function About() {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      if (planetRef.current) planetRef.current.rotation.y += 0.007;
-      if (spaceshipRef.current) spaceshipRef.current.rotation.y += 0.02;
-      
+      if (planetRef.current) planetRef.current.rotation.y += 0.007 / 6; // 1/4 da velocidade
+      if (spaceshipRef.current) spaceshipRef.current.rotation.y += 0.02 / 6; // 1/4 da velocidade
+
       if (rendererRef.current && cameraRef.current && sceneRef.current) {
         rendererRef.current.render(sceneRef.current, cameraRef.current);
       }
@@ -157,7 +156,7 @@ export default function About() {
       pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
       pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(pointer, cameraRef.current);
-      
+
       let cursor = 'default';
       if (spaceshipRef.current && raycaster.intersectObjects(spaceshipRef.current.children, true).length > 0) cursor = 'pointer';
       if (astroRef.current && raycaster.intersectObjects(astroRef.current.children, true).length > 0) cursor = 'pointer';
@@ -166,7 +165,7 @@ export default function About() {
 
     const handleClick = (event: MouseEvent) => {
       if ((event.target as HTMLElement).closest('a')) return;
-      
+
       if (!mountRef.current || !cameraRef.current) return;
       const rect = mountRef.current.getBoundingClientRect();
       pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
@@ -198,26 +197,36 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      <div ref={mountRef} className="absolute inset-0 z-0 pointer-events-none" />
+      {/* Video de fundo */}
+      <video
+        className="absolute inset-0 object-cover w-full h-full z-0"
+        src="/fundo3.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
-      {/* Seção Esquerda - Texto sobre a Terra */}
-      <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
+      {/* Canvas do Three.js */}
+      <div ref={mountRef} className="absolute inset-0 z-10 pointer-events-none" />
+
+      {/* Textos e Ícones */}
+      <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
         <p className="mb-6">GeekLog</p>
         <p>My biggest project yet, a social network based on rating different types of media and sharing with friends</p>
       </div>
 
-      {/* Seção Direita - Texto acima */}
-      <div className="absolute max-lg:right-12 right-28 top-2/4 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
+      <div className="absolute max-lg:right-12 right-28 top-2/4 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
         <p>You can check my other projects on my GitHub</p>
       </div>
 
-      {/* Ícone do GitHub posicionado sobre o astronauta */}
       <div 
         style={{
           position: 'absolute',
           left: `${githubPosition.x}px`,
           top: `${githubPosition.y}px`,
-          transform: 'translate(-50%, -135%)'
+          transform: 'translate(-50%, -135%)',
+          zIndex: 30,
         }}
       >
         <a 

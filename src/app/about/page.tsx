@@ -15,11 +15,9 @@ export default function About() {
   useLayoutEffect(() => {
     if (!mountRef.current) return;
 
-    // Certifica-se de que o mountRef possui dimensões
     const { clientWidth, clientHeight } = mountRef.current;
     if (clientWidth === 0 || clientHeight === 0) return;
 
-    // Inicialização da cena
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
@@ -33,7 +31,6 @@ export default function About() {
     mountRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Iluminação
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
 
@@ -65,7 +62,6 @@ export default function About() {
       );
     };
 
-    // Carregamento do planeta
     loader.load(
       '/models/planet.glb',
       (gltf) => {
@@ -78,7 +74,6 @@ export default function About() {
       (error) => console.error('Erro ao carregar planeta:', error)
     );
 
-    // Carregamento da nave
     loader.load(
       '/models/naveAlien.glb',
       (gltf) => {
@@ -92,16 +87,15 @@ export default function About() {
       (error) => console.error('Erro ao carregar nave:', error)
     );
 
-    // Animação
     const animate = () => {
       requestAnimationFrame(animate);
 
       if (planetRef.current) {
-        planetRef.current.rotation.y += 0.007;
+        planetRef.current.rotation.y += 0.007 / 6;
       }
 
       if (spaceshipRef.current) {
-        spaceshipRef.current.rotation.y += 0.02;
+        spaceshipRef.current.rotation.y += 0.02 / 6;
       }
 
       if (rendererRef.current && cameraRef.current && sceneRef.current) {
@@ -110,7 +104,6 @@ export default function About() {
     };
     animate();
 
-    // Event Listeners
     const handleResize = () => {
       if (!mountRef.current || !cameraRef.current || !rendererRef.current) return;
       const { clientWidth, clientHeight } = mountRef.current;
@@ -147,7 +140,6 @@ export default function About() {
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('click', handleClick);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('pointermove', handlePointerMove);
@@ -161,29 +153,41 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-  <div ref={mountRef} className="absolute inset-0 z-0" />
-  
-  <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
-    <p>
-      Hello! I’m looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.
-    </p>
-  </div>
+      {/* Video de fundo */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="/fundo1.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
 
-  <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
-    <p>
-      I have experience in developing complete applications, working on both the front-end and back-end, with a focus on scalable and well-structured solutions.
-    </p>
-  </div>
+      {/* Canvas do three.js */}
+      <div ref={mountRef} className="absolute inset-0 z-10" />
 
-  <div className="relative z-10 flex items-center justify-center h-full">
-    <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center">
-      Keven Goulart <br /> FullStack Developer
-    </h1>
-  </div>
+      {/* Textos sobrepostos */}
+      <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
+        <p>
+          Hello! I’m looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.
+        </p>
+      </div>
 
-  <div className='absolute bottom-10 left-20 right-20 text-center text-2xl'>
-    <p>Phone: +55 33 9 9808-8464 / Email: kevengoulartmm@gmail.com</p>
-  </div>
-</div>
+      <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
+        <p>
+          I have experience in developing complete applications, working on both the front-end and back-end, with a focus on scalable and well-structured solutions.
+        </p>
+      </div>
+
+      <div className="relative z-20 flex items-center justify-center h-full">
+        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center">
+          Keven Goulart <br /> FullStack Developer
+        </h1>
+      </div>
+
+      <div className="absolute bottom-10 left-20 right-20 text-center text-2xl text-white z-20">
+        <p>Phone: +55 33 9 9808-8464 / Email: kevengoulartmm@gmail.com</p>
+      </div>
+    </div>
   );
 }
