@@ -6,116 +6,94 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { useRouter } from 'next/navigation';
 
-const CombinedScene = () => {
-  const mountRef = useRef(null);
-  const videoRef = useRef(null);
+const CombinedScene: React.FC = () => {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    // Setup video background
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    // --- Video Background Setup ---
     const video = document.createElement('video');
     video.src = '/fundomain.mp4';
     video.loop = true;
     video.muted = true;
     video.autoplay = true;
     video.playsInline = true;
-    video.style.position = 'fixed';
-    video.style.top = '0';
-    video.style.left = '0';
-    video.style.width = '100vw';
-    video.style.height = '100vh';
-    video.style.objectFit = 'cover';
-    video.style.zIndex = '0';
-    
+    Object.assign(video.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100vw',
+      height: '100vh',
+      objectFit: 'cover',
+      zIndex: '0',
+    });
     document.body.appendChild(video);
     videoRef.current = video;
 
-    // Handle autoplay restrictions
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log('Autoplay prevented:', error);
-      });
-    }
+    video.play().catch(err => {
+      console.warn('Autoplay prevented:', err);
+    });
 
-    // Three.js Scene Setup
+    // --- Three.js Scene Setup ---
     const scene = new THREE.Scene();
-    scene.background = null; // Make scene transparent
     const camera = new THREE.PerspectiveCamera(
       75,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      mount.clientWidth / mount.clientHeight,
       0.1,
       1000
     );
     camera.position.set(0, 2, 30);
 
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true, 
-      alpha: true 
-    });
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.setClearColor(0x000000, 0);
-    mountRef.current.appendChild(renderer.domElement);
+    mount.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.1;
     controls.rotateSpeed = 0.5;
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 2);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
+    scene.add(new THREE.AmbientLight(0x404040, 2));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(1, 1, 1);
+    scene.add(dirLight);
 
-    let planet = null;
-    let earth = null;
-    let whitePlanet = null;
+    // Refs for objects + hover labels
+    let planet: THREE.Object3D | null = null;
+    let earth: THREE.Object3D | null = null;
+    let whitePlanet: THREE.Object3D | null = null;
+    let planetLabel: THREE.Sprite, earthLabel: THREE.Sprite, whiteLabel: THREE.Sprite;
+    const hovered = { planet: false, earth: false, white: false };
+    const offsets = {
+      planet: new THREE.Vector3(),
+      earth: new THREE.Vector3(),
+      white: new THREE.Vector3(),
+    };
 
-    let planetHoverTextSprite = null;
-    let earthHoverTextSprite = null;
-    let whitePlanetHoverTextSprite = null;
-
-    let hoveredPlanet = false;
-    let hoveredEarth = false;
-    let hoveredWhitePlanet = false;
-
-    let planetTextOffset = new THREE.Vector3();
-    let earthTextOffset = new THREE.Vector3();
-    let whitePlanetTextOffset = new THREE.Vector3();
-
-    const createTextSprite = (message) => {
+    // Utility to create a text sprite
+    const createTextSprite = (msg: string) => {
       const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d')!;
       const fontSize = 80;
-      context.font = `${fontSize}px evafont`;
-      const textWidth = context.measureText(message).width;
-
+      ctx.font = `${fontSize}px evafont`;
+      const textWidth = ctx.measureText(msg).width;
       canvas.width = textWidth * 1.2;
       canvas.height = fontSize * 2;
-
-      context.fillStyle = 'rgba(0,0,0,0)';
-      context.fillRect(0, 0, canvas.width, canvas.height);
-
-      context.font = `${fontSize}px evafont`;
-      context.textAlign = 'center';
-      context.textBaseline = 'middle';
-      context.fillStyle = 'white';
-      context.fillText(message, canvas.width / 2, canvas.height / 2);
-
-      const texture = new THREE.CanvasTexture(canvas);
-      texture.minFilter = THREE.LinearFilter;
-      texture.magFilter = THREE.LinearFilter;
-      texture.needsUpdate = true;
-
-      const material = new THREE.SpriteMaterial({
-        map: texture,
-        transparent: true,
-        depthTest: false,
-        depthWrite: false
-      });
-
-      const sprite = new THREE.Sprite(material);
+      ctx.font = `${fontSize}px evafont`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'white';
+      ctx.fillText(msg, canvas.width / 2, canvas.height / 2);
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+      const sprite = new THREE.Sprite(mat);
       sprite.scale.set(10, 5, 1);
       sprite.renderOrder = 999;
       return sprite;
@@ -123,11 +101,10 @@ const CombinedScene = () => {
 
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-
     const loader = new GLTFLoader();
 
-    // Planet (About)
-    loader.load('/models/planet.glb', (gltf) => {
+    // --- Load Models ---
+    loader.load('/models/planet.glb', gltf => {
       planet = gltf.scene;
       planet.position.set(-30, -5, -20);
       planet.scale.set(1.7, 1.7, 1.7);
@@ -136,16 +113,15 @@ const CombinedScene = () => {
       const box = new THREE.Box3().setFromObject(planet);
       const size = new THREE.Vector3();
       box.getSize(size);
-      planetTextOffset = new THREE.Vector3(0, size.y * 0.1, size.z * 0.1);
+      offsets.planet.set(0, size.y * 0.1, size.z * 0.1);
 
-      planetHoverTextSprite = createTextSprite('About Me');
-      planetHoverTextSprite.position.copy(planet.position).add(planetTextOffset);
-      scene.add(planetHoverTextSprite);
-      planetHoverTextSprite.visible = false;
+      planetLabel = createTextSprite('About Me');
+      planetLabel.position.copy(planet.position).add(offsets.planet);
+      planetLabel.visible = false;
+      scene.add(planetLabel);
     });
 
-    // Earth (Projects)
-    loader.load('/models/earth.glb', (gltf) => {
+    loader.load('/models/earth.glb', gltf => {
       earth = gltf.scene;
       earth.position.set(30, -5, -20);
       earth.scale.set(0.1, 0.1, 0.1);
@@ -154,16 +130,15 @@ const CombinedScene = () => {
       const box = new THREE.Box3().setFromObject(earth);
       const size = new THREE.Vector3();
       box.getSize(size);
-      earthTextOffset = new THREE.Vector3(0, size.y * 0.8, size.z * 0.15);
+      offsets.earth.set(0, size.y * 0.8, size.z * 0.15);
 
-      earthHoverTextSprite = createTextSprite('Projects');
-      earthHoverTextSprite.position.copy(earth.position).add(earthTextOffset);
-      scene.add(earthHoverTextSprite);
-      earthHoverTextSprite.visible = false;
+      earthLabel = createTextSprite('Projects');
+      earthLabel.position.copy(earth.position).add(offsets.earth);
+      earthLabel.visible = false;
+      scene.add(earthLabel);
     });
 
-    // White Planet (Experience)
-    loader.load('/models/whitePlanet.glb', (gltf) => {
+    loader.load('/models/whitePlanet.glb', gltf => {
       whitePlanet = gltf.scene;
       whitePlanet.position.set(-3, 8, 10);
       whitePlanet.scale.set(0.7, 0.7, 0.7);
@@ -172,125 +147,117 @@ const CombinedScene = () => {
       const box = new THREE.Box3().setFromObject(whitePlanet);
       const size = new THREE.Vector3();
       box.getSize(size);
-      whitePlanetTextOffset = new THREE.Vector3(0, size.y * 0.1, size.z * 0.1);
+      offsets.white.set(0, size.y * 0.1, size.z * 0.1);
 
-      whitePlanetHoverTextSprite = createTextSprite('Experience');
-      whitePlanetHoverTextSprite.position.copy(whitePlanet.position).add(whitePlanetTextOffset);
-      whitePlanetHoverTextSprite.scale.set(4, 2, 4);
-      scene.add(whitePlanetHoverTextSprite);
-      whitePlanetHoverTextSprite.visible = false;
+      whiteLabel = createTextSprite('Experience');
+      whiteLabel.position.copy(whitePlanet.position).add(offsets.white);
+      whiteLabel.scale.set(4, 2, 4);
+      whiteLabel.visible = false;
+      scene.add(whiteLabel);
     });
 
-    const updateTextPositions = () => {
-      if (planet && planetHoverTextSprite) {
-        planetHoverTextSprite.position.copy(planet.position).add(planetTextOffset);
-      }
-      if (earth && earthHoverTextSprite) {
-        earthHoverTextSprite.position.copy(earth.position).add(earthTextOffset);
-      }
-      if (whitePlanet && whitePlanetHoverTextSprite) {
-        whitePlanetHoverTextSprite.position.copy(whitePlanet.position).add(whitePlanetTextOffset);
-      }
+    // --- Interaction Handlers ---
+    const updateLabels = () => {
+      if (planet && planetLabel) planetLabel.position.copy(planet.position).add(offsets.planet);
+      if (earth && earthLabel) earthLabel.position.copy(earth.position).add(offsets.earth);
+      if (whitePlanet && whiteLabel) whiteLabel.position.copy(whitePlanet.position).add(offsets.white);
     };
 
-    const handleMouseMove = (event) => {
+    const onMouseMove = (e: MouseEvent) => {
       const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
+      mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
 
-      const planetIntersects = planet ? raycaster.intersectObject(planet, true) : [];
-      const earthIntersects = earth ? raycaster.intersectObject(earth, true) : [];
-      const whitePlanetIntersects = whitePlanet ? raycaster.intersectObject(whitePlanet, true) : [];
+      const intersects = {
+        planet: planet ? raycaster.intersectObject(planet, true) : [],
+        earth: earth ? raycaster.intersectObject(earth, true) : [],
+        white: whitePlanet ? raycaster.intersectObject(whitePlanet, true) : [],
+      };
 
-      document.body.style.cursor =
-        planetIntersects.length > 0 || earthIntersects.length > 0 || whitePlanetIntersects.length > 0
-          ? 'pointer'
-          : 'auto';
+      document.body.style.cursor = (intersects.planet.length || intersects.earth.length || intersects.white.length)
+        ? 'pointer'
+        : 'auto';
 
-      if (planetIntersects.length > 0) {
-        if (!hoveredPlanet) {
+      // Planet hover
+      if (intersects.planet.length) {
+        if (!hovered.planet && planet && planetLabel) {
           planet.scale.set(2.5, 2.5, 2.5);
-          planetHoverTextSprite.visible = true;
-          hoveredPlanet = true;
+          planetLabel.visible = true;
+          hovered.planet = true;
         }
-      } else if (hoveredPlanet) {
+      } else if (hovered.planet && planet && planetLabel) {
         planet.scale.set(1.7, 1.7, 1.7);
-        planetHoverTextSprite.visible = false;
-        hoveredPlanet = false;
+        planetLabel.visible = false;
+        hovered.planet = false;
       }
 
-      if (earthIntersects.length > 0) {
-        if (!hoveredEarth) {
+      // Earth hover
+      if (intersects.earth.length) {
+        if (!hovered.earth && earth && earthLabel) {
           earth.scale.set(0.13, 0.13, 0.13);
-          earthHoverTextSprite.visible = true;
-          hoveredEarth = true;
+          earthLabel.visible = true;
+          hovered.earth = true;
         }
-      } else if (hoveredEarth) {
-        earth.scale.set(0.11, 0.11, 0.11);
-        earthHoverTextSprite.visible = false;
-        hoveredEarth = false;
+      } else if (hovered.earth && earth && earthLabel) {
+        earth.scale.set(0.1, 0.1, 0.1);
+        earthLabel.visible = false;
+        hovered.earth = false;
       }
 
-      if (whitePlanetIntersects.length > 0) {
-        if (!hoveredWhitePlanet) {
+      // White Planet hover
+      if (intersects.white.length) {
+        if (!hovered.white && whitePlanet && whiteLabel) {
           whitePlanet.scale.set(1.0, 1.0, 1.0);
-          whitePlanetHoverTextSprite.visible = true;
-          hoveredWhitePlanet = true;
+          whiteLabel.visible = true;
+          hovered.white = true;
         }
-      } else if (hoveredWhitePlanet) {
+      } else if (hovered.white && whitePlanet && whiteLabel) {
         whitePlanet.scale.set(0.7, 0.7, 0.7);
-        whitePlanetHoverTextSprite.visible = false;
-        hoveredWhitePlanet = false;
+        whiteLabel.visible = false;
+        hovered.white = false;
       }
     };
 
-    const handleClick = () => {
-      if (hoveredPlanet) {
-        router.push('/about');
-      } else if (hoveredEarth) {
-        router.push('/projects');
-      } else if (hoveredWhitePlanet) {
-        router.push('/experience');
-      }
+    const onClick = () => {
+      if (hovered.planet) router.push('/about');
+      else if (hovered.earth) router.push('/projects');
+      else if (hovered.white) router.push('/experience');
     };
 
-    renderer.domElement.addEventListener('mousemove', handleMouseMove);
-    renderer.domElement.addEventListener('click', handleClick);
+    renderer.domElement.addEventListener('mousemove', onMouseMove);
+    renderer.domElement.addEventListener('click', onClick);
 
+    // --- Animation Loop ---
     const animate = () => {
       requestAnimationFrame(animate);
       if (planet) planet.rotation.y += 0.00175;
       if (earth) earth.rotation.y += 0.00175;
       if (whitePlanet) whitePlanet.rotation.y += 0.00175;
-
-
-      updateTextPositions();
+      updateLabels();
       controls.update();
       renderer.render(scene, camera);
     };
-
     animate();
 
-    const handleResize = () => {
-      camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
+    // --- Resize Handling ---
+    const onResize = () => {
+      if (!mount) return;
+      camera.aspect = mount.clientWidth / mount.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+      renderer.setSize(mount.clientWidth, mount.clientHeight);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', onResize);
 
+    // --- Cleanup ---
     return () => {
-      window.removeEventListener('resize', handleResize);
-      renderer.domElement.removeEventListener('mousemove', handleMouseMove);
-      renderer.domElement.removeEventListener('click', handleClick);
-      document.body.style.cursor = 'auto';
+      window.removeEventListener('resize', onResize);
+      renderer.domElement.removeEventListener('mousemove', onMouseMove);
+      renderer.domElement.removeEventListener('click', onClick);
       controls.dispose();
       renderer.dispose();
       scene.clear();
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
+      mount.removeChild(renderer.domElement);
       if (videoRef.current) {
         videoRef.current.pause();
         document.body.removeChild(videoRef.current);
@@ -302,14 +269,14 @@ const CombinedScene = () => {
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <div
         ref={mountRef}
-        style={{ 
-          width: '100%', 
-          height: '100%', 
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
           zIndex: 1,
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
         }}
       />
     </div>
