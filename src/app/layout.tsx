@@ -11,6 +11,7 @@ const evaFont = localFont({
 export const metadata: Metadata = {
   title: "Keven's Portfolio",
   description: "Looking for an opportunity",
+  icons: '/eva-modified.ico',
 };
 
 export default function RootLayout({
