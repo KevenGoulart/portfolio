@@ -15,7 +15,6 @@ const CombinedScene: React.FC = () => {
     const mount = mountRef.current;
     if (!mount) return;
 
-    // --- Video Background Setup ---
     const video = document.createElement('video');
     video.src = '/fundomain.mp4';
     video.loop = true;
@@ -38,7 +37,6 @@ const CombinedScene: React.FC = () => {
       console.warn('Autoplay prevented:', err);
     });
 
-    // --- Three.js Scene Setup ---
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -63,7 +61,6 @@ const CombinedScene: React.FC = () => {
     dirLight.position.set(1, 1, 1);
     scene.add(dirLight);
 
-    // Refs for objects + hover labels
     let planet: THREE.Object3D | null = null;
     let earth: THREE.Object3D | null = null;
     let whitePlanet: THREE.Object3D | null = null;
@@ -75,7 +72,6 @@ const CombinedScene: React.FC = () => {
       white: new THREE.Vector3(),
     };
 
-    // Utility to create a text sprite
     const createTextSprite = (msg: string) => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d')!;
@@ -155,7 +151,6 @@ const CombinedScene: React.FC = () => {
       scene.add(whiteLabel);
     });
 
-    // --- Interaction Handlers ---
     const updateLabels = () => {
       if (planet && planetLabel) planetLabel.position.copy(planet.position).add(offsets.planet);
       if (earth && earthLabel) earthLabel.position.copy(earth.position).add(offsets.earth);
@@ -178,7 +173,6 @@ const CombinedScene: React.FC = () => {
         ? 'pointer'
         : 'auto';
 
-      // Planet hover
       if (intersects.planet.length) {
         if (!hovered.planet && planet && planetLabel) {
           planet.scale.set(2.5, 2.5, 2.5);
@@ -191,7 +185,6 @@ const CombinedScene: React.FC = () => {
         hovered.planet = false;
       }
 
-      // Earth hover
       if (intersects.earth.length) {
         if (!hovered.earth && earth && earthLabel) {
           earth.scale.set(0.13, 0.13, 0.13);
@@ -204,7 +197,6 @@ const CombinedScene: React.FC = () => {
         hovered.earth = false;
       }
 
-      // White Planet hover
       if (intersects.white.length) {
         if (!hovered.white && whitePlanet && whiteLabel) {
           whitePlanet.scale.set(1.0, 1.0, 1.0);
@@ -227,7 +219,6 @@ const CombinedScene: React.FC = () => {
     renderer.domElement.addEventListener('mousemove', onMouseMove);
     renderer.domElement.addEventListener('click', onClick);
 
-    // --- Animation Loop ---
     const animate = () => {
       requestAnimationFrame(animate);
       if (planet) planet.rotation.y += 0.00175;
@@ -239,7 +230,6 @@ const CombinedScene: React.FC = () => {
     };
     animate();
 
-    // --- Resize Handling ---
     const onResize = () => {
       if (!mount) return;
       camera.aspect = mount.clientWidth / mount.clientHeight;
@@ -248,7 +238,6 @@ const CombinedScene: React.FC = () => {
     };
     window.addEventListener('resize', onResize);
 
-    // --- Cleanup ---
     return () => {
       window.removeEventListener('resize', onResize);
       renderer.domElement.removeEventListener('mousemove', onMouseMove);

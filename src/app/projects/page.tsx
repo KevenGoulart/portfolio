@@ -197,7 +197,6 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      {/* Video de fundo */}
       <video
         className="absolute inset-0 object-cover w-full h-full z-0"
         src="/fundo3.mp4"
@@ -207,10 +206,8 @@ export default function About() {
         playsInline
       />
 
-      {/* Canvas do Three.js */}
       <div ref={mountRef} className="absolute inset-0 z-10 pointer-events-none" />
 
-      {/* Textos e Ícones */}
       <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
         <p className="mb-6">GeekLog</p>
         <p>My biggest project yet, a social network based on rating different types of media and sharing with friends</p>
