@@ -153,7 +153,6 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      {/* Video de fundo */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
         src="/fundo1.mp4"
@@ -163,10 +162,8 @@ export default function About() {
         playsInline
       />
 
-      {/* Canvas do three.js */}
       <div ref={mountRef} className="absolute inset-0 z-10" />
 
-      {/* Textos sobrepostos */}
       <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
         <p>
           Hello! I’m looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.
