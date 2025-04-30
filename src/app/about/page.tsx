@@ -183,7 +183,7 @@ export default function About() {
       </div>
 
       <div className="absolute bottom-10 left-20 right-20 text-center text-2xl text-white z-20">
-        <p>Phone: +55 33 9 9808-8464 / Email: kevengoulartmm@gmail.com</p>
+        <p>Email: kevengoulartmm@gmail.com</p>
       </div>
     </div>
   );
