@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from 'next/font/local'
 
 const evaFont = localFont({
-  src: "../../public/fonts/EvaMatisse.ttf",
+  src: "../../public/fonts/coolveltica.otf",
   variable: '--font-eva',
   display: 'swap'
 })
