@@ -166,18 +166,18 @@ export default function About() {
 
       <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
         <p>
-          Hello! I’m looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.
+          Olá! Estou em busca de uma oportunidade para crescer como profissional. Trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest.
         </p>
       </div>
 
       <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
         <p>
-          I have experience in developing complete applications, working on both the front-end and back-end, with a focus on scalable and well-structured solutions.
+          Tenho experiência no desenvolvimento de aplicações completas, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas.
         </p>
       </div>
 
       <div className="relative z-20 flex items-center justify-center h-full">
-        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center">
+        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wider">
           Keven Goulart <br /> FullStack Developer
         </h1>
       </div>

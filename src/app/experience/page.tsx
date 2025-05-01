@@ -153,7 +153,6 @@ export default function About() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      {/* Fundo em vídeo */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-[-10]"
         src="/fundo2.mp4"
@@ -163,37 +162,35 @@ export default function About() {
         playsInline
       />
 
-      {/* Three.js canvas */}
       <div ref={mountRef} className="absolute inset-0 z-0" />
 
-      {/* Conteúdo textual */}
       <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-center text-3xl">
         <p className="mb-6">
-          Academic background:
+          Histórico acadêmico:
         </p>
         <p className="mb-6">
-          Information Systems <br /> Bachelor&apos;s degree
+          Bacharelado em Sistemas <br /> de Informação
         </p>
         <p className="mb-6">
-          Universidade Vale do Rio Doce - Univale <br /> Governador Valadares
+          Universidade Vale do Rio Doce Univale <br /> Governador Valadares
         </p>
       </div>
 
       <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center">
         <p className="mb-6">
-          FullStack Developer <br /> Bttis <br /> Governador Valadares (2025-04 - currently)
+          FullStack Developer <br /> Bttis <br /> Governador Valadares <br /> (2025-04 - atual)
         </p>
         <p className="mb-6">
-          Systems Analyst <br /> X3 Contabilidade <br /> Governador Valadares (2023-08 - 2025-04)
+          Analista de sistemas <br /> X3 Contabilidade <br /> Governador Valadares <br /> (2023-08 - 2025-04)
         </p>
         <p>
-          Intern Developer <br /> Ols Tecnologia <br /> Governador Valadares (2023-01 - 2023-03)
+          Desenvolvedor estagiário <br /> Ols Tecnologia <br /> Governador Valadares <br /> (2023-01 - 2023-03)
         </p>
       </div>
 
       <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center">
-          Work Experience <br /> and Studies
+        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wide">
+          Experiência de trabalho <br /> e estudos
         </h1>
       </div>
     </div>

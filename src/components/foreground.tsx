@@ -32,10 +32,7 @@ const CombinedScene: React.FC = () => {
     });
     document.body.appendChild(video);
     videoRef.current = video;
-
-    video.play().catch(err => {
-      console.warn('Autoplay prevented:', err);
-    });
+    video.play().catch(err => console.warn('Autoplay prevented:', err));
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -65,6 +62,7 @@ const CombinedScene: React.FC = () => {
     let earth: THREE.Object3D | null = null;
     let whitePlanet: THREE.Object3D | null = null;
     let planetLabel: THREE.Sprite, earthLabel: THREE.Sprite, whiteLabel: THREE.Sprite;
+
     const hovered = { planet: false, earth: false, white: false };
     const offsets = {
       planet: new THREE.Vector3(),
@@ -75,7 +73,7 @@ const CombinedScene: React.FC = () => {
     const createTextSprite = (msg: string) => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d')!;
-      const fontSize = 80;
+      const fontSize = 100;
       ctx.font = `${fontSize}px evafont`;
       const textWidth = ctx.measureText(msg).width;
       canvas.width = textWidth * 1.2;
@@ -102,52 +100,52 @@ const CombinedScene: React.FC = () => {
     loader.load('/models/planet.glb', gltf => {
       planet = gltf.scene;
       planet.position.set(-30, -5, -20);
-      planet.scale.set(1.7, 1.7, 1.7);
+      planet.scale.set(2.4, 2.4, 2.4);
       scene.add(planet);
 
       const box = new THREE.Box3().setFromObject(planet);
       const size = new THREE.Vector3();
       box.getSize(size);
-      offsets.planet.set(0, size.y * 0.1, size.z * 0.1);
+      offsets.planet.set(0, size.y * 0, size.z * 0.1);
 
-      planetLabel = createTextSprite('About Me');
+      planetLabel = createTextSprite('Sobre mim');
       planetLabel.position.copy(planet.position).add(offsets.planet);
-      planetLabel.visible = false;
+      planetLabel.visible = true;
       scene.add(planetLabel);
     });
 
     loader.load('/models/earth.glb', gltf => {
       earth = gltf.scene;
       earth.position.set(30, -5, -20);
-      earth.scale.set(0.1, 0.1, 0.1);
+      earth.scale.set(0.12, 0.12, 0.12);
       scene.add(earth);
 
       const box = new THREE.Box3().setFromObject(earth);
       const size = new THREE.Vector3();
       box.getSize(size);
-      offsets.earth.set(0, size.y * 0.8, size.z * 0.15);
+      offsets.earth.set(1, 5, 0.1);
 
-      earthLabel = createTextSprite('Projects');
+      earthLabel = createTextSprite('Projetos');
       earthLabel.position.copy(earth.position).add(offsets.earth);
-      earthLabel.visible = false;
+      earthLabel.visible = true;
       scene.add(earthLabel);
     });
 
     loader.load('/models/whitePlanet.glb', gltf => {
       whitePlanet = gltf.scene;
       whitePlanet.position.set(-3, 8, 10);
-      whitePlanet.scale.set(0.7, 0.7, 0.7);
+      whitePlanet.scale.set(1, 1, 1);
       scene.add(whitePlanet);
 
       const box = new THREE.Box3().setFromObject(whitePlanet);
       const size = new THREE.Vector3();
       box.getSize(size);
-      offsets.white.set(0, size.y * 0.1, size.z * 0.1);
+      offsets.white.set(0, size.y * 0, size.z * 0.1);
 
-      whiteLabel = createTextSprite('Experience');
+      whiteLabel = createTextSprite('Experiência');
       whiteLabel.position.copy(whitePlanet.position).add(offsets.white);
       whiteLabel.scale.set(4, 2, 4);
-      whiteLabel.visible = false;
+      whiteLabel.visible = true;
       scene.add(whiteLabel);
     });
 
@@ -174,38 +172,34 @@ const CombinedScene: React.FC = () => {
         : 'auto';
 
       if (intersects.planet.length) {
-        if (!hovered.planet && planet && planetLabel) {
-          planet.scale.set(2.5, 2.5, 2.5);
-          planetLabel.visible = true;
+        if (!hovered.planet && planet) {
+          planet.scale.set(3, 3, 3);
           hovered.planet = true;
         }
-      } else if (hovered.planet && planet && planetLabel) {
-        planet.scale.set(1.7, 1.7, 1.7);
-        planetLabel.visible = false;
+      } else if (hovered.planet && planet) {
+        planet.scale.set(2.4, 2.4, 2.4);
         hovered.planet = false;
       }
 
       if (intersects.earth.length) {
-        if (!hovered.earth && earth && earthLabel) {
-          earth.scale.set(0.13, 0.13, 0.13);
-          earthLabel.visible = true;
+        if (!hovered.earth && earth) {
+          earth.scale.set(0.15, 0.15, 0.15);
+          offsets.earth.set(1, 6, 0);
           hovered.earth = true;
         }
-      } else if (hovered.earth && earth && earthLabel) {
-        earth.scale.set(0.1, 0.1, 0.1);
-        earthLabel.visible = false;
+      } else if (hovered.earth && earth) {
+        earth.scale.set(0.12, 0.12, 0.12);
+        offsets.earth.set(1, 5, 0.1);
         hovered.earth = false;
       }
 
       if (intersects.white.length) {
-        if (!hovered.white && whitePlanet && whiteLabel) {
-          whitePlanet.scale.set(1.0, 1.0, 1.0);
-          whiteLabel.visible = true;
+        if (!hovered.white && whitePlanet) {
+          whitePlanet.scale.set(1.3, 1.3, 1.3);
           hovered.white = true;
         }
-      } else if (hovered.white && whitePlanet && whiteLabel) {
-        whitePlanet.scale.set(0.7, 0.7, 0.7);
-        whiteLabel.visible = false;
+      } else if (hovered.white && whitePlanet) {
+        whitePlanet.scale.set(1, 1, 1);
         hovered.white = false;
       }
     };

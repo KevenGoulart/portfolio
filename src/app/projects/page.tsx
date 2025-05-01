@@ -210,11 +210,11 @@ export default function About() {
 
       <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
         <p className="mb-6">GeekLog</p>
-        <p>My biggest project yet, a social network based on rating different types of media and sharing with friends</p>
+        <p>Meu maior projeto até agora, trata-se uma rede social baseada na avaliação de diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)</p>
       </div>
 
       <div className="absolute max-lg:right-12 right-28 top-2/4 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-        <p>You can check my other projects on my GitHub</p>
+        <p>Você pode conferir outros projetos no meu GitHub</p>
       </div>
 
       <div 
@@ -234,6 +234,11 @@ export default function About() {
         >
           <FaGithub className="w-16 h-16" />
         </a>
+      </div>
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wider">
+          Projetos
+        </h1>
       </div>
     </div>
   );
