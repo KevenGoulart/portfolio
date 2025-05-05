@@ -14,9 +14,8 @@ export default function About() {
 
   useLayoutEffect(() => {
     if (!mountRef.current) return;
-
     const { clientWidth, clientHeight } = mountRef.current;
-    if (clientWidth === 0 || clientHeight === 0) return;
+    if (!clientWidth || !clientHeight) return;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
@@ -31,12 +30,10 @@ export default function About() {
     mountRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 5, 5);
+    scene.add(dirLight);
 
     const loader = new GLTFLoader();
     const raycaster = new THREE.Raycaster();
@@ -44,17 +41,12 @@ export default function About() {
 
     const calculateSpaceshipPosition = () => {
       if (!spaceshipRef.current || !cameraRef.current) return;
-
       const distance = cameraRef.current.position.z - spaceshipRef.current.position.z;
-      const aspect = cameraRef.current.aspect;
       const fov = cameraRef.current.fov * (Math.PI / 180);
-
       const visibleHeight = 2 * Math.tan(fov / 2) * distance;
-      const visibleWidth = visibleHeight * aspect;
-
+      const visibleWidth = visibleHeight * cameraRef.current.aspect;
       const marginX = visibleWidth * 0.05;
       const marginY = visibleHeight * 0.05;
-
       spaceshipRef.current.position.set(
         -visibleWidth / 2 + marginX,
         visibleHeight / 2 - marginY,
@@ -64,19 +56,19 @@ export default function About() {
 
     loader.load(
       '/models/planet.glb',
-      (gltf) => {
+      gltf => {
         planetRef.current = gltf.scene;
         planetRef.current.position.set(0, 0, 0);
         planetRef.current.scale.set(2.3, 2.3, 2.3);
         scene.add(planetRef.current);
       },
       undefined,
-      (error) => console.error('Erro ao carregar planeta:', error)
+      err => console.error('Erro ao carregar planeta:', err)
     );
 
     loader.load(
       '/models/naveAlien.glb',
-      (gltf) => {
+      gltf => {
         spaceshipRef.current = gltf.scene;
         spaceshipRef.current.scale.set(0.6, 0.6, 0.6);
         spaceshipRef.current.rotation.set(0.8, 0, -0.1);
@@ -84,56 +76,44 @@ export default function About() {
         calculateSpaceshipPosition();
       },
       undefined,
-      (error) => console.error('Erro ao carregar nave:', error)
+      err => console.error('Erro ao carregar nave:', err)
     );
 
     const animate = () => {
       requestAnimationFrame(animate);
-
-      if (planetRef.current) {
-        planetRef.current.rotation.y += 0.007 / 6;
-      }
-
-      if (spaceshipRef.current) {
-        spaceshipRef.current.rotation.y += 0.02 / 6;
-      }
-
-      if (rendererRef.current && cameraRef.current && sceneRef.current) {
+      if (planetRef.current) planetRef.current.rotation.y += 0.007 / 6;
+      if (spaceshipRef.current) spaceshipRef.current.rotation.y += 0.02 / 6;
+      if (rendererRef.current && cameraRef.current && sceneRef.current)
         rendererRef.current.render(sceneRef.current, cameraRef.current);
-      }
     };
     animate();
 
     const handleResize = () => {
       if (!mountRef.current || !cameraRef.current || !rendererRef.current) return;
       const { clientWidth, clientHeight } = mountRef.current;
-
       cameraRef.current.aspect = clientWidth / clientHeight;
       cameraRef.current.updateProjectionMatrix();
       rendererRef.current.setSize(clientWidth, clientHeight);
       calculateSpaceshipPosition();
     };
 
-    const handlePointerMove = (event: MouseEvent) => {
-      if (!mountRef.current || !spaceshipRef.current || !cameraRef.current) return;
+    const updatePointer = (event: MouseEvent) => {
+      if (!mountRef.current || !spaceshipRef.current || !cameraRef.current) return [];
       const rect = mountRef.current.getBoundingClientRect();
       pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
       pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
       raycaster.setFromCamera(pointer, cameraRef.current);
-      const intersects = raycaster.intersectObjects(spaceshipRef.current.children, true);
-      mountRef.current.style.cursor = intersects.length > 0 ? 'pointer' : 'default';
+      return raycaster.intersectObjects(spaceshipRef.current.children, true);
     };
 
-    const handleClick = (event: MouseEvent) => {
-      if (!spaceshipRef.current || !mountRef.current || !cameraRef.current) return;
-      const rect = mountRef.current.getBoundingClientRect();
-      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(pointer, cameraRef.current);
-      const intersects = raycaster.intersectObjects(spaceshipRef.current.children, true);
-      if (intersects.length > 0) {
-        window.location.href = '/';
-      }
+    const handlePointerMove = (e: MouseEvent) => {
+      const hits = updatePointer(e);
+      mountRef.current!.style.cursor = hits.length > 0 ? 'pointer' : 'default';
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      const hits = updatePointer(e);
+      if (hits.length > 0) window.location.href = '/';
     };
 
     window.addEventListener('resize', handleResize);
@@ -151,6 +131,11 @@ export default function About() {
     };
   }, []);
 
+  const textA =
+    'Olá! Estou em busca de uma oportunidade para crescer como profissional. Trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest.';
+  const textB =
+    'Tenho experiência no desenvolvimento de aplicações completas, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas.';
+
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <video
@@ -164,22 +149,23 @@ export default function About() {
 
       <div ref={mountRef} className="absolute inset-0 z-10" />
 
-      <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
-        <p>
-          Olá! Estou em busca de uma oportunidade para crescer como profissional. Trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest.
-        </p>
+      <div className="hidden md:block">
+        <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
+          <p>{textA}</p>
+        </div>
+        <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
+          <p>{textB}</p>
+        </div>
       </div>
 
-      <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-        <p>
-          Tenho experiência no desenvolvimento de aplicações completas, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas.
-        </p>
-      </div>
-
-      <div className="relative z-20 flex items-center justify-center h-full">
+      <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center px-4 space-y-6">
+        <p className="text-white text-lg text-center max-w-xs">{textA}</p>
         <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wider">
-          Keven Goulart <br /> FullStack Developer
+          Keven Goulart
+          <br />
+          FullStack Developer
         </h1>
+        <p className="text-white text-lg text-center max-w-xs">{textB}</p>
       </div>
 
       <div className="absolute bottom-10 left-20 right-20 text-center text-2xl text-white z-20">

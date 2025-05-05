@@ -34,43 +34,19 @@ export default function About() {
     mountRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 5, 5);
+    scene.add(dirLight);
 
     const loader = new GLTFLoader();
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
 
-    const calculateSpaceshipPosition = () => {
-      if (!spaceshipRef.current || !cameraRef.current) return;
-
-      const distance = cameraRef.current.position.z - spaceshipRef.current.position.z;
-      const aspect = cameraRef.current.aspect;
-      const fov = cameraRef.current.fov * (Math.PI / 180);
-      const visibleHeight = 2 * Math.tan(fov / 2) * distance;
-      const visibleWidth = visibleHeight * aspect;
-      const marginX = visibleWidth * 0.05;
-      const marginY = visibleHeight * 0.05;
-
-      spaceshipRef.current.position.set(
-        -visibleWidth / 2 + marginX,
-        visibleHeight / 2 - marginY,
-        0
-      );
-    };
-
-    const calculateAstroPosition = () => {
-      if (!astroRef.current || !cameraRef.current || !rendererRef.current) return;
-
+    const calculateGithubIcon = () => {
+      if (!astroRef.current || !cameraRef.current) return;
       const distance = cameraRef.current.position.z - astroRef.current.position.z;
-      const aspect = cameraRef.current.aspect;
       const fov = cameraRef.current.fov * (Math.PI / 180);
       const visibleHeight = 2 * Math.tan(fov / 2) * distance;
-      const visibleWidth = visibleHeight * aspect;
+      const visibleWidth = visibleHeight * cameraRef.current.aspect;
       const marginX = visibleWidth * 0.23;
       const marginY = visibleHeight * 0.25;
 
@@ -80,62 +56,45 @@ export default function About() {
         0
       );
 
-      const vector = new THREE.Vector3();
-      astroRef.current.getWorldPosition(vector);
-      vector.project(cameraRef.current);
+      const worldPos = new THREE.Vector3();
+      astroRef.current.getWorldPosition(worldPos);
+      worldPos.project(cameraRef.current!);
 
-      const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
-      const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
-
-      setGithubPosition({ x, y });
+      setGithubPosition({
+        x: (worldPos.x * 0.5 + 0.5) * window.innerWidth,
+        y: (worldPos.y * -0.5 + 0.5) * window.innerHeight,
+      });
     };
 
-    loader.load(
-      '/models/earth.glb',
-      (gltf) => {
-        planetRef.current = gltf.scene;
-        planetRef.current.position.set(0, -3.5, 0);
-        planetRef.current.scale.set(0.09, 0.09, 0.09);
-        scene.add(planetRef.current);
-      },
-      undefined,
-      (error) => console.error(error)
-    );
+    loader.load('/models/earth.glb', gltf => {
+      planetRef.current = gltf.scene;
+      planetRef.current.position.set(0, -3.5, 0);
+      planetRef.current.scale.set(0.09, 0.09, 0.09);
+      scene.add(planetRef.current);
+    });
 
-    loader.load(
-      '/models/naveAlien.glb',
-      (gltf) => {
-        spaceshipRef.current = gltf.scene;
-        spaceshipRef.current.scale.set(0.6, 0.6, 0.6);
-        spaceshipRef.current.rotation.set(0.8, 0, -0.1);
-        scene.add(spaceshipRef.current);
-        calculateSpaceshipPosition();
-      },
-      undefined,
-      (error) => console.error(error)
-    );
+    loader.load('/models/naveAlien.glb', gltf => {
+      spaceshipRef.current = gltf.scene;
+      spaceshipRef.current.scale.set(0.6, 0.6, 0.6);
+      spaceshipRef.current.rotation.set(0.8, 0, -0.1);
+      scene.add(spaceshipRef.current);
+    });
 
-    loader.load(
-      '/models/astro.glb',
-      (gltf) => {
-        astroRef.current = gltf.scene;
-        astroRef.current.scale.set(0.5, 0.5, 0.5);
-        astroRef.current.rotation.set(0, Math.PI / -4, 0);
-        scene.add(astroRef.current);
-        calculateAstroPosition();
-      },
-      undefined,
-      (error) => console.error(error)
-    );
+    loader.load('/models/astro.glb', gltf => {
+      astroRef.current = gltf.scene;
+      astroRef.current.scale.set(0.5, 0.5, 0.5);
+      astroRef.current.rotation.set(0, Math.PI / -4, 0);
+      scene.add(astroRef.current);
+      calculateGithubIcon();
+    });
 
     const animate = () => {
       requestAnimationFrame(animate);
-
-      if (planetRef.current) planetRef.current.rotation.y += 0.007 / 6; // 1/4 da velocidade
-      if (spaceshipRef.current) spaceshipRef.current.rotation.y += 0.02 / 6; // 1/4 da velocidade
-
+      if (planetRef.current) planetRef.current.rotation.y += 0.007 / 6;
+      if (spaceshipRef.current) spaceshipRef.current.rotation.y += 0.02 / 6;
       if (rendererRef.current && cameraRef.current && sceneRef.current) {
         rendererRef.current.render(sceneRef.current, cameraRef.current);
+        calculateGithubIcon();
       }
     };
     animate();
@@ -146,48 +105,13 @@ export default function About() {
       cameraRef.current.aspect = clientWidth / clientHeight;
       cameraRef.current.updateProjectionMatrix();
       rendererRef.current.setSize(clientWidth, clientHeight);
-      calculateSpaceshipPosition();
-      calculateAstroPosition();
-    };
-
-    const handlePointerMove = (event: MouseEvent) => {
-      if (!mountRef.current || !cameraRef.current) return;
-      const rect = mountRef.current.getBoundingClientRect();
-      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(pointer, cameraRef.current);
-
-      let cursor = 'default';
-      if (spaceshipRef.current && raycaster.intersectObjects(spaceshipRef.current.children, true).length > 0) cursor = 'pointer';
-      if (astroRef.current && raycaster.intersectObjects(astroRef.current.children, true).length > 0) cursor = 'pointer';
-      mountRef.current.style.cursor = cursor;
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      if ((event.target as HTMLElement).closest('a')) return;
-
-      if (!mountRef.current || !cameraRef.current) return;
-      const rect = mountRef.current.getBoundingClientRect();
-      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(pointer, cameraRef.current);
-
-      if (spaceshipRef.current && raycaster.intersectObjects(spaceshipRef.current.children, true).length > 0) {
-        window.location.href = '/';
-      }
-      if (astroRef.current && raycaster.intersectObjects(astroRef.current.children, true).length > 0) {
-        window.location.href = 'https://github.com/KevenGoulart?tab=repositories';
-      }
+      calculateGithubIcon();
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('pointermove', handlePointerMove);
-    window.addEventListener('click', handleClick);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('click', handleClick);
       if (rendererRef.current && mountRef.current) {
         mountRef.current.removeChild(rendererRef.current.domElement);
         rendererRef.current.dispose();
@@ -198,7 +122,7 @@ export default function About() {
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <video
-        className="absolute inset-0 object-cover w-full h-full z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         src="/fundo3.mp4"
         autoPlay
         loop
@@ -208,16 +132,41 @@ export default function About() {
 
       <div ref={mountRef} className="absolute inset-0 z-10 pointer-events-none" />
 
-      <div className="absolute max-lg:left-12 left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-center text-3xl">
-        <p className="mb-6">GeekLog</p>
-        <p>Meu maior projeto até agora, trata-se uma rede social baseada na avaliação de diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)</p>
+      {/* Desktop: dois blocos laterais */}
+      <div className="hidden md:block">
+        <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center space-y-6">
+          <p className="font-bold">GeekLog</p>
+          <p>
+            Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
+            diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)
+          </p>
+        </div>
+        <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
+          <p>Você pode conferir outros projetos no meu GitHub</p>
+        </div>
       </div>
 
-      <div className="absolute max-lg:right-12 right-28 top-2/4 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-        <p>Você pode conferir outros projetos no meu GitHub</p>
+      {/* Mobile: GeekLog acima, título, GitHub abaixo */}
+      <div className="md:hidden absolute inset-x-0 top-24 z-20 flex flex-col items-center px-4 space-y-6">
+        <div className="text-white text-lg text-center max-w-xs space-y-2">
+          <p className="font-bold text-xl">GeekLog</p>
+          <p>
+            Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
+            diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)
+          </p>
+        </div>
+
+        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
+          Projetos
+        </h1>
+
+        <div className="text-white text-lg text-center max-w-xs">
+          <p>Você pode conferir outros projetos no meu GitHub</p>
+        </div>
       </div>
 
-      <div 
+      {/* Github icon (always visible) */}
+      <div
         style={{
           position: 'absolute',
           left: `${githubPosition.x}px`,
@@ -226,17 +175,19 @@ export default function About() {
           zIndex: 30,
         }}
       >
-        <a 
-          href="https://github.com/KevenGoulart?tab=repositories" 
-          target="_blank" 
+        <a
+          href="https://github.com/KevenGoulart?tab=repositories"
+          target="_blank"
           rel="noopener noreferrer"
           className="text-white hover:text-gray-300 transition-colors pointer-events-auto"
         >
           <FaGithub className="w-16 h-16" />
         </a>
       </div>
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wider">
+
+      {/* Desktop title (hidden on mobile) */}
+      <div className="hidden md:flex relative z-10 items-center justify-center h-full">
+        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wide">
           Projetos
         </h1>
       </div>
