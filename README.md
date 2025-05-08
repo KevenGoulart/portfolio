@@ -1,1 +1,1 @@
-kez.goulart.dev
+kezgoulart.dev
