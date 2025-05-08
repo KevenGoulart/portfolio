@@ -143,18 +143,6 @@ export default function About() {
     };
   }, []);
 
-  const academic = [
-    'Histórico acadêmico:',
-    'Bacharelado em Sistemas de Informação',
-    'Universidade Vale do Rio Doce Univale – Governador Valadares',
-  ];
-
-  const work = [
-    'FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)',
-    'Analista de Sistemas – X3 Contabilidade – Governador Valadares (2023-08 – 2025-04)',
-    'Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares (2023-01 – 2023-03)',
-  ];
-
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <video
@@ -165,43 +153,43 @@ export default function About() {
         muted
         playsInline
       />
-
+  
       <div ref={mountRef} className="absolute inset-0 z-0" />
-
+  
       <div className="hidden md:block">
         <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
-          {academic.map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+          <p>Histórico acadêmico:</p>
+          <p>Bacharelado em Sistemas de Informação</p>
+          <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
         </div>
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
-          {work.map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+          <p>FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)</p>
+          <p>Analista de Sistemas – X3 Contabilidade – Governador Valadares (2023-08 – 2025-04)</p>
+          <p>Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares (2023-01 – 2023-03)</p>
         </div>
       </div>
-
-      <div className="md:hidden absolute inset-x-0 top-24 z-10 flex flex-col items-center px-4 space-y-4">
-        <div className="text-white text-lg text-center space-y-2 max-w-xs">
-          {academic.map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+  
+      <div className="md:hidden absolute inset-x-0 top-44 z-10 flex flex-col items-center px-4 space-y-4">
+        <div className="text-white text-xl text-center space-y-2 max-w-xs">
+          <p>Histórico acadêmico:</p>
+          <p>Bacharelado em Sistemas de Informação</p>
+          <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
         </div>
       </div>
-
+  
       <div className="relative z-10 flex items-center justify-center h-full px-4">
         <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
           Experiência de trabalho <br /> e estudos
         </h1>
       </div>
-
-      <div className="md:hidden absolute inset-x-0 bottom-24 z-10 flex flex-col items-center px-4 space-y-4">
-        <div className="text-white text-lg text-center space-y-2 max-w-xs">
-          {work.map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+  
+      <div className="md:hidden absolute inset-x-0 bottom-36 z-10 flex flex-col items-center px-4 space-y-4">
+        <div className="text-white text-xl text-center space-y-2 max-w-xl">
+          <p>FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)</p>
+          <p>Analista de Sistemas – X3 Contabilidade – Governador Valadares (2023-08 – 2025-04)</p>
+          <p>Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares (2023-01 – 2023-03)</p>
         </div>
       </div>
-    </div>
+    </div>  
   );
 }

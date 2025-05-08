@@ -14,12 +14,18 @@ export default function About() {
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const [githubPosition, setGithubPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
 
   useLayoutEffect(() => {
     if (!mountRef.current) return;
 
     const { clientWidth, clientHeight } = mountRef.current;
     if (clientWidth === 0 || clientHeight === 0) return;
+
+    setIsMobile(window.innerWidth < 768);
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
@@ -41,8 +47,24 @@ export default function About() {
 
     const loader = new GLTFLoader();
 
+    const calculateSpaceshipPosition = () => {
+      if (!spaceshipRef.current || !cameraRef.current) return;
+      const distance = cameraRef.current.position.z - spaceshipRef.current.position.z;
+      const fov = cameraRef.current.fov * (Math.PI / 180);
+      const visibleHeight = 2 * Math.tan(fov / 2) * distance;
+      const visibleWidth = visibleHeight * cameraRef.current.aspect;
+      const marginX = visibleWidth * 0.05;
+      const marginY = visibleHeight * 0.05;
+
+      spaceshipRef.current.position.set(
+        -visibleWidth / 2 + marginX,
+        visibleHeight / 2 - marginY,
+        0
+      );
+    };
+
     const calculateGithubIcon = () => {
-      if (!astroRef.current || !cameraRef.current) return;
+      if (!astroRef.current || !cameraRef.current || isMobile) return;
       const distance = cameraRef.current.position.z - astroRef.current.position.z;
       const fov = cameraRef.current.fov * (Math.PI / 180);
       const visibleHeight = 2 * Math.tan(fov / 2) * distance;
@@ -78,15 +100,18 @@ export default function About() {
       spaceshipRef.current.scale.set(0.6, 0.6, 0.6);
       spaceshipRef.current.rotation.set(0.8, 0, -0.1);
       scene.add(spaceshipRef.current);
+      calculateSpaceshipPosition();
     });
 
-    loader.load('/models/astro.glb', gltf => {
-      astroRef.current = gltf.scene;
-      astroRef.current.scale.set(0.5, 0.5, 0.5);
-      astroRef.current.rotation.set(0, Math.PI / -4, 0);
-      scene.add(astroRef.current);
-      calculateGithubIcon();
-    });
+    if (!isMobile) {
+      loader.load('/models/astro.glb', gltf => {
+        astroRef.current = gltf.scene;
+        astroRef.current.scale.set(0.5, 0.5, 0.5);
+        astroRef.current.rotation.set(0, Math.PI / -4, 0);
+        scene.add(astroRef.current);
+        calculateGithubIcon();
+      });
+    }
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -99,19 +124,48 @@ export default function About() {
     };
     animate();
 
+    const handlePointerMove = (event: MouseEvent) => {
+      if (!mountRef.current || !spaceshipRef.current || !cameraRef.current) return;
+      const rect = mountRef.current.getBoundingClientRect();
+      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, cameraRef.current);
+      const intersects = raycaster.intersectObjects(spaceshipRef.current.children, true);
+      mountRef.current.style.cursor = intersects.length > 0 ? 'pointer' : 'default';
+    };
+
+    const handleClick = (event: MouseEvent) => {
+      if (!spaceshipRef.current || !mountRef.current || !cameraRef.current) return;
+      const rect = mountRef.current.getBoundingClientRect();
+      pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, cameraRef.current);
+      const intersects = raycaster.intersectObjects(spaceshipRef.current.children, true);
+      if (intersects.length > 0) {
+        window.location.href = '/';
+      }
+    };
+
     const handleResize = () => {
       if (!mountRef.current || !cameraRef.current || !rendererRef.current) return;
       const { clientWidth, clientHeight } = mountRef.current;
       cameraRef.current.aspect = clientWidth / clientHeight;
       cameraRef.current.updateProjectionMatrix();
       rendererRef.current.setSize(clientWidth, clientHeight);
+
+      setIsMobile(window.innerWidth < 768);
+      calculateSpaceshipPosition();
       calculateGithubIcon();
     };
 
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('click', handleClick);
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('click', handleClick);
       if (rendererRef.current && mountRef.current) {
         mountRef.current.removeChild(rendererRef.current.domElement);
         rendererRef.current.dispose();
@@ -132,7 +186,6 @@ export default function About() {
 
       <div ref={mountRef} className="absolute inset-0 z-10 pointer-events-none" />
 
-      {/* Desktop: dois blocos laterais */}
       <div className="hidden md:block">
         <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center space-y-6">
           <p className="font-bold">GeekLog</p>
@@ -146,9 +199,8 @@ export default function About() {
         </div>
       </div>
 
-      {/* Mobile: GeekLog acima, título, GitHub abaixo */}
-      <div className="md:hidden absolute inset-x-0 top-24 z-20 flex flex-col items-center px-4 space-y-6">
-        <div className="text-white text-lg text-center max-w-xs space-y-2">
+      <div className="md:hidden absolute inset-x-0 top-16 z-20 flex flex-col items-center px-4 space-y-6 text-white text-center">
+        <div className="text-lg max-w-xs space-y-2 mb-20">
           <p className="font-bold text-xl">GeekLog</p>
           <p>
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
@@ -156,36 +208,45 @@ export default function About() {
           </p>
         </div>
 
-        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
-          Projetos
-        </h1>
+        <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">Projetos</h1>
 
-        <div className="text-white text-lg text-center max-w-xs">
-          <p>Você pode conferir outros projetos no meu GitHub</p>
+        <div className="text-lg max-w-xs">
+          <p>Você pode conferir outros projetos <br /> no meu GitHub</p>
         </div>
       </div>
 
-      {/* Github icon (always visible) */}
-      <div
-        style={{
-          position: 'absolute',
-          left: `${githubPosition.x}px`,
-          top: `${githubPosition.y}px`,
-          transform: 'translate(-50%, -135%)',
-          zIndex: 30,
-        }}
-      >
-        <a
-          href="https://github.com/KevenGoulart?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white hover:text-gray-300 transition-colors pointer-events-auto"
+      {(isMobile || githubPosition.x !== 0) && (
+        <div
+          style={
+            isMobile
+              ? {
+                  position: 'absolute',
+                  left: '50%',
+                  top: '85%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 30,
+                }
+              : {
+                  position: 'absolute',
+                  left: `${githubPosition.x}px`,
+                  top: `${githubPosition.y}px`,
+                  transform: 'translate(-50%, -135%)',
+                  zIndex: 30,
+                }
+          }
+          className="pointer-events-auto"
         >
-          <FaGithub className="w-16 h-16" />
-        </a>
-      </div>
+          <a
+            href="https://github.com/KevenGoulart?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300 transition-colors"
+          >
+            <FaGithub className="w-16 h-16" />
+          </a>
+        </div>
+      )}
 
-      {/* Desktop title (hidden on mobile) */}
       <div className="hidden md:flex relative z-10 items-center justify-center h-full">
         <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wide">
           Projetos
