@@ -41,6 +41,7 @@ const CombinedScene: React.FC = () => {
       0.1,
       1000
     );
+    
     camera.position.set(0, 2, 30);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -97,9 +98,17 @@ const CombinedScene: React.FC = () => {
     const mouse = new THREE.Vector2();
     const loader = new GLTFLoader();
 
+    const isMobile = window.innerWidth <= 768;
+
     loader.load('/models/planet.glb', gltf => {
       planet = gltf.scene;
-      planet.position.set(-30, -5, -20);
+      if (planet) {
+        if (isMobile) {
+          planet.position.set(-8, -13, -20);
+        } else {
+          planet.position.set(-30, -5, -20);
+        }
+      }
       planet.scale.set(2.4, 2.4, 2.4);
       scene.add(planet);
 
@@ -116,7 +125,13 @@ const CombinedScene: React.FC = () => {
 
     loader.load('/models/earth.glb', gltf => {
       earth = gltf.scene;
-      earth.position.set(30, -5, -20);
+      if (earth) {
+        if (isMobile) {
+          earth.position.set(8, 0, -20);
+        } else {
+          earth.position.set(30, -5, -20);
+        }
+      }      
       earth.scale.set(0.12, 0.12, 0.12);
       scene.add(earth);
 

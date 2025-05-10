@@ -149,6 +149,14 @@ export default function About() {
 
       <div ref={mountRef} className="absolute inset-0 z-10" />
 
+      <div className="max-md:hidden relative z-20 flex items-center justify-center h-full px-4">
+        <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wider">
+          Keven Goulart
+          <br />
+          FullStack Developer
+        </h1>
+      </div>
+
       <div className="hidden md:block">
         <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
           <p>{textA}</p>
@@ -168,7 +176,7 @@ export default function About() {
         <p className="text-white text-lg text-center max-w-xs">{textB}</p>
       </div>
 
-      <div className="absolute bottom-10 left-20 right-20 text-center text-2xl text-white z-20">
+      <div className="absolute bottom-10 left-14 right-20 text-center text-2xl text-white z-20">
         <p>Email: kevengoulartmm@gmail.com</p>
       </div>
     </div>
