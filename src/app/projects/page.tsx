@@ -208,7 +208,7 @@ export default function About() {
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
             diferentes tipos de obras e no compartilhamento com amigos.
           </p>
-          <a href="https://geek-log-web.vercel.app/">
+          <a href="https://geek-log-web.vercel.app/" target='_blank'>
             <Image src='../assets/logo.png' alt='Geeklog-logo' />
           </a>
         </div>
