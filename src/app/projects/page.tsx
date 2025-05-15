@@ -230,7 +230,6 @@ export default function About() {
       </div>
 
       <div className="md:hidden absolute inset-0 z-20 flex flex-col justify-between items-center px-4 text-white text-center">
-        {/* Top: GeekLog */}
         <div className="pt-8 flex flex-col items-center space-y-2">
           <p className="font-bold text-xl">GeekLog</p>
           <p className="max-w-xs">
@@ -247,13 +246,11 @@ export default function About() {
           />
         </div>
 
-        {/* Middle: “Projetos” */}
         <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">
           Projetos
         </h1>
 
-        {/* Bottom: GitHub */}
-        <div className="pb-8 flex flex-col items-center space-y-2">
+        <div className="pb-24 flex flex-col items-center space-y-2">
           <p>Você pode conferir outros projetos</p>
           <p>no meu GitHub</p>
           <a
