@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image"
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="w-full h-16 bg-slate-950 sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-          <Image src="/logo.png" alt='logo' width={70} height={70} />
+            <Image src="/logo.png" alt="logo" width={70} height={70} />
             <ul className="hidden md:flex gap-x-6 text-white">
               <li>
                 <Link href="/about">
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

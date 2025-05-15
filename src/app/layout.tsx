@@ -1,29 +1,27 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import './globals.css'
 import localFont from 'next/font/local'
 
 const evaFont = localFont({
-  src: "../../public/fonts/coolveltica.otf",
+  src: '../../public/fonts/coolveltica.otf',
   variable: '--font-eva',
-  display: 'swap'
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: "Keven's Portfolio",
-  description: "Looking for an opportunity",
+  description: 'Looking for an opportunity',
   icons: '/eva-modified.ico',
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${evaFont.className}`}>
-        {children}
-      </body>
+      <body className={`${evaFont.className}`}>{children}</body>
     </html>
-  );
+  )
 }
