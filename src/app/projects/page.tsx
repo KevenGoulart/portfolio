@@ -4,6 +4,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function About() {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -207,7 +208,9 @@ export default function About() {
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
             diferentes tipos de obras e no compartilhamento com amigos.
           </p>
-          <a href="https://geek-log-web.vercel.app/">Clique aqui</a>
+          <a href="https://geek-log-web.vercel.app/">
+            <Image src='../assets/logo.png' alt='Geeklog-logo' />
+          </a>
         </div>
 
         <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">Projetos</h1>
