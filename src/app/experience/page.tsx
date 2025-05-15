@@ -179,6 +179,7 @@ export default function About() {
           <p>Bacharelado em Sistemas de Informação</p>
           <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
         </div>
+
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
           <p>
             FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)
@@ -192,24 +193,26 @@ export default function About() {
             (2023-01 – 2023-03)
           </p>
         </div>
+
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+          <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
+            Experiência de trabalho <br /> e estudos
+          </h1>
+        </div>
       </div>
 
-      <div className="md:hidden absolute inset-x-0 top-44 z-10 flex flex-col items-center px-4 space-y-4">
-        <div className="text-white text-xl text-center space-y-2 max-w-xs">
+      <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-between items-center px-4 py-12 text-white text-center">
+        <div className="text-xl space-y-2 max-w-xs">
           <p>Histórico acadêmico:</p>
           <p>Bacharelado em Sistemas de Informação</p>
           <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
         </div>
-      </div>
 
-      <div className="relative z-10 flex items-center justify-center h-full px-4">
-        <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
+        <h1 className="text-3xl font-bold drop-shadow-lg tracking-wide">
           Experiência de trabalho <br /> e estudos
         </h1>
-      </div>
 
-      <div className="md:hidden absolute inset-x-0 bottom-36 z-10 flex flex-col items-center px-4 space-y-4">
-        <div className="text-white text-xl text-center space-y-2 max-w-xl">
+        <div className="text-xl space-y-2 max-w-xl">
           <p>
             FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)
           </p>
