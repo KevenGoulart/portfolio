@@ -191,8 +191,9 @@ export default function About() {
           <p className="font-bold">GeekLog</p>
           <p>
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
-            diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)
+            diferentes tipos de mídia e no compartilhamento com amigos.
           </p>
+          <a href="https://geek-log-web.vercel.app/">GeekLog</a>
         </div>
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
           <p>Você pode conferir outros projetos no meu GitHub</p>
