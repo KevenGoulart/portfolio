@@ -229,9 +229,9 @@ export default function About() {
         </div>
       </div>
 
-      <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center px-4 space-y-8 text-white text-center">
-        {/* 1. Título e descrição do GeekLog + logo */}
-        <div className="flex flex-col items-center space-y-2">
+      <div className="md:hidden absolute inset-0 z-20 flex flex-col justify-between items-center px-4 text-white text-center">
+        {/* Top: GeekLog */}
+        <div className="pt-8 flex flex-col items-center space-y-2">
           <p className="font-bold text-xl">GeekLog</p>
           <p className="max-w-xs">
             Meu maior projeto até agora, trata-se de uma rede social baseada na
@@ -247,12 +247,13 @@ export default function About() {
           />
         </div>
 
-        <h1 className="pt-48 pb-48 text-4xl font-bold drop-shadow-lg tracking-wide">
+        {/* Middle: “Projetos” */}
+        <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">
           Projetos
         </h1>
 
-        {/* 3. Chamada para o GitHub + ícone */}
-        <div className="flex flex-col items-center space-y-2">
+        {/* Bottom: GitHub */}
+        <div className="pb-8 flex flex-col items-center space-y-2">
           <p>Você pode conferir outros projetos</p>
           <p>no meu GitHub</p>
           <a
