@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { FaGithub } from 'react-icons/fa';
 import Image from 'next/image';
+import Geeklog from  '../assets/logo.png'
 
 export default function About() {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -194,7 +195,9 @@ export default function About() {
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
             diferentes tipos de mídia e no compartilhamento com amigos.
           </p>
-          <a href="https://geek-log-web.vercel.app/" className="text-purple-700">GeekLog</a>
+          <a href="https://geek-log-web.vercel.app/" target='_blank'>
+            <Image src='../assets/logo.png' alt='Geeklog-logo' width={30} height={30} />
+          </a>
         </div>
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
           <p>Você pode conferir outros projetos no meu GitHub</p>
@@ -209,7 +212,7 @@ export default function About() {
             diferentes tipos de obras e no compartilhamento com amigos.
           </p>
           <a href="https://geek-log-web.vercel.app/" target='_blank'>
-            <Image src='../assets/logo.png' alt='Geeklog-logo' width={30} height={30} />
+            <Image src={Geeklog} alt='Geeklog-logo' width={30} height={30} />
           </a>
         </div>
 
