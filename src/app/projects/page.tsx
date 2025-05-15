@@ -189,11 +189,11 @@ export default function About() {
       <div className="hidden md:block">
         <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center space-y-6">
           <p className="font-bold">GeekLog</p>
-          <p>
+          <p className="mb-4">
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
             diferentes tipos de mídia e no compartilhamento com amigos.
           </p>
-          <a href="https://geek-log-web.vercel.app/">GeekLog</a>
+          <a href="https://geek-log-web.vercel.app/" className="text-purple-700">GeekLog</a>
         </div>
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
           <p>Você pode conferir outros projetos no meu GitHub</p>
@@ -203,10 +203,11 @@ export default function About() {
       <div className="md:hidden absolute inset-x-0 top-16 z-20 flex flex-col items-center px-4 space-y-6 text-white text-center">
         <div className="text-lg max-w-xs space-y-2 mb-20">
           <p className="font-bold text-xl">GeekLog</p>
-          <p>
+          <p className="mb-4">
             Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de
-            diferentes tipos de mídia e no compartilhamento com amigos. (link em breve)
+            diferentes tipos de obras e no compartilhamento com amigos.
           </p>
+          <a href="https://geek-log-web.vercel.app/">Clique aqui</a>
         </div>
 
         <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">Projetos</h1>
