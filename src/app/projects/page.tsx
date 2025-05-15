@@ -209,7 +209,7 @@ export default function About() {
             diferentes tipos de obras e no compartilhamento com amigos.
           </p>
           <a href="https://geek-log-web.vercel.app/" target='_blank'>
-            <Image src='../assets/logo.png' alt='Geeklog-logo' />
+            <Image src='../assets/logo.png' alt='Geeklog-logo' width={30} height={30} />
           </a>
         </div>
 
