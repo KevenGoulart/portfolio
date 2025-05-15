@@ -229,29 +229,40 @@ export default function About() {
         </div>
       </div>
 
-      <div className="md:hidden absolute inset-x-0 top-16 z-20 flex flex-col items-center px-4 space-y-6 text-white text-center">
-        <div className="text-lg max-w-xs mb-20 flex flex-col items-center text-center space-y-4">
-          <div>
-            <p className="font-bold text-xl">GeekLog</p>
-            <p className="mt-2">
-              Meu maior projeto até agora, trata-se de uma rede social baseada
-              na avaliação de diferentes tipos de obras e no compartilhamento
-              com amigos.
-            </p>
-          </div>
-          <a href="https://geek-log-web.vercel.app/" target="_blank">
-            <Image src={Geeklog} alt="Geeklog-logo" width={100} height={100} />
-          </a>
+      <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center px-4 space-y-8 text-white text-center">
+        {/* 1. Título e descrição do GeekLog + logo */}
+        <div className="flex flex-col items-center space-y-2">
+          <p className="font-bold text-xl">GeekLog</p>
+          <p className="max-w-xs">
+            Meu maior projeto até agora, trata-se de uma rede social baseada na
+            avaliação de diferentes tipos de obras e no compartilhamento com
+            amigos.
+          </p>
+          <Image
+            src={Geeklog}
+            alt="Geeklog-logo"
+            width={50}
+            height={50}
+            className="block"
+          />
         </div>
 
-        <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">
+        <h1 className="pt-48 pb-48 text-4xl font-bold drop-shadow-lg tracking-wide">
           Projetos
         </h1>
 
-        <div className="text-lg max-w-xs">
-          <p>
-            Você pode conferir outros projetos <br /> no meu GitHub
-          </p>
+        {/* 3. Chamada para o GitHub + ícone */}
+        <div className="flex flex-col items-center space-y-2">
+          <p>Você pode conferir outros projetos</p>
+          <p>no meu GitHub</p>
+          <a
+            href="https://github.com/KevenGoulart?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pt-2"
+          >
+            <FaGithub className="w-16 h-16" />
+          </a>
         </div>
       </div>
 
@@ -262,7 +273,7 @@ export default function About() {
               ? {
                   position: 'absolute',
                   left: '50%',
-                  top: '85%',
+                  top: '87%',
                   transform: 'translate(-50%, -50%)',
                   zIndex: 30,
                 }
@@ -274,7 +285,7 @@ export default function About() {
                   zIndex: 30,
                 }
           }
-          className="pointer-events-auto"
+          className="pointer-events-auto max-sm:hidden"
         >
           <a
             href="https://github.com/KevenGoulart?tab=repositories"
