@@ -237,13 +237,15 @@ export default function About() {
             avaliação de diferentes tipos de obras e no compartilhamento com
             amigos.
           </p>
-          <Image
-            src={Geeklog}
-            alt="Geeklog-logo"
-            width={50}
-            height={50}
-            className="block"
-          />
+          <a href="https://geek-log-web.vercel.app/" target="_blank">
+            <Image
+              src={Geeklog}
+              alt="Geeklog-logo"
+              width={50}
+              height={50}
+              className="block"
+            />
+          </a>
         </div>
 
         <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">
