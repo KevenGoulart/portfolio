@@ -7,6 +7,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import LanguageSelector from './language-selector'
+import ClassicRedirect from './classic-redirect'
 
 const CombinedScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null)
@@ -300,6 +301,16 @@ const CombinedScene: React.FC = () => {
         }}
       >
         <LanguageSelector />
+      </div>
+      <div
+        style={{
+          position: 'fixed',
+          top: '4rem',
+          right: '1rem',
+          zIndex: 10
+        }}
+      >
+        <ClassicRedirect />
       </div>
     </div>
   )
