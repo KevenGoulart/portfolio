@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function Presentation() {
   return (
-    <main className="flex items-center justify-evenly mt-20">
+    <main id="presentation" className="flex items-center justify-evenly mt-20">
       <div className="max-w-[500px] flex flex-col gap-4">
         <h1 className="text-5xl text-yellow-400 text-center">
           Hi, I'm Keven Goulart <br /> FullStack Developer
@@ -32,13 +32,19 @@ export default function Presentation() {
           </div>
         </div>
       </div>
-      <div>
+      <div
+        className="border-8 border-green-300 overflow-hidden inline-block"
+        style={{
+          clipPath:
+            'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+        }}
+      >
         <Image
           src="/magi.gif"
           alt="Magi"
           width={600}
           height={600}
-          className="rounded-2xl"
+          className="w-full h-full object-cover"
         />
       </div>
     </main>
