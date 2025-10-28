@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Projects() {
   return (
@@ -15,10 +16,16 @@ export default function Projects() {
               alt="Geeklog"
               width={400}
               height={300}
-              className="rounded-2xl border border-green-300/40"
+              className="rounded-2xl border border-purple-500/40"
             />
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl">GeekLog</h3>
+              <Link
+                href="https://geeklog.app/"
+                target="_blank"
+                className="text-3xl text-purple-500 hover:text-purple-500/70"
+              >
+                GeekLog
+              </Link>
               <p className="text-2xl">
                 A social network for reviewing and sharing different types of
                 media.
@@ -31,10 +38,16 @@ export default function Projects() {
               alt="GitHub"
               width={400}
               height={300}
-              className="rounded-2xl border border-green-300/40"
+              className="rounded-2xl border border-purple-500/40"
             />
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl">Other Projects</h3>
+              <Link
+                href="https://github.com/KevenGoulart?tab=repositories"
+                target="_blank"
+                className="text-3xl text-purple-500 hover:text-purple-500/70"
+              >
+                Other Projects
+              </Link>
               <p className="text-2xl">
                 You can check out my other projects on my GitHub profile.
               </p>

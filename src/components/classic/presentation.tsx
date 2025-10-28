@@ -17,17 +17,17 @@ export default function Presentation() {
           well-structured solutions.
         </p>
         <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center justify-center border border-white rounded-full p-2 hover:border-white/70 cursor-pointer">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50">
             <Link
               href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"
               target="_blank"
             >
-              <FaLinkedin className="size-8 hover:text-white/70" />
+              <FaLinkedin className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-          <div className="flex items-center justify-center border border-white rounded-full p-2 hover:border-white/70 cursor-pointer">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50">
             <Link href="https://github.com/KevenGoulart" target="_blank">
-              <FaGithub className="size-8 hover:text-white/70" />
+              <FaGithub className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
         </div>
