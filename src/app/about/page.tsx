@@ -157,29 +157,33 @@ export default function About() {
 
       <div className="max-md:hidden relative z-20 flex items-center justify-center h-full px-4">
         <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wider">
-          {(t('title'))}
+          {t('title')}
           <br />
-          {(t('subtitle'))}
+          {t('subtitle')}
         </h1>
       </div>
 
       <div className="hidden md:block">
         <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-          <p>{(t('presentation'))}</p>
+          <p>{t('presentation')}</p>
         </div>
         <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-          <p>{(t('experience'))}</p>
+          <p>{t('experience')}</p>
         </div>
       </div>
 
       <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center px-4 space-y-6">
-        <p className="text-white text-lg text-center max-w-xs">{(t('presentation'))}</p>
+        <p className="text-white text-lg text-center max-w-xs">
+          {t('presentation')}
+        </p>
         <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wider">
-          {(t('title'))}
+          {t('title')}
           <br />
-          {(t('subtitle'))}
+          {t('subtitle')}
         </h1>
-        <p className="text-white text-lg text-center max-w-xs">{(t('experience'))}</p>
+        <p className="text-white text-lg text-center max-w-xs">
+          {t('experience')}
+        </p>
       </div>
 
       <div className="absolute bottom-10 left-14 right-20 text-center text-2xl text-white z-20">

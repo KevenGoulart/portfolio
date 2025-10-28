@@ -184,15 +184,9 @@ export default function About() {
 
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
           <p>{t('workTitle')}</p>
-          <p>
-            {t('thirdExperience')}
-          </p>
-          <p>
-            {t('secondExperience')}
-          </p>
-          <p>
-            {t('firstExperience')}
-          </p>
+          <p>{t('thirdExperience')}</p>
+          <p>{t('secondExperience')}</p>
+          <p>{t('firstExperience')}</p>
         </div>
 
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
@@ -215,15 +209,9 @@ export default function About() {
 
         <div className="text-xl space-y-2 max-w-xl">
           <p>{t('workTitle')}</p>
-          <p>
-            {t('thirdExperience')}
-          </p>
-          <p>
-            {t('secondExperience')}
-          </p>
-          <p>
-            {t('firstExperience')}
-          </p>
+          <p>{t('thirdExperience')}</p>
+          <p>{t('secondExperience')}</p>
+          <p>{t('firstExperience')}</p>
         </div>
       </div>
     </div>

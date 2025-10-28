@@ -22,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${evaFont.className}`}><NextIntlClientProvider>{children}</NextIntlClientProvider></body>
+      <body className={`${evaFont.className}`}>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      </body>
     </html>
   )
 }

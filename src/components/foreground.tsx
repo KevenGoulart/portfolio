@@ -5,7 +5,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { useRouter } from 'next/navigation'
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl'
 import LanguageSelector from './language-selector'
 
 const CombinedScene: React.FC = () => {
@@ -275,7 +275,7 @@ const CombinedScene: React.FC = () => {
         document.body.removeChild(videoRef.current)
       }
     }
-  }, [router])
+  }, [router, t])
 
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
@@ -291,7 +291,7 @@ const CombinedScene: React.FC = () => {
           pointerEvents: 'auto',
         }}
       />
-       <div
+      <div
         style={{
           position: 'fixed',
           top: '1rem',

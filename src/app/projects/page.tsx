@@ -215,9 +215,7 @@ export default function About() {
         <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl flex flex-col items-center text-center space-y-6">
           <div>
             <p className="font-bold">GeekLog</p>
-            <p className="mt-2">
-              {t('biggestProject')}
-            </p>
+            <p className="mt-2">{t('biggestProject')}</p>
           </div>
           <a href="https://geek-log-web.vercel.app/" target="_blank">
             <Image src={Geeklog} alt="Geeklog-logo" width={100} height={100} />
@@ -232,9 +230,7 @@ export default function About() {
       <div className="md:hidden absolute inset-0 z-20 flex flex-col justify-between items-center px-4 text-white text-center">
         <div className="pt-8 flex flex-col items-center space-y-2">
           <p className="font-bold text-xl">GeekLog</p>
-          <p className="max-w-xs">
-            {t('biggestProject')}
-          </p>
+          <p className="max-w-xs">{t('biggestProject')}</p>
           <a href="https://geek-log-web.vercel.app/" target="_blank">
             <Image
               src={Geeklog}
