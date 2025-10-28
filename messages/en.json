@@ -1,0 +1,31 @@
+{
+    "HomePage": {
+        "aboutMe": "About Me",
+        "projects": "Projects",
+        "experience": "Experience"
+    },
+    "About": {
+        "title": "Keven Goulart",
+        "subtitle": "Full-Stack Developer",
+        "presentation": "Hello! I am looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.js among other technologies.",
+        "experience": "I have experience in developing complete applications, working on both the front-end and back-end, focusing on scalable and well-structured solutions."
+    },
+    "Experience": {
+        "title": "Work experience",
+        "secondPartTitle": "and studies",
+        "academicTitle": "Academic history:",
+        "degree": "Bachelor's degree in Information Systems",
+        "university": "Universidade Vale do Rio Doce Univale – Governador Valadares",
+        "workTitle": "Work Experience:",
+        "thirdExperience": "FullStack Developer – Bttis – Governador Valadares (2025-04 – current)",
+        "secondExperience": "Systems Analyst – X3 Contabilidade – Governador Valadares (2023-08 – 2025-04)",
+        "firstExperience": "Intern Developer – Ols Tecnologia – Governador Valadares (2023-01 – 2023-03)"
+    },
+    "Projects": {
+        "title": "Projects",
+        "biggestProject": "My biggest project so far — it’s a social network centered around reviewing different types of media and sharing them with friends.",
+        "otherProjects": "You can check out other projects on my GitHub",
+        "otherProjectsInParts1": "You can check out other projects",
+        "otherProjectsInParts2": "on my GitHub"
+    }
+}

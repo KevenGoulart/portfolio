@@ -7,6 +7,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 import Geeklog from '../../../public/assets/logo.png'
+import { useTranslations } from 'next-intl'
 
 export default function About() {
   const mountRef = useRef<HTMLDivElement | null>(null)
@@ -18,6 +19,7 @@ export default function About() {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
   const [githubPosition, setGithubPosition] = useState({ x: 0, y: 0 })
   const [isMobile, setIsMobile] = useState(false)
+  const t = useTranslations('Projects')
 
   const raycaster = new THREE.Raycaster()
   const pointer = new THREE.Vector2()
@@ -214,9 +216,7 @@ export default function About() {
           <div>
             <p className="font-bold">GeekLog</p>
             <p className="mt-2">
-              Meu maior projeto até agora, trata-se de uma rede social baseada
-              na avaliação de diferentes tipos de mídia e no compartilhamento
-              com amigos.
+              {t('biggestProject')}
             </p>
           </div>
           <a href="https://geek-log-web.vercel.app/" target="_blank">
@@ -225,7 +225,7 @@ export default function About() {
         </div>
 
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-          <p>Você pode conferir outros projetos no meu GitHub</p>
+          <p>{t('otherProjects')}</p>
         </div>
       </div>
 
@@ -233,9 +233,7 @@ export default function About() {
         <div className="pt-8 flex flex-col items-center space-y-2">
           <p className="font-bold text-xl">GeekLog</p>
           <p className="max-w-xs">
-            Meu maior projeto até agora, trata-se de uma rede social baseada na
-            avaliação de diferentes tipos de obras e no compartilhamento com
-            amigos.
+            {t('biggestProject')}
           </p>
           <a href="https://geek-log-web.vercel.app/" target="_blank">
             <Image
@@ -249,12 +247,12 @@ export default function About() {
         </div>
 
         <h1 className="text-4xl font-bold drop-shadow-lg tracking-wide">
-          Projetos
+          {t('title')}
         </h1>
 
         <div className="pb-24 flex flex-col items-center space-y-2">
-          <p>Você pode conferir outros projetos</p>
-          <p>no meu GitHub</p>
+          <p>{t('otherProjectsInParts1')}</p>
+          <p>{t('otherProjectsInParts2')}</p>
           <a
             href="https://github.com/KevenGoulart?tab=repositories"
             target="_blank"
@@ -300,7 +298,7 @@ export default function About() {
 
       <div className="hidden md:flex relative z-10 items-center justify-center h-full">
         <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wide">
-          Projetos
+          {t('title')}
         </h1>
       </div>
     </div>

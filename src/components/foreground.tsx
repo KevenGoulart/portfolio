@@ -5,11 +5,14 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { useRouter } from 'next/navigation'
+import {useTranslations} from 'next-intl';
+import LanguageSelector from './language-selector'
 
 const CombinedScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const router = useRouter()
+  const t = useTranslations('HomePage')
 
   useEffect(() => {
     const mount = mountRef.current
@@ -123,7 +126,7 @@ const CombinedScene: React.FC = () => {
       box.getSize(size)
       offsets.planet.set(0, size.y * 0, size.z * 0.1)
 
-      planetLabel = createTextSprite('Sobre mim')
+      planetLabel = createTextSprite(t('aboutMe'))
       planetLabel.position.copy(planet.position).add(offsets.planet)
       planetLabel.visible = true
       scene.add(planetLabel)
@@ -146,7 +149,7 @@ const CombinedScene: React.FC = () => {
       box.getSize(size)
       offsets.earth.set(1, 5, 0.1)
 
-      earthLabel = createTextSprite('Projetos')
+      earthLabel = createTextSprite(t('projects'))
       earthLabel.position.copy(earth.position).add(offsets.earth)
       earthLabel.visible = true
       scene.add(earthLabel)
@@ -163,7 +166,7 @@ const CombinedScene: React.FC = () => {
       box.getSize(size)
       offsets.white.set(0, size.y * 0, size.z * 0.1)
 
-      whiteLabel = createTextSprite('Experiência')
+      whiteLabel = createTextSprite(t('experience'))
       whiteLabel.position.copy(whitePlanet.position).add(offsets.white)
       whiteLabel.scale.set(4, 2, 4)
       whiteLabel.visible = true
@@ -288,6 +291,16 @@ const CombinedScene: React.FC = () => {
           pointerEvents: 'auto',
         }}
       />
+       <div
+        style={{
+          position: 'fixed',
+          top: '1rem',
+          right: '1rem',
+          zIndex: 10,
+        }}
+      >
+        <LanguageSelector />
+      </div>
     </div>
   )
 }

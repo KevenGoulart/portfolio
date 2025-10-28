@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
+import { NextIntlClientProvider } from 'next-intl'
 
 const evaFont = localFont({
   src: '../../public/fonts/coolveltica.otf',
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${evaFont.className}`}>{children}</body>
+      <body className={`${evaFont.className}`}><NextIntlClientProvider>{children}</NextIntlClientProvider></body>
     </html>
   )
 }

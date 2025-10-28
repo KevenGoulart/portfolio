@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
+import { useTranslations } from 'next-intl'
 import React, { useLayoutEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -12,6 +13,7 @@ export default function About() {
   const sceneRef = useRef<THREE.Scene | null>(null)
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
+  const t = useTranslations('Experience')
 
   useLayoutEffect(() => {
     if (!mountRef.current) return
@@ -175,54 +177,52 @@ export default function About() {
 
       <div className="hidden md:block">
         <div className="absolute left-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
-          <p>Histórico acadêmico:</p>
-          <p>Bacharelado em Sistemas de Informação</p>
-          <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
+          <p>{t('academicTitle')}</p>
+          <p>{t('degree')}</p>
+          <p>{t('university')}</p>
         </div>
 
         <div className="absolute right-28 top-1/2 transform -translate-y-1/2 z-10 max-w-sm text-white text-3xl text-center space-y-6">
+          <p>{t('workTitle')}</p>
           <p>
-            FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)
+            {t('thirdExperience')}
           </p>
           <p>
-            Analista de Sistemas – X3 Contabilidade – Governador Valadares
-            (2023-08 – 2025-04)
+            {t('secondExperience')}
           </p>
           <p>
-            Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares
-            (2023-01 – 2023-03)
+            {t('firstExperience')}
           </p>
         </div>
 
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
           <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wide">
-            Experiência de trabalho <br /> e estudos
+            {t('title')} <br /> {t('secondPartTitle')}
           </h1>
         </div>
       </div>
 
       <div className="md:hidden absolute inset-0 z-10 flex flex-col justify-between items-center px-4 py-12 text-white text-center">
         <div className="text-xl space-y-2 max-w-xs">
-          <p>Histórico acadêmico:</p>
-          <p>Bacharelado em Sistemas de Informação</p>
-          <p>Universidade Vale do Rio Doce Univale – Governador Valadares</p>
+          <p>{t('academicTitle')}</p>
+          <p>{t('degree')}</p>
+          <p>{t('university')}</p>
         </div>
 
         <h1 className="text-3xl font-bold drop-shadow-lg tracking-wide">
-          Experiência de trabalho <br /> e estudos
+          {t('title')} <br /> {t('secondPartTitle')}
         </h1>
 
         <div className="text-xl space-y-2 max-w-xl">
+          <p>{t('workTitle')}</p>
           <p>
-            FullStack Developer – Bttis – Governador Valadares (2025-04 – atual)
+            {t('thirdExperience')}
           </p>
           <p>
-            Analista de Sistemas – X3 Contabilidade – Governador Valadares
-            (2023-08 – 2025-04)
+            {t('secondExperience')}
           </p>
           <p>
-            Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares
-            (2023-01 – 2023-03)
+            {t('firstExperience')}
           </p>
         </div>
       </div>

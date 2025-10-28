@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
+import { useTranslations } from 'next-intl'
 import React, { useLayoutEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
@@ -12,6 +13,7 @@ export default function About() {
   const sceneRef = useRef<THREE.Scene | null>(null)
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
+  const t = useTranslations('About')
 
   useLayoutEffect(() => {
     if (!mountRef.current) return
@@ -140,11 +142,6 @@ export default function About() {
     }
   }, [])
 
-  const textA =
-    'Olá! Estou em busca de uma oportunidade para crescer como profissional. Trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest.'
-  const textB =
-    'Tenho experiência no desenvolvimento de aplicações completas, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas.'
-
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <video
@@ -160,33 +157,33 @@ export default function About() {
 
       <div className="max-md:hidden relative z-20 flex items-center justify-center h-full px-4">
         <h1 className="text-white text-5xl font-bold drop-shadow-lg text-center tracking-wider">
-          Keven Goulart
+          {(t('title'))}
           <br />
-          FullStack Developer
+          {(t('subtitle'))}
         </h1>
       </div>
 
       <div className="hidden md:block">
         <div className="absolute left-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-          <p>{textA}</p>
+          <p>{(t('presentation'))}</p>
         </div>
         <div className="absolute right-24 top-1/2 transform -translate-y-1/2 z-20 max-w-sm text-white text-3xl text-center">
-          <p>{textB}</p>
+          <p>{(t('experience'))}</p>
         </div>
       </div>
 
       <div className="md:hidden absolute inset-0 z-20 flex flex-col items-center justify-center px-4 space-y-6">
-        <p className="text-white text-lg text-center max-w-xs">{textA}</p>
+        <p className="text-white text-lg text-center max-w-xs">{(t('presentation'))}</p>
         <h1 className="text-white text-4xl font-bold drop-shadow-lg text-center tracking-wider">
-          Keven Goulart
+          {(t('title'))}
           <br />
-          FullStack Developer
+          {(t('subtitle'))}
         </h1>
-        <p className="text-white text-lg text-center max-w-xs">{textB}</p>
+        <p className="text-white text-lg text-center max-w-xs">{(t('experience'))}</p>
       </div>
 
       <div className="absolute bottom-10 left-14 right-20 text-center text-2xl text-white z-20">
-        <p>Email: kevengoulartmm@gmail.com</p>
+        <p>E-mail: kevengoulartmm@gmail.com</p>
       </div>
     </div>
   )
