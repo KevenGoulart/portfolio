@@ -27,7 +27,7 @@ export default function About() {
       75,
       clientWidth / clientHeight,
       0.1,
-      1000,
+      1000
     )
     camera.position.set(0, 0, 10)
     cameraRef.current = camera
@@ -59,7 +59,7 @@ export default function About() {
       spaceshipRef.current.position.set(
         -visibleWidth / 2 + marginX,
         visibleHeight / 2 - marginY,
-        0,
+        0
       )
     }
 
@@ -72,7 +72,7 @@ export default function About() {
         scene.add(planetRef.current)
       },
       undefined,
-      (err) => console.error('Erro ao carregar planeta:', err),
+      (err) => console.error('Erro ao carregar planeta:', err)
     )
 
     loader.load(
@@ -85,7 +85,7 @@ export default function About() {
         calculateSpaceshipPosition()
       },
       undefined,
-      (err) => console.error('Erro ao carregar nave:', err),
+      (err) => console.error('Erro ao carregar nave:', err)
     )
 
     const animate = () => {

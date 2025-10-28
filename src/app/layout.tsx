@@ -6,17 +6,17 @@ import { NextIntlClientProvider } from 'next-intl'
 const evaFont = localFont({
   src: '../../public/fonts/coolveltica.otf',
   variable: '--font-eva',
-  display: 'swap',
+  display: 'swap'
 })
 
 export const metadata: Metadata = {
   title: "Keven's Portfolio",
   description: 'Looking for an opportunity',
-  icons: '/eva-modified.ico',
+  icons: '/eva-modified.ico'
 }
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode
 }>) {

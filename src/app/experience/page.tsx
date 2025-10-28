@@ -28,7 +28,7 @@ export default function About() {
       75,
       clientWidth / clientHeight,
       0.1,
-      1000,
+      1000
     )
     camera.position.set(0, 0, 10)
     cameraRef.current = camera
@@ -60,7 +60,7 @@ export default function About() {
       spaceshipRef.current.position.set(
         -visibleWidth / 2 + marginX,
         visibleHeight / 2 - marginY,
-        0,
+        0
       )
     }
 
@@ -73,7 +73,7 @@ export default function About() {
         scene.add(planetRef.current)
       },
       undefined,
-      (error) => console.error('Erro ao carregar planeta:', error),
+      (error) => console.error('Erro ao carregar planeta:', error)
     )
 
     loader.load(
@@ -86,7 +86,7 @@ export default function About() {
         calculateSpaceshipPosition()
       },
       undefined,
-      (error) => console.error('Erro ao carregar nave:', error),
+      (error) => console.error('Erro ao carregar nave:', error)
     )
 
     const animate = () => {
@@ -125,7 +125,7 @@ export default function About() {
       raycaster.setFromCamera(pointer, cameraRef.current)
       const intersects = raycaster.intersectObjects(
         spaceshipRef.current.children,
-        true,
+        true
       )
       mountRef.current.style.cursor =
         intersects.length > 0 ? 'pointer' : 'default'
@@ -140,7 +140,7 @@ export default function About() {
       raycaster.setFromCamera(pointer, cameraRef.current)
       const intersects = raycaster.intersectObjects(
         spaceshipRef.current.children,
-        true,
+        true
       )
       if (intersects.length > 0) {
         window.location.href = '/'

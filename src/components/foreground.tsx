@@ -31,7 +31,7 @@ const CombinedScene: React.FC = () => {
       width: '100vw',
       height: '100vh',
       objectFit: 'cover',
-      zIndex: '0',
+      zIndex: '0'
     })
     document.body.appendChild(video)
     videoRef.current = video
@@ -42,7 +42,7 @@ const CombinedScene: React.FC = () => {
       75,
       mount.clientWidth / mount.clientHeight,
       0.1,
-      1000,
+      1000
     )
 
     camera.position.set(0, 2, 30)
@@ -73,7 +73,7 @@ const CombinedScene: React.FC = () => {
     const offsets = {
       planet: new THREE.Vector3(),
       earth: new THREE.Vector3(),
-      white: new THREE.Vector3(),
+      white: new THREE.Vector3()
     }
 
     const createTextSprite = (msg: string) => {
@@ -95,7 +95,7 @@ const CombinedScene: React.FC = () => {
       const mat = new THREE.SpriteMaterial({
         map: tex,
         transparent: true,
-        depthTest: false,
+        depthTest: false
       })
       const sprite = new THREE.Sprite(mat)
       sprite.scale.set(10, 5, 1)
@@ -191,7 +191,7 @@ const CombinedScene: React.FC = () => {
       const intersects = {
         planet: planet ? raycaster.intersectObject(planet, true) : [],
         earth: earth ? raycaster.intersectObject(earth, true) : [],
-        white: whitePlanet ? raycaster.intersectObject(whitePlanet, true) : [],
+        white: whitePlanet ? raycaster.intersectObject(whitePlanet, true) : []
       }
 
       document.body.style.cursor =
@@ -288,7 +288,7 @@ const CombinedScene: React.FC = () => {
           top: 0,
           left: 0,
           zIndex: 1,
-          pointerEvents: 'auto',
+          pointerEvents: 'auto'
         }}
       />
       <div
@@ -296,7 +296,7 @@ const CombinedScene: React.FC = () => {
           position: 'fixed',
           top: '1rem',
           right: '1rem',
-          zIndex: 10,
+          zIndex: 10
         }}
       >
         <LanguageSelector />

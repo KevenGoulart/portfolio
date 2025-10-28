@@ -1,8 +1,13 @@
+import Header from '@/components/classic/header'
+import Presentation from '@/components/classic/presentation'
+import Projects from '@/components/classic/projects'
+
 export default function ClassicPage() {
   return (
     <div>
-      <h1>Classic Page</h1>
-      <p>Welcome to the classic page of our application.</p>
+      <Header />
+      <Presentation />
+      <Projects />
     </div>
   )
 }

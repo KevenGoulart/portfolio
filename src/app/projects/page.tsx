@@ -39,7 +39,7 @@ export default function About() {
       75,
       clientWidth / clientHeight,
       0.1,
-      1000,
+      1000
     )
     camera.position.set(0, 0, 10)
     cameraRef.current = camera
@@ -70,7 +70,7 @@ export default function About() {
       spaceshipRef.current.position.set(
         -visibleWidth / 2 + marginX,
         visibleHeight / 2 - marginY,
-        0,
+        0
       )
     }
 
@@ -87,7 +87,7 @@ export default function About() {
       astroRef.current.position.set(
         visibleWidth / 1.775 - marginX,
         -visibleHeight / 2.6 + marginY,
-        0,
+        0
       )
 
       const worldPos = new THREE.Vector3()
@@ -96,7 +96,7 @@ export default function About() {
 
       setGithubPosition({
         x: (worldPos.x * 0.5 + 0.5) * window.innerWidth,
-        y: (worldPos.y * -0.5 + 0.5) * window.innerHeight,
+        y: (worldPos.y * -0.5 + 0.5) * window.innerHeight
       })
     }
 
@@ -145,7 +145,7 @@ export default function About() {
       raycaster.setFromCamera(pointer, cameraRef.current)
       const intersects = raycaster.intersectObjects(
         spaceshipRef.current.children,
-        true,
+        true
       )
       mountRef.current.style.cursor =
         intersects.length > 0 ? 'pointer' : 'default'
@@ -160,7 +160,7 @@ export default function About() {
       raycaster.setFromCamera(pointer, cameraRef.current)
       const intersects = raycaster.intersectObjects(
         spaceshipRef.current.children,
-        true,
+        true
       )
       if (intersects.length > 0) {
         window.location.href = '/'
@@ -217,7 +217,11 @@ export default function About() {
             <p className="font-bold">GeekLog</p>
             <p className="mt-2">{t('biggestProject')}</p>
           </div>
-          <a href="https://geek-log-web.vercel.app/" target="_blank">
+          <a
+            href="https://geek-log-web.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image src={Geeklog} alt="Geeklog-logo" width={100} height={100} />
           </a>
         </div>
@@ -231,7 +235,11 @@ export default function About() {
         <div className="pt-8 flex flex-col items-center space-y-2">
           <p className="font-bold text-xl">GeekLog</p>
           <p className="max-w-xs">{t('biggestProject')}</p>
-          <a href="https://geek-log-web.vercel.app/" target="_blank">
+          <a
+            href="https://geek-log-web.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               src={Geeklog}
               alt="Geeklog-logo"
@@ -269,14 +277,14 @@ export default function About() {
                   left: '50%',
                   top: '87%',
                   transform: 'translate(-50%, -50%)',
-                  zIndex: 30,
+                  zIndex: 30
                 }
               : {
                   position: 'absolute',
                   left: `${githubPosition.x}px`,
                   top: `${githubPosition.y}px`,
                   transform: 'translate(-50%, -135%)',
-                  zIndex: 30,
+                  zIndex: 30
                 }
           }
           className="pointer-events-auto max-sm:hidden"

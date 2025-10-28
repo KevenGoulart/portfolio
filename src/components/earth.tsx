@@ -20,7 +20,7 @@ const EarthScene: React.FC = () => {
       75,
       mount.clientWidth / mount.clientHeight,
       0.1,
-      1000,
+      1000
     )
     camera.position.set(0, 2, 30)
 
@@ -75,7 +75,7 @@ const EarthScene: React.FC = () => {
         map: texture,
         transparent: true,
         depthTest: false,
-        depthWrite: false,
+        depthWrite: false
       })
 
       const sprite = new THREE.Sprite(material)
@@ -112,7 +112,7 @@ const EarthScene: React.FC = () => {
       undefined,
       (error) => {
         console.error('Erro ao carregar a Terra:', error)
-      },
+      }
     )
 
     // --- Atualiza posição do texto a cada frame ---
@@ -200,7 +200,7 @@ const EarthScene: React.FC = () => {
         height: '100vh',
         position: 'absolute',
         top: 0,
-        left: 0,
+        left: 0
       }}
     />
   )
