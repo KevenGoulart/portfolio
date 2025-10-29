@@ -1,23 +1,19 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function Presentation() {
+  const t = useTranslations('Presentation')
   return (
     <main id="presentation" className="flex items-center justify-evenly mt-20">
       <div className="max-w-[500px] flex flex-col gap-4">
-        <h1 className="text-5xl text-yellow-400 text-center">
-          Hi, I'm Keven Goulart <br /> FullStack Developer
+        <h1 className="text-5xl text-yellow-500 text-center">
+          {t('greeting1')} <br /> {t('greeting2')}
         </h1>
-        <p className="text-lg text-center">
-          Hello! My name is Kéven Goulart Medeiros, and I work as a developer
-          specializing in TypeScript, Node.js, React, Next.js, and Nest. I have
-          experience in building full-stack applications, working on both
-          front-end and back-end development, with a focus on scalable and
-          well-structured solutions.
-        </p>
+        <p className="text-lg text-center">{t('description')}</p>
         <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50  hover:scale-105 transition-transform duration-300">
             <Link
               href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"
               target="_blank"
@@ -25,7 +21,7 @@ export default function Presentation() {
               <FaLinkedin className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50  hover:scale-105 transition-transform duration-300">
             <Link href="https://github.com/KevenGoulart" target="_blank">
               <FaGithub className="size-10 group-hover:text-white/50" />
             </Link>
