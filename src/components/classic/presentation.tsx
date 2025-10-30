@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 export default function Presentation() {
   const t = useTranslations('Presentation')
   return (
-    <main id="presentation" className="flex items-center justify-evenly mt-20">
+    <main id="presentation" className="flex items-center justify-evenly mt-12">
       <div className="max-w-[500px] flex flex-col gap-4">
         <h1 className="text-5xl text-yellow-500 text-center">
           {t('greeting1')} <br /> {t('greeting2')}
@@ -41,6 +41,8 @@ export default function Presentation() {
           width={600}
           height={600}
           className="w-full h-full object-cover"
+          unoptimized
+          priority
         />
       </div>
     </main>

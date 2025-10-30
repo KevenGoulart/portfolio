@@ -1,4 +1,5 @@
 import Abilities from '@/components/classic/abilities'
+import CanItRunDoom from '@/components/classic/can-it-run-doom'
 import Contact from '@/components/classic/contact'
 import Experience from '@/components/classic/experience'
 import Header from '@/components/classic/header'
@@ -10,13 +11,14 @@ export default function ClassicPage() {
   return (
     <div>
       <Header />
-      <div className="flex justify-end pr-80 mt-2">
+      <div className="flex justify-end pr-80 mt-28">
         <LanguageSelector />
       </div>
       <Presentation />
       <Projects />
       <Experience />
       <Abilities />
+      <CanItRunDoom />
       <Contact />
     </div>
   )

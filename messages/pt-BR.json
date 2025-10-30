@@ -32,13 +32,14 @@
     "linkText": "Prefere algo mais simples? Clique aqui"
   },
   "Presentation": {
-    "greeting1": "Oi, eu sou o Keven Goulart",
+    "greeting1": "Oi, eu sou Keven Goulart",
     "greeting2": "Desenvolvedor FullStack",
     "description": "Olá! Meu nome é Kéven Goulart Medeiros, e trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest. Tenho experiência na construção de aplicações full-stack, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas"
   },
   "ProjectsClassic": {
     "title": "Projetos",
     "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
+    "dtMoneyDescription": "Um site desenvolvido para ajudar você a acompanhar e gerenciar facilmente sua renda e suas despesas",
     "otherProjects": "Outros Projetos",
     "otherProjectsDescription": "Você pode conferir meus outros projetos no meu perfil do GitHub"
   },
@@ -57,7 +58,8 @@
     "aboutMe": "Sobre Mim",
     "projects": "Projetos",
     "experience": "Experiência",
-    "abilities": "Habilidades"
+    "abilities": "Habilidades",
+    "contact": "Contato"
   },
   "AbilitiesClassic": {
     "title": "Habilidades"

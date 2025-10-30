@@ -39,6 +39,32 @@ export default function Projects() {
           </div>
           <div className="flex items-center gap-6 relative">
             <Link
+              href="https://github.com/KevenGoulart/DT-Money"
+              target="_blank"
+            >
+              <Image
+                src="/dtmoney.png"
+                alt="dtmoney"
+                width={380}
+                height={300}
+                className="rounded-2xl border border-purple-500/40 hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
+            <div className="flex flex-col">
+              <Link
+                href="https://geeklog.app/"
+                target="_blank"
+                className="text-3xl hover:text-white/70 absolute top-2"
+              >
+                DT Money
+              </Link>
+              <p className="text-2xl text-white/80">
+                {t('dtMoneyDescription')}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-6 relative">
+            <Link
               href="https://github.com/KevenGoulart?tab=repositories"
               target="_blank"
             >
