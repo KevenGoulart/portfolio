@@ -1,19 +1,72 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import GlitchedWriter from 'glitched-writer'
+import { useEffect, useRef, useState } from 'react'
+import RetroLoadingBar from '../retro-loading-bar'
 
 export default function Presentation() {
   const t = useTranslations('Presentation')
+
+  const titleRef = useRef<HTMLHeadingElement>(null)
+  const descRef = useRef<HTMLParagraphElement>(null)
+  const magiRef = useRef<HTMLParagraphElement>(null)
+  const [showItems, setShowItems] = useState(false)
+
+  useEffect(() => {
+    if (!titleRef.current || !descRef.current || !magiRef.current) return
+
+    const titleWriter = new GlitchedWriter(titleRef.current, {
+      interval: [30, 80],
+      delay: [500, 1000],
+      glyphs: '!<>-_\\/[]{}—=+*^?#________',
+      letterize: true
+    })
+
+    const descWriter = new GlitchedWriter(descRef.current, {
+      interval: [15, 40],
+      delay: [0, 0],
+      glyphs: '!<>-_\\/[]{}—=+*^?#________',
+      letterize: true
+    })
+
+    const magiWriter = new GlitchedWriter(magiRef.current, {
+      interval: [100, 200],
+      delay: [0, 0],
+      glyphs: '!<>-_\\/[]{}—=+*^?#________',
+      letterize: true
+    })
+
+    magiWriter.write('Initializing MAGI...')
+
+    titleWriter.write(`${t('greeting1')}\n${t('greeting2')}`).then(() => {
+      descWriter.write(t('description'))
+    })
+
+    const timer = setTimeout(() => setShowItems(true), 4000)
+
+    return () => clearTimeout(timer)
+  }, [t])
   return (
-    <main id="presentation" className="flex items-center justify-evenly mt-12">
-      <div className="max-w-[500px] flex flex-col gap-4">
-        <h1 className="text-5xl text-yellow-500 text-center">
-          {t('greeting1')} <br /> {t('greeting2')}
-        </h1>
-        <p className="text-lg text-center">{t('description')}</p>
-        <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50  hover:scale-105 transition-transform duration-300">
+    <main
+      id="presentation"
+      className="flex items-center justify-evenly mt-12 mb-60"
+    >
+      <div className="w-[500px] h-[300px] flex flex-col gap-4">
+        <h1
+          ref={titleRef}
+          className="text-5xl text-yellow-500 text-center whitespace-pre-line"
+        />
+        <p ref={descRef} className="text-lg text-center text-white/90" />
+        <div
+          className={`flex items-center justify-center gap-4 transition-opacity duration-1000 ${
+            showItems ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
             <Link
               href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"
               target="_blank"
@@ -21,7 +74,7 @@ export default function Presentation() {
               <FaLinkedin className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50  hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
             <Link href="https://github.com/KevenGoulart" target="_blank">
               <FaGithub className="size-10 group-hover:text-white/50" />
             </Link>
@@ -29,21 +82,37 @@ export default function Presentation() {
         </div>
       </div>
       <div
-        className="border-8 border-green-300 overflow-hidden inline-block"
+        className={`border-8 opacity-100 relative overflow-hidden inline-block transition-opacity duration-1000 ${showItems ? 'border-green-300' : 'border-green-950/30'}`}
         style={{
           clipPath:
             'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
         }}
       >
-        <Image
-          src="/magi.gif"
-          alt="Magi"
-          width={600}
-          height={600}
-          className="w-full h-full object-cover"
-          unoptimized
-          priority
-        />
+        {!showItems && (
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/90">
+            <h1
+              ref={magiRef}
+              className="text-green-700 text-2xl font-mono animate-pulse"
+            />
+            <RetroLoadingBar bars={35} loop={false} />
+          </div>
+        )}
+
+        <div
+          className={`transition-opacity duration-1000 ${
+            showItems ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image
+            src="/magi.gif"
+            alt="Magi"
+            width={600}
+            height={600}
+            className="w-full h-full object-cover"
+            unoptimized
+            priority
+          />
+        </div>
       </div>
     </main>
   )

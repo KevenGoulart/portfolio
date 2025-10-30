@@ -44,6 +44,9 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.38.0(jiti@2.6.1))
+      glitched-writer:
+        specifier: ^2.0.29
+        version: 2.0.29
       globals:
         specifier: ^16.2.0
         version: 16.4.0
@@ -1707,8 +1710,8 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
-  eslint-plugin-react-hooks@7.1.0-canary-b4455a6e-20251027:
-    resolution: {integrity: sha512-JlBq9+G4C9SuSC6GMnAQ8BQTHp/+DwKtwhmxVE1wHVAuULc5xfG9Ozjy/LUdEXsIsL30/t5Lzl2mQQS3fBM+QA==}
+  eslint-plugin-react-hooks@7.1.0-canary-3a0ab8a7-20251029:
+    resolution: {integrity: sha512-hN/jq0gJxGZxuJomXgzTcYQZS7gtN3ysftpogWv6zyHpt135JX5UBSQ48UivJSa3tmfsW8vJXZ8pW/047FJ+Dg==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -1898,6 +1901,9 @@ packages:
 
   get-tsconfig@4.13.0:
     resolution: {integrity: sha512-1VKTZJCwBrvbd+Wn3AOgQP/2Av+TfTCOlE4AcRJE72W1ksZXbAx8PPBR9RzgTeSPzlPMHrbANMH3LbltH73wxQ==}
+
+  glitched-writer@2.0.29:
+    resolution: {integrity: sha512-ItmmiFTSKVIbs/ngTLAszsu2czKYXYar54GgJcST5U6BH7sAaivG3fgDJFDIgNaau7rGadV5bLu3QThd5iAC8w==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -3748,7 +3754,7 @@ snapshots:
       '@eslint/js': 9.38.0
       '@types/eslint__js': 8.42.3
       eslint: 9.38.0(jiti@2.6.1)
-      eslint-plugin-react-hooks: 7.1.0-canary-b4455a6e-20251027(eslint@9.38.0(jiti@2.6.1))
+      eslint-plugin-react-hooks: 7.1.0-canary-3a0ab8a7-20251029(eslint@9.38.0(jiti@2.6.1))
       globals: 15.15.0
       neostandard: 0.11.9(eslint@9.38.0(jiti@2.6.1))(typescript@5.8.3)
       typescript-eslint: 8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.8.3)
@@ -4923,7 +4929,7 @@ snapshots:
     dependencies:
       eslint: 9.38.0(jiti@2.6.1)
 
-  eslint-plugin-react-hooks@7.1.0-canary-b4455a6e-20251027(eslint@9.38.0(jiti@2.6.1)):
+  eslint-plugin-react-hooks@7.1.0-canary-3a0ab8a7-20251029(eslint@9.38.0(jiti@2.6.1)):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
@@ -5203,6 +5209,8 @@ snapshots:
   get-tsconfig@4.13.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  glitched-writer@2.0.29: {}
 
   glob-parent@5.1.2:
     dependencies:
