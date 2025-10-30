@@ -1,11 +1,18 @@
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 export default function ClassicRedirect() {
   const t = useTranslations('ClassicRedirect')
+
+  function handleClick() {
+    window.location.href = '/classic'
+  }
+
   return (
-    <button className="px-3 py-1 rounded-md border hover:bg-gray-100/30">
-      <Link href="/classic">{t('linkText')}</Link>
+    <button
+      onClick={handleClick}
+      className="px-3 py-1 rounded-md border hover:bg-gray-100/30"
+    >
+      {t('linkText')}
     </button>
   )
 }
