@@ -7,9 +7,9 @@ export default function Contact() {
       <div className="relative h-[700px] bg-[url('/rei.gif')] bg-cover bg-center bg-no-repeat flex justify-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-transparent" />
 
-        <div className="relative flex flex-col gap-8 mt-40">
+        <div className="relative flex flex-col items-center gap-8 mt-40">
           <h2 className="text-6xl tracking-widest text-white">Contact Me</h2>
-          <ul className="text-xl text-white space-y-6 ml-4">
+          <ul className="text-xl text-white flex flex-col items-center space-y-6">
             <li className="flex items-center gap-4">
               <FaEnvelope className="size-6" /> E-mail: kevengoulartmm@gmail.com
             </li>

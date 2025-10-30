@@ -63,5 +63,26 @@
   },
   "AbilitiesClassic": {
     "title": "Habilidades"
+  },
+  "Doom": {
+    "title": "Mas esse portfólio roda Doom? Sim, sim ele roda",
+    "subtitle": "Aperte enter para abrir o menu",
+    "guide": "Controles do Doom",
+    "controls": {
+      "arrow": "Setas",
+      "ctrl": "Ctrl",
+      "space": "Espaço",
+      "alt": "Alt",
+      "shift": "Shift",
+      "esc": "Esc",
+      "enter": "Enter",
+      "move": "Mover",
+      "fire": "Atirar",
+      "interact": "Abrir porta / Interagir",
+      "strafe": "Deslocar lateralmente",
+      "run": "Correr",
+      "menu": "Menu",
+      "select": "Selecionar"
+    }
   }
 }

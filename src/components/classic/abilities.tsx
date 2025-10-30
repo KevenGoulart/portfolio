@@ -20,7 +20,7 @@ export default function Abilities() {
   const t = useTranslations('AbilitiesClassic')
 
   return (
-    <section id="abilities" className="flex flex-col gap-12 mx-80 mt-28 mb-12">
+    <section id="abilities" className="flex flex-col gap-12 mx-80 mt-28 mb-20">
       <h2 className="text-5xl text-yellow-500">
         {t('title')} <hr className="w-[180px] ml-7 border border-purple-700" />
       </h2>

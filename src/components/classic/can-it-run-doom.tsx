@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import Script from 'next/script'
 import { useEffect, useRef, useState } from 'react'
 
@@ -12,6 +13,7 @@ declare global {
 export default function CanItRunDoom() {
   const dosboxRef = useRef<any>(null)
   const [showGuide, setShowGuide] = useState(false)
+  const t = useTranslations('Doom')
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.Dosbox) {
@@ -38,52 +40,62 @@ export default function CanItRunDoom() {
   }
 
   return (
-    <div className="flex flex-col items-center my-16">
+    <div className="flex flex-col items-center mt-20 mb-8">
       <Script src="/script.js" strategy="beforeInteractive" />
-      <h2>But can this portfolio run Doom? Yes, yes it can</h2>
+      <h2>{t('title')}</h2>
       <div className="flex gap-3">
         <div
           id="dosbox"
-          className="w-fit h-fit mx-auto mt-4 bg-black"
+          className="w-[fit] h-[fit] mx-auto"
           onClick={handleShowGuide}
         />
         {showGuide && (
           <div>
-            <h3 className="font-bold mb-2 text-lg text-yellow-400 mt-4">
-              DOOM Controls
+            <h3 className="flex flex-col font-semibold tracking-wide mb-1 text-lg text-yellow-500">
+              {t('guide')}{' '}
+              <span className="text-sm text-white/70 font-normal">
+                {t('subtitle')}
+              </span>
             </h3>
-            <ul className="space-y-1">
+            <ul>
               <li>
-                <b>Arrow Keys</b> – Move
+                <b className="tracking-wide">{t('controls.arrow')}</b> –{' '}
+                {t('controls.move')}
               </li>
               <li>
-                <b>Ctrl</b> – Fire
+                <b className="tracking-wide">{t('controls.ctrl')}</b> –{' '}
+                {t('controls.fire')}
               </li>
               <li>
-                <b>Space</b> – Open door / Interact
+                <b className="tracking-wide">{t('controls.space')}</b> –{' '}
+                {t('controls.interact')}
               </li>
               <li>
-                <b>Alt</b> – Strafe
+                <b className="tracking-wide">{t('controls.alt')}</b> –{' '}
+                {t('controls.strafe')}
               </li>
               <li>
-                <b>Shift</b> – Run
+                <b className="tracking-wide">{t('controls.shift')}</b> –{' '}
+                {t('controls.run')}
               </li>
               <li>
-                <b>Esc</b> – Menu
+                <b className="tracking-wide">{t('controls.esc')}</b> –{' '}
+                {t('controls.menu')}
               </li>
               <li>
-                <b>Enter</b> – Select
+                <b className="tracking-wide">{t('controls.enter')}</b> –{' '}
+                {t('controls.select')}
               </li>
             </ul>
+            <button
+              className="mt-1 px-2 py-1 bg-gray-800 text-white rounded-xl hover:bg-gray-700 transition"
+              onClick={handleFullscreen}
+            >
+              <span>FullScreen</span>
+            </button>
           </div>
         )}
       </div>
-      <button
-        className="wrapper mt-2 px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
-        onClick={handleFullscreen}
-      >
-        <span>FULLSCREEN</span>
-      </button>
     </div>
   )
 }

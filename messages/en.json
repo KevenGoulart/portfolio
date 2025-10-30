@@ -63,5 +63,26 @@
   },
   "AbilitiesClassic": {
     "title": "Abilities"
+  },
+  "Doom": {
+    "title": "But can this portfolio run Doom? Yes, yes it can",
+    "subtitle": "Press enter to open the menu",
+    "guide": "Doom Controls",
+    "controls": {
+      "arrow": "Arrow Keys",
+      "ctrl": "Ctrl",
+      "space": "Space",
+      "alt": "Alt",
+      "shift": "Shift",
+      "esc": "Esc",
+      "enter": "Enter",
+      "move": "Move",
+      "fire": "Fire",
+      "interact": "Open door / Interact",
+      "strafe": "Strafe",
+      "run": "Run",
+      "menu": "Menu",
+      "select": "Select"
+    }
   }
 }
