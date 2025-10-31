@@ -3,10 +3,11 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import GlitchedWriter from 'glitched-writer'
 import { useEffect, useRef, useState } from 'react'
 import RetroLoadingBar from '../retro-loading-bar'
+import { FadeInSection } from '../fade-in'
 
 export default function Presentation() {
   const t = useTranslations('Presentation')
@@ -79,41 +80,48 @@ export default function Presentation() {
               <FaGithub className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-        </div>
-      </div>
-      <div
-        className={`border-8 opacity-100 relative overflow-hidden inline-block transition-opacity duration-1000 ${showItems ? 'border-green-300' : 'border-green-950/30'}`}
-        style={{
-          clipPath:
-            'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
-        }}
-      >
-        {!showItems && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/90">
-            <h1
-              ref={magiRef}
-              className="text-green-700 text-2xl font-mono animate-pulse"
-            />
-            <RetroLoadingBar bars={35} loop={false} />
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
+            <Link href="mailto:kevengoulartmm@gmail.com" target="_blank">
+              <FaEnvelope className="size-10 group-hover:text-white/50" />
+            </Link>
           </div>
-        )}
-
-        <div
-          className={`transition-opacity duration-1000 ${
-            showItems ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <Image
-            src="/magi.gif"
-            alt="Magi"
-            width={600}
-            height={600}
-            className="w-full h-full object-cover"
-            unoptimized
-            priority
-          />
         </div>
       </div>
+      <FadeInSection>
+        <div
+          className={`border-8 opacity-100 relative overflow-hidden inline-block transition-opacity duration-1000 ${showItems ? 'border-green-300' : 'border-green-950/30'}`}
+          style={{
+            clipPath:
+              'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+          }}
+        >
+          {!showItems && (
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/90">
+              <h1
+                ref={magiRef}
+                className="text-green-700 text-2xl font-mono animate-pulse"
+              />
+              <RetroLoadingBar bars={35} loop={false} />
+            </div>
+          )}
+
+          <div
+            className={`transition-opacity duration-1000 ${
+              showItems ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src="/magi.gif"
+              alt="Magi"
+              width={600}
+              height={600}
+              className="w-full h-full object-cover"
+              unoptimized
+              priority
+            />
+          </div>
+        </div>
+      </FadeInSection>
     </main>
   )
 }

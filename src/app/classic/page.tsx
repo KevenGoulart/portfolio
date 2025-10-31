@@ -6,19 +6,33 @@ import Header from '@/components/classic/header'
 import Presentation from '@/components/classic/presentation'
 import Projects from '@/components/classic/projects'
 import LanguageSelector from '@/components/language-selector'
+import { FadeSideSection } from '@/components/fade-side'
+import { FadeInSection } from '@/components/fade-in'
 
 export default function ClassicPage() {
   return (
     <div>
-      <Header />
+      <FadeInSection>
+        <Header />
+      </FadeInSection>
       <div className="flex justify-end pr-80 mt-28">
-        <LanguageSelector />
+        <FadeInSection>
+          <LanguageSelector />
+        </FadeInSection>
       </div>
       <Presentation />
-      <Projects />
-      <Experience />
-      <Abilities />
-      <CanItRunDoom />
+      <FadeSideSection>
+        <Projects />
+      </FadeSideSection>
+      <FadeSideSection>
+        <Experience />
+      </FadeSideSection>
+      <FadeSideSection>
+        <Abilities />
+      </FadeSideSection>
+      <FadeSideSection>
+        <CanItRunDoom />
+      </FadeSideSection>
       <Contact />
     </div>
   )
