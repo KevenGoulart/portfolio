@@ -2,7 +2,6 @@ import { useTranslations } from 'next-intl'
 import {
   SiCss3,
   SiDocker,
-  SiFigma,
   SiGit,
   SiHtml5,
   SiJavascript,
@@ -10,7 +9,6 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
-  SiPostman,
   SiReact,
   SiTailwindcss,
   SiTypescript
@@ -20,12 +18,15 @@ export default function Abilities() {
   const t = useTranslations('AbilitiesClassic')
 
   return (
-    <section id="abilities" className="flex flex-col gap-12 mx-80 mt-28 mb-20">
+    <section
+      id="abilities"
+      className="flex flex-col gap-12 max-w-[65%] mx-auto mt-28 mb-20"
+    >
       <h2 className="text-5xl text-yellow-500">
-        {t('title')} <hr className="w-[180px] ml-7 border border-purple-700" />
+        {t('title')} <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
 
-      <ul className="grid grid-cols-5 gap-2 text-lg">
+      <ul className="grid grid-cols-4 gap-2 text-lg">
         <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-110 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">
             TypeScript
@@ -94,7 +95,7 @@ export default function Abilities() {
           <SiGit className="size-16 mb-3" />
         </li>
 
-        <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-110 transition-transform duration-300">
+        {/* <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-110 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">Figma</p>
           <SiFigma className="size-16 mb-3" />
         </li>
@@ -102,7 +103,7 @@ export default function Abilities() {
         <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-110 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">Postman</p>
           <SiPostman className="size-16 mb-3" />
-        </li>
+        </li> */}
       </ul>
     </section>
   )

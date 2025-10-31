@@ -5,7 +5,7 @@ export default function Experience() {
   return (
     <section id="experience" className="flex flex-col gap-12 mx-80 mt-28 mb-12">
       <h2 className="text-5xl text-yellow-500">
-        {t('title')} <hr className="w-[600px] ml-7 border border-purple-700" />
+        {t('title')} <hr className="w-[580px] ml-7 border border-purple-700" />
       </h2>
 
       <div className="flex">

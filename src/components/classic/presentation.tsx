@@ -89,7 +89,7 @@ export default function Presentation() {
       </div>
       <FadeInSection>
         <div
-          className={`border-8 opacity-100 relative overflow-hidden inline-block transition-opacity duration-1000 ${showItems ? 'border-green-300' : 'border-green-950/30'}`}
+          className={`border-8 opacity-100 relative inline-block transition-opacity duration-1000 ${showItems ? 'border-green-700/30' : 'border-green-950/30'}`}
           style={{
             clipPath:
               'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'

@@ -38,8 +38,8 @@ export default function RetroLoadingBar({
       <style>{`
         .retro-loading { display: inline-block; }
         .retro-track {
-          width: 260px;
-          height: 18px;
+          width: 350px;
+          height: 25px;
           padding: 4px;
           background: linear-gradient(180deg,#04100a,#021006);
           border: 3px solid #0b3b16;
