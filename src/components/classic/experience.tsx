@@ -3,12 +3,16 @@ import { useTranslations } from 'next-intl'
 export default function Experience() {
   const t = useTranslations('ExperienceClassic')
   return (
-    <section id="experience" className="flex flex-col gap-12 mx-80 mt-28 mb-12">
+    <section
+      id="experience"
+      className="flex flex-col gap-12 mx-4 md:mx-80 mt-12 md:mt-28 mb-12"
+    >
       <h2 className="text-5xl text-yellow-500">
-        {t('title')} <hr className="w-[580px] ml-7 border border-purple-700" />
+        {t('title')}{' '}
+        <hr className="md:w-[580px] ml-7 border border-purple-700" />
       </h2>
 
-      <div className="flex">
+      <div className="flex flex-col md:flex-row max-sm:gap-8">
         <div className="w-full">
           <h3 className="text-3xl mb-4">{t('workTitle')}</h3>
           <ul className="flex flex-col gap-4 tracking-wider text-lg">

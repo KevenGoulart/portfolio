@@ -54,14 +54,17 @@ export default function Presentation() {
   return (
     <main
       id="presentation"
-      className="flex items-center justify-evenly mt-12 mb-60"
+      className="flex flex-col md:flex-row max-sm:gap-8 items-center justify-evenly md:mt-12 mb-16 md:mb-60"
     >
-      <div className="w-[500px] h-[300px] flex flex-col gap-4">
+      <div className="w-[500px] h-[300px] flex flex-col gap-4 max-sm:mt-6">
         <h1
           ref={titleRef}
           className="text-5xl text-yellow-500 text-center whitespace-pre-line"
         />
-        <p ref={descRef} className="text-lg text-center text-white/90" />
+        <p
+          ref={descRef}
+          className="max-sm:mx-12 md:text-lg text-center text-white/90"
+        />
         <div
           className={`flex items-center justify-center gap-4 transition-opacity duration-1000 ${
             showItems ? 'opacity-100' : 'opacity-0'
@@ -89,7 +92,7 @@ export default function Presentation() {
       </div>
       <FadeInSection>
         <div
-          className={`border-8 opacity-100 relative inline-block transition-opacity duration-1000 ${showItems ? 'border-green-700/30' : 'border-green-950/30'}`}
+          className={`max-sm:mx-4 border-8 opacity-100 relative inline-block transition-opacity duration-1000 ${showItems ? 'border-green-700/30' : 'border-green-950/30'}`}
           style={{
             clipPath:
               'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'

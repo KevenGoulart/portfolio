@@ -18,7 +18,7 @@ export function FadeSideSection({
       className={className}
       initial={{ opacity: 0, x: -300 }}
       transition={{ duration: 0.5, ease: 'easeOut', delay }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.18 }}
       whileInView={{ opacity: 1, x: 0 }}
     >
       {children}

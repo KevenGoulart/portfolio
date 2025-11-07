@@ -8,7 +8,7 @@ export default function LanguageSelector() {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-6 md:gap-2">
       <button
         onClick={() => handleChange('en')}
         className="px-1 rounded-md border hover:bg-gray-100/30"

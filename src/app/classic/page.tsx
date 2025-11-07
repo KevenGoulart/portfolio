@@ -11,11 +11,11 @@ import { FadeInSection } from '@/components/fade-in'
 
 export default function ClassicPage() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <FadeInSection>
         <Header />
       </FadeInSection>
-      <div className="flex justify-end pr-80 mt-28">
+      <div className="flex justify-end pr-8 md:pr-80 mt-28">
         <FadeInSection>
           <LanguageSelector />
         </FadeInSection>

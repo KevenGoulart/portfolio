@@ -20,13 +20,13 @@ export default function Abilities() {
   return (
     <section
       id="abilities"
-      className="flex flex-col gap-12 max-w-[65%] mx-auto mt-28 mb-20"
+      className="flex flex-col gap-12 md:max-w-[65%] mx-4 md:mx-auto mt-8 md:mt-28 mb-20"
     >
       <h2 className="text-5xl text-yellow-500">
         {t('title')} <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
 
-      <ul className="grid grid-cols-4 gap-2 text-lg">
+      <ul className="grid grid-cols-3 md:grid-cols-4 gap-2 text-lg">
         <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-110 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">
             TypeScript
