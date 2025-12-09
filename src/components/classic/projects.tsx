@@ -14,7 +14,7 @@ export default function Projects() {
         <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
 
-      <div className="grid grid-cols-3 gap-32">
+      <div className="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 md:gap-24">
         <ProjectCard
           title="GeekLog"
           description={t('geeklogDescription')}

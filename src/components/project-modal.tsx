@@ -40,7 +40,7 @@ export function ProjectModal({
         }}
         className="
           relative z-[100] bg-slate-950 border border-purple-500/40
-          rounded-2xl p-6 max-w-[1000px] w-full shadow-2xl flex gap-6
+          rounded-2xl p-6 max-w-[1000px] w-full shadow-2xl flex flex-col md:flex-row gap-6
         "
       >
         <Button
@@ -55,17 +55,17 @@ export function ProjectModal({
           alt={title}
           width={500}
           height={500}
-          className="rounded-xl mb-4 border border-purple-500/40"
+          className="rounded-xl md:mb-4 border border-purple-500/40"
         />
 
         <div className="flex flex-col justify-between">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2 md:gap-4">
             <h2 className="text-5xl font-normal text-white">{title}</h2>
 
             <p className="text-2xl text-white/80">{description}</p>
           </div>
 
-          <Button className="bg-purple-700 hover:bg-purple-600 text-white text-2xl w-fit mx-auto mb-4 p-5 rounded-xl">
+          <Button className="bg-purple-700 hover:bg-purple-600 text-white text-2xl w-[60%] max-sm:py-6 md:w-fit mx-auto mb-4 p-5 rounded-xl max-sm:mt-6">
             <Link href={href} target="_blank">
               Acessar
             </Link>
