@@ -15,7 +15,7 @@ export default function Header() {
       <h1 className="text-white tracking-widest md:text-2xl">
         Keven Goulart / {t('title')}
       </h1>
-      <div className="max-md:hidden flex items-center text-2xl gap-6">
+      <div className="max-md:hidden flex items-center text-2xl gap-5">
         <Link
           href="#presentation"
           className="hover:text-purple-400 hover:scale-105 transition-transform duration-300"

@@ -305,7 +305,7 @@ const CombinedScene: React.FC = () => {
       <div
         style={{
           position: 'fixed',
-          top: '4rem',
+          top: '3rem',
           right: '1rem',
           zIndex: 10
         }}
