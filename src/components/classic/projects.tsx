@@ -30,7 +30,7 @@ export default function Projects() {
         />
 
         <ProjectCard
-          title="TypeBattle"
+          title="TypingBattle"
           description={t('typeBattleDescription')}
           image="/type-battle.png"
           href="https://typebattle-one.vercel.app/"
