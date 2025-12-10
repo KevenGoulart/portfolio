@@ -9,7 +9,7 @@ export default function Experience() {
     >
       <h2 className="text-2xl md:text-5xl text-yellow-500">
         {t('title')}{' '}
-        <hr className="w-[350px] md:w-[580px] ml-7 border border-purple-700" />
+        <hr className="w-[350px] md:w-[660px] ml-7 border border-purple-700" />
       </h2>
 
       <div className="flex flex-col md:flex-row max-sm:gap-8">

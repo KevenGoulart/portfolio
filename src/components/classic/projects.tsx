@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { ProjectCard } from '../project-card'
+import { NeonGradientCard } from '../ui/neon-gradient-card'
 
 export default function Projects() {
   const t = useTranslations('ProjectsClassic')
@@ -14,41 +15,51 @@ export default function Projects() {
         <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 md:mt-6 md:gap-16">
-        <ProjectCard
-          title="GeekLog"
-          description={t('geeklogDescription')}
-          image="/geeklog.png"
-          href="https://geeklog.app/"
-        />
+      <div className="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 md:mt-6 md:gap-10">
+        <NeonGradientCard>
+          <ProjectCard
+            title="GeekLog"
+            description={t('geeklogDescription')}
+            image="/geeklog.png"
+            href="https://geeklog.app/"
+          />
+        </NeonGradientCard>
 
-        <ProjectCard
-          title="DT Money"
-          description={t('dtMoneyDescription')}
-          image="/dtmoney.png"
-          href="https://github.com/KevenGoulart/DT-Money"
-        />
+        <NeonGradientCard>
+          <ProjectCard
+            title="DT Money"
+            description={t('dtMoneyDescription')}
+            image="/dtmoney.png"
+            href="https://github.com/KevenGoulart/DT-Money"
+          />
+        </NeonGradientCard>
 
-        <ProjectCard
-          title="TypingBattle"
-          description={t('typeBattleDescription')}
-          image="/type-battle.png"
-          href="https://typebattle-one.vercel.app/"
-        />
+        <NeonGradientCard>
+          <ProjectCard
+            title="TypingBattle"
+            description={t('typeBattleDescription')}
+            image="/type-battle.png"
+            href="https://typebattle-one.vercel.app/"
+          />
+        </NeonGradientCard>
 
-        <ProjectCard
-          title="PokeGuesser"
-          description={t('pokeGuesserDescription')}
-          image="/pokeguesser.png"
-          href="https://pokeguesser-beryl.vercel.app/"
-        />
+        <NeonGradientCard>
+          <ProjectCard
+            title="PokeGuesser"
+            description={t('pokeGuesserDescription')}
+            image="/pokeguesser.png"
+            href="https://pokeguesser-beryl.vercel.app/"
+          />
+        </NeonGradientCard>
 
-        <ProjectCard
-          title={t('otherProjects')}
-          description={t('otherProjectsDescription')}
-          image="/github.png"
-          href="https://github.com/KevenGoulart?tab=repositories"
-        />
+        <NeonGradientCard>
+          <ProjectCard
+            title={t('otherProjects')}
+            description={t('otherProjectsDescription')}
+            image="/github.png"
+            href="https://github.com/KevenGoulart?tab=repositories"
+          />
+        </NeonGradientCard>
       </div>
     </section>
   )

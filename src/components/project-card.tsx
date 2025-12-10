@@ -33,7 +33,7 @@ export function ProjectCard({
               max-sm:mt-12 rounded-2xl w-[400px] h-[300px]
               border border-purple-500/40
               transition-all duration-300
-              group-hover:scale-105 md:group-hover:scale-125 group-hover:brightness-50
+              group-hover:scale-105 md:group-hover:scale-110 group-hover:brightness-50
             "
           />
 
