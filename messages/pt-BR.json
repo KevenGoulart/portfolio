@@ -40,6 +40,8 @@
     "title": "Projetos",
     "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
     "dtMoneyDescription": "Um site desenvolvido para ajudar a gerenciar facilmente suas despesas",
+    "pokeGuesserDescription": "Pequeno joguinho de acertar o nome de Pokemons",
+    "typeBattleDescription": "Jogo online para disputar com outra pessoa em tempo real quem digite mais rápido as palavras exibidas, o primeiro a completar as 10 palavras vence",
     "otherProjects": "Outros Projetos",
     "otherProjectsDescription": "Você pode conferir meus outros projetos no meu perfil do GitHub"
   },

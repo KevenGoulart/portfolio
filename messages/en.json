@@ -40,6 +40,8 @@
     "title": "Projects",
     "geeklogDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
     "dtMoneyDescription": "A website designed to help you easily track and manage your income and expenses",
+    "pokeGuesserDescription": "Small game to guess the names of Pokémon",
+    "typeBattleDescription": "Online game to compete in real time with another person to see who types the displayed words the fastest — the first to complete all 10 words wins.",
     "otherProjects": "Other Projects",
     "otherProjectsDescription": "You can check out my other projects on my GitHub profile."
   },

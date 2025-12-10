@@ -30,7 +30,7 @@ export function ProjectCard({
             width={600}
             height={300}
             className="
-              max-sm:mt-12 rounded-2xl max-w-[400px]
+              max-sm:mt-12 rounded-2xl w-[400px] h-[300px]
               border border-purple-500/40
               transition-all duration-300
               group-hover:scale-105 md:group-hover:scale-125 group-hover:brightness-50
@@ -63,7 +63,7 @@ export function ProjectCard({
             className="
               absolute bottom-0 left-0 w-full
               bg-black/30 backdrop-blur-sm text-white py-2
-              rounded-b-2xl border border-purple-500/40
+              rounded-b-2xl border border-l-purple-500/40 border-r-purple-500/40 border-b-purple-500/40
               transition-opacity duration-300
               group-hover:opacity-0
             "
