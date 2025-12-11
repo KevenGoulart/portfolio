@@ -8,6 +8,7 @@ import { Button } from './ui/button'
 interface ProjectCardProps {
   title: string
   description: string
+  tech: string
   image: string
   href: string
 }
@@ -15,6 +16,7 @@ interface ProjectCardProps {
 export function ProjectCard({
   title,
   description,
+  tech,
   image,
   href
 }: ProjectCardProps) {
@@ -78,6 +80,7 @@ export function ProjectCard({
         onClose={() => setOpen(false)}
         title={title}
         description={description}
+        tech={tech}
         image={image}
         href={href}
       />

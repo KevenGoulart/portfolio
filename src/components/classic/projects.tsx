@@ -20,6 +20,7 @@ export default function Projects() {
           <ProjectCard
             title="GeekLog"
             description={t('geeklogDescription')}
+            tech={t('geeklogTech')}
             image="/geeklog.png"
             href="https://geeklog.app/"
           />
@@ -27,17 +28,9 @@ export default function Projects() {
 
         <NeonGradientCard>
           <ProjectCard
-            title="DT Money"
-            description={t('dtMoneyDescription')}
-            image="/dtmoney.png"
-            href="https://github.com/KevenGoulart/DT-Money"
-          />
-        </NeonGradientCard>
-
-        <NeonGradientCard>
-          <ProjectCard
-            title="TypingBattle"
+            title="Typing Battle"
             description={t('typeBattleDescription')}
+            tech={t('typeBattleTech')}
             image="/type-battle.png"
             href="https://typebattle-one.vercel.app/"
           />
@@ -47,6 +40,7 @@ export default function Projects() {
           <ProjectCard
             title="PokeGuesser"
             description={t('pokeGuesserDescription')}
+            tech={t('pokeGuesserTech')}
             image="/pokeguesser.png"
             href="https://pokeguesser-beryl.vercel.app/"
           />
@@ -54,8 +48,19 @@ export default function Projects() {
 
         <NeonGradientCard>
           <ProjectCard
+            title="DT Money"
+            description={t('dtMoneyDescription')}
+            tech={t('dtMoneyTech')}
+            image="/dtmoney.png"
+            href="https://github.com/KevenGoulart/DT-Money"
+          />
+        </NeonGradientCard>
+
+        <NeonGradientCard>
+          <ProjectCard
             title={t('otherProjects')}
             description={t('otherProjectsDescription')}
+            tech={t('otherProjectsTech')}
             image="/github.png"
             href="https://github.com/KevenGoulart?tab=repositories"
           />

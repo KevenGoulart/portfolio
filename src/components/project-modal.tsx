@@ -10,6 +10,7 @@ interface ProjectModalProps {
   onClose: () => void
   title: string
   description: string
+  tech: string
   image: string
   href: string
 }
@@ -19,6 +20,7 @@ export function ProjectModal({
   onClose,
   title,
   description,
+  tech,
   image,
   href
 }: ProjectModalProps) {
@@ -62,7 +64,9 @@ export function ProjectModal({
           <div className="flex flex-col gap-2 md:gap-4">
             <h2 className="text-5xl font-normal text-white">{title}</h2>
 
-            <p className="text-2xl text-white/80">{description}</p>
+            <p className="text-xl text-white/80">{description}</p>
+
+            <p className="text-xl text-white/80">{tech}</p>
           </div>
 
           <Button className="bg-purple-700 hover:bg-purple-600 text-white text-2xl w-[60%] max-sm:py-6 md:w-fit mx-auto mb-4 p-5 rounded-xl max-sm:mt-6">
