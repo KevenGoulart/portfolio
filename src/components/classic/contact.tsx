@@ -1,8 +1,11 @@
 import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
 import { SiGithub, SiLinkedin } from 'react-icons/si'
 import { FadeDownSection } from '../fade-down'
+import { useTranslations } from 'next-intl'
 
 export default function Contact() {
+  const t = useTranslations('ContactClassic')
+
   return (
     <footer id="contact">
       <div className="relative h-[700px] bg-[url('/rei.gif')] bg-cover bg-center bg-no-repeat flex justify-center">
@@ -10,7 +13,9 @@ export default function Contact() {
 
         <FadeDownSection>
           <div className="relative flex flex-col items-center gap-8 mt-40">
-            <h2 className="text-6xl tracking-widest text-white">Contact Me</h2>
+            <h2 className="text-6xl tracking-widest text-white">
+              {t('title')}
+            </h2>
             <ul className="text-xl text-white flex flex-col items-center space-y-6">
               <li className="flex items-center gap-4">
                 <FaEnvelope className="size-6" /> E-mail:

@@ -91,5 +91,8 @@
       "menu": "Menu",
       "select": "Select"
     }
+  },
+  "ContactClassic": {
+    "title": "Contact"
   }
 }
