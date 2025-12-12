@@ -70,7 +70,7 @@ export default function Presentation() {
             showItems ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-110 transition-transform duration-300">
             <Link
               href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"
               target="_blank"
@@ -78,12 +78,12 @@ export default function Presentation() {
               <FaLinkedin className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-110 transition-transform duration-300">
             <Link href="https://github.com/KevenGoulart" target="_blank">
               <FaGithub className="size-10 group-hover:text-white/50" />
             </Link>
           </div>
-          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center justify-center border border-white rounded-full p-2 group cursor-pointer hover:border-white/50 hover:scale-110 transition-transform duration-300">
             <Link href="mailto:kevengoulartmm@gmail.com" target="_blank">
               <FaEnvelope className="size-10 group-hover:text-white/50" />
             </Link>

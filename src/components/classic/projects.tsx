@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col gap-8 items-start w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[400px]"
+      className="flex flex-col gap-8 items-start w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[320px]"
     >
       <h2 className="text-5xl text-yellow-200">
         {t('title')}

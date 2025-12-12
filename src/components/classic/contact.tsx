@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <footer id="contact">
       <div className="relative h-[700px] bg-[url('/rei.gif')] bg-cover bg-center bg-no-repeat flex justify-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/95 to-transparent" />
 
         <FadeDownSection>
           <div className="relative flex flex-col items-center gap-8 mt-40">

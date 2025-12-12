@@ -40,7 +40,7 @@
     "title": "Projetos",
     "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
     "geeklogTech": "Tecnologias utilizadas: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
-    "dtMoneyDescription": "Um site desenvolvido para ajudar a gerenciar facilmente suas despesas",
+    "dtMoneyDescription": "Modelo de serviço desenvolvido para ajudar a gerenciar facilmente suas despesas",
     "dtMoneyTech": "Tecnologias utilizadas: Vite, Typescript.",
     "pokeGuesserDescription": "Pequeno joguinho de acertar o nome de Pokemons",
     "pokeGuesserTech": "Tecnologias utilizadas: NestJS, TailwindCSS, Typescript, Prisma, Docker, Postgres, NestJS",
