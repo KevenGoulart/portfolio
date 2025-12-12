@@ -81,23 +81,39 @@ const CombinedScene: React.FC = () => {
       const canvas = document.createElement('canvas')
       const ctx = canvas.getContext('2d')!
       const fontSize = 100
+
       ctx.font = `${fontSize}px evafont`
       const textWidth = ctx.measureText(msg).width
-      canvas.width = textWidth * 1.2
-      canvas.height = fontSize * 2
+
+      canvas.width = textWidth * 1.5
+      canvas.height = fontSize * 2.2
+
       ctx.font = `${fontSize}px evafont`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
+
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.55)'
+      ctx.shadowBlur = 25
+      ctx.shadowOffsetX = 8
+      ctx.shadowOffsetY = 8
+
+      ctx.strokeStyle = 'rgba(0,0,0,0.75)'
+      ctx.lineWidth = 12
+      ctx.strokeText(msg, canvas.width / 2, canvas.height / 2)
+
       ctx.fillStyle = 'white'
       ctx.fillText(msg, canvas.width / 2, canvas.height / 2)
+
       const tex = new THREE.CanvasTexture(canvas)
       tex.minFilter = THREE.LinearFilter
       tex.magFilter = THREE.LinearFilter
+
       const mat = new THREE.SpriteMaterial({
         map: tex,
         transparent: true,
         depthTest: false
       })
+
       const sprite = new THREE.Sprite(mat)
       sprite.scale.set(10, 5, 1)
       sprite.renderOrder = 999
