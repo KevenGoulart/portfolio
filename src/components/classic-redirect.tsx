@@ -10,7 +10,7 @@ export default function ClassicRedirect() {
   return (
     <button
       onClick={handleClick}
-      className="px-3 py-1 rounded-md border hover:bg-gray-100/30"
+      className="px-3 py-1 text-lg rounded-xl border hover:bg-gray-200/30"
     >
       {t('linkText')}
     </button>
