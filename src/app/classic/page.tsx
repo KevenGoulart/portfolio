@@ -30,9 +30,9 @@ export default function ClassicPage() {
       <FadeSideSection>
         <Abilities />
       </FadeSideSection>
-      {/* <FadeSideSection>
+      <FadeSideSection>
         <CanItRunDoom />
-      </FadeSideSection> */}
+      </FadeSideSection>
       <Contact />
     </div>
   )
