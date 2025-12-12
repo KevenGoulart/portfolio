@@ -59,7 +59,7 @@ export default function Presentation() {
       <div className="w-[500px] h-[300px] flex flex-col gap-4 max-sm:mt-6">
         <h1
           ref={titleRef}
-          className="text-4xl md:text-5xl text-yellow-500 text-center whitespace-pre-line"
+          className="text-4xl md:text-5xl text-yellow-200 text-center whitespace-pre-line"
         />
         <p
           ref={descRef}

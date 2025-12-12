@@ -10,7 +10,7 @@ export default function Projects() {
       id="projects"
       className="flex flex-col gap-8 items-start w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[400px]"
     >
-      <h2 className="text-5xl text-yellow-500">
+      <h2 className="text-5xl text-yellow-200">
         {t('title')}
         <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>

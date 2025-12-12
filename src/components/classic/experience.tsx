@@ -7,9 +7,9 @@ export default function Experience() {
       id="experience"
       className="flex flex-col gap-12 w-[400px] md:w-[1200px] mx-auto mt-12 md:mt-28 mb-12"
     >
-      <h2 className="text-2xl md:text-5xl text-yellow-500">
+      <h2 className="text-2xl md:text-5xl text-yellow-200">
         {t('title')}{' '}
-        <hr className="w-[350px] md:w-[660px] ml-7 border border-purple-700" />
+        <hr className="w-[350px] md:w-[670px] ml-7 border border-purple-700" />
       </h2>
 
       <div className="flex flex-col md:flex-row max-sm:gap-8">
