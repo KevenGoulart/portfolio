@@ -1,14 +1,18 @@
 import { useTranslations } from 'next-intl'
 import {
+  SiBitbucket,
   SiCss3,
   SiDocker,
+  SiFigma,
   SiGit,
   SiHtml5,
   SiJavascript,
+  SiJira,
   SiNestjs,
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
+  SiPostman,
   SiReact,
   SiTailwindcss,
   SiTypescript
@@ -94,7 +98,7 @@ export default function Abilities() {
           <SiGit className="size-16 mb-3" />
         </li>
 
-        {/* <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+        <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">Figma</p>
           <SiFigma className="size-16 mb-3" />
         </li>
@@ -102,7 +106,19 @@ export default function Abilities() {
         <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
           <p className="font-semibold tracking-widest text-gray-100">Postman</p>
           <SiPostman className="size-16 mb-3" />
-        </li> */}
+        </li>
+
+        <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+          <p className="font-semibold tracking-widest text-gray-100">Jira</p>
+          <SiJira className="size-16 mb-3" />
+        </li>
+
+        <li className="border-b-2 border-purple-400 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+          <p className="font-semibold tracking-widest text-gray-100">
+            BitBucket
+          </p>
+          <SiBitbucket className="size-16 mb-3" />
+        </li>
       </ul>
     </section>
   )
