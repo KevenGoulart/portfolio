@@ -40,6 +40,8 @@
     "title": "Projects",
     "geeklogDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
     "geeklogTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
+    "pulumiDescription": "CI/CD using Github Workflows and Pulumi to review and deploy code to Aws",
+    "pulumiTech": "Technologies used: NestJS, Typescript, Docker, Pulumi, GitHub workflow, Aws",
     "dtMoneyDescription": "Service model designed to help you easily track and manage your income and expenses",
     "dtMoneyTech": "Technologies used: Vite, Typescript.",
     "pokeGuesserDescription": "Small game to guess the names of Pokémons",

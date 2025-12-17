@@ -23,9 +23,9 @@ export default function Abilities() {
   return (
     <section
       id="abilities"
-      className="flex flex-col gap-12 w-[400px] md:w-[1200px] mx-auto mt-8 md:mt-28 mb-20"
+      className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-auto mt-8 md:mt-28 mb-20"
     >
-      <h2 className="text-5xl text-yellow-200">
+      <h2 className="text-5xl text-yellow-200 self-start ml-8">
         {t('title')} <hr className="w-[220px] ml-7 border border-purple-700" />
       </h2>
 

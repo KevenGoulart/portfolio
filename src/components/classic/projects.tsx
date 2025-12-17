@@ -8,9 +8,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col gap-8 items-start w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[320px]"
+      className="flex flex-col gap-8 items-center w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[320px]"
     >
-      <h2 className="text-5xl text-yellow-200">
+      <h2 className="text-5xl text-yellow-200 self-start ml-8">
         {t('title')}
         <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
@@ -43,6 +43,16 @@ export default function Projects() {
             tech={t('pokeGuesserTech')}
             image="/pokeguesser.png"
             href="https://pokeguesser-beryl.vercel.app/"
+          />
+        </NeonGradientCard>
+
+        <NeonGradientCard>
+          <ProjectCard
+            title="CI/CD Pulumi Aws Api"
+            description={t('pulumiDescription')}
+            tech={t('pulumiTech')}
+            image="/pulumi.jpeg"
+            href="https://github.com/KevenGoulart/test-api-cdcd-pulumi-aws"
           />
         </NeonGradientCard>
 
