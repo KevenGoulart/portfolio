@@ -8,12 +8,14 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col gap-8 items-center w-[400px] md:w-[1200px] mx-auto mt-2 md:mt-[320px]"
+      className="flex flex-col items-center gap-8 w-[360px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-28 mb-12"
     >
-      <h2 className="text-5xl text-yellow-200 self-start ml-8">
+      <h2 className="text-5xl text-yellow-200 self-start ml-4">
         {t('title')}
         <hr className="w-[160px] ml-7 border border-purple-700" />
       </h2>
+
+      <p className="self-start ml-8 text-white/85">{t('description')}</p>
 
       <div className="grid md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 gap-6 md:mt-6 md:gap-10">
         <NeonGradientCard>
@@ -53,6 +55,16 @@ export default function Projects() {
             tech={t('pulumiTech')}
             image="/pulumi.jpeg"
             href="https://github.com/KevenGoulart/test-api-cdcd-pulumi-aws"
+          />
+        </NeonGradientCard>
+
+        <NeonGradientCard>
+          <ProjectCard
+            title="Whats Good"
+            description={t('whatsGoodDescription')}
+            tech={t('whatsGoodTech')}
+            image="/whatsgood.png"
+            href="https://whats-good-eight.vercel.app/"
           />
         </NeonGradientCard>
 

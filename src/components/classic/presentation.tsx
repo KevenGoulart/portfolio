@@ -56,7 +56,7 @@ export default function Presentation() {
       id="presentation"
       className="flex flex-col md:flex-row max-sm:gap-8 items-center justify-evenly md:mt-12 mb-16 md:mb-60"
     >
-      <div className="w-[500px] h-[300px] flex flex-col gap-4 max-sm:mt-6">
+      <div className="w-[500px] h-[300px] flex flex-col gap-4 max-sm:mt-2">
         <h1
           ref={titleRef}
           className="text-4xl md:text-5xl text-yellow-200 text-center whitespace-pre-line"

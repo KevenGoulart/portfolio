@@ -5,9 +5,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-auto mt-12 md:mt-28 mb-12"
+      className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-28 mb-12"
     >
-      <h2 className="text-2xl md:text-5xl text-yellow-200 self-start ml-8">
+      <h2 className="text-3xl md:text-5xl text-yellow-200 self-start ml-8">
         {t('title')}{' '}
         <hr className="w-[350px] md:w-[670px] ml-7 border border-purple-700" />
       </h2>

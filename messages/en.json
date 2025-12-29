@@ -38,6 +38,7 @@
   },
   "ProjectsClassic": {
     "title": "Projects",
+    "description": "It may take some time for the online projects to load, as they are hosted on free-tier services.",
     "geeklogDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
     "geeklogTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
     "pulumiDescription": "CI/CD using Github Workflows and Pulumi to review and deploy code to Aws",
@@ -48,6 +49,8 @@
     "pokeGuesserTech": "Technologies used: NestJS, TailwindCSS, Typescript, Prisma, Docker, Postgres, NestJS",
     "typeBattleDescription": "Online game to compete in real time with another person to see who types the displayed words the fastest — the first to complete all 10 words wins.",
     "typeBattleTech": "Technologies used: NextJS, TypeScript, TailwindCSS, WebSocket.",
+    "whatsGoodDescription": "A web application that shows the highest rated movies and TV shows of some of the most popular streaming services.",
+    "whatsGoodTech": "Technologies used: NextJS, NestJS, TailwindCSS, TypeScript.",
     "otherProjects": "Other Projects",
     "otherProjectsDescription": "You can check out my other projects on my GitHub profile.",
     "otherProjectsTech": ""

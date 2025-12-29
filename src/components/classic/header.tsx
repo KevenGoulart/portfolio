@@ -11,7 +11,7 @@ import { FaBars } from 'react-icons/fa'
 export default function Header() {
   const t = useTranslations('Header')
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-yellow-300/50 to-purple-900/50 backdrop-blur-lg p-5 flex justify-between items-center mx-auto max-w-[95%] md:max-w-[80%] rounded-[20px] mt-1 md:mt-4 md:px-10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-yellow-300/50 to-purple-900/50 backdrop-blur-lg p-5 flex justify-between items-center mx-auto max-w-[95%] md:max-w-[80%] rounded-[30px] mt-1 md:mt-4 md:px-10">
       <h1 className="text-white tracking-wide text-2xl">
         Keven Goulart / {t('title')}
       </h1>

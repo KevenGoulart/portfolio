@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react'
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 
 interface FadeSideSectionProps {
   children: ReactNode
@@ -13,13 +13,31 @@ export function FadeSideSection({
   delay = 0,
   className
 }: FadeSideSectionProps) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+  }, [])
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, x: -300 }}
-      transition={{ duration: 0.5, ease: 'easeOut', delay }}
-      viewport={{ once: false, amount: 0.18 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{
+        opacity: 0,
+        x: isMobile ? 0 : -300
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0
+      }}
+      transition={{
+        duration: 0.5,
+        ease: 'easeOut',
+        delay
+      }}
+      viewport={{
+        once: false,
+        amount: isMobile ? 0.05 : 0.18
+      }}
     >
       {children}
     </motion.div>

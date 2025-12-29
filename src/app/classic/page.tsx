@@ -14,7 +14,7 @@ export default function ClassicPage() {
       <FadeInSection>
         <Header />
       </FadeInSection>
-      <div className="flex justify-end pr-8 md:pr-80 mt-28">
+      <div className="flex justify-end pr-6 md:pr-60 mt-[120px] md:mt-24">
         <FadeInSection>
           <LanguageSelector />
         </FadeInSection>
@@ -29,9 +29,6 @@ export default function ClassicPage() {
       <FadeSideSection>
         <Abilities />
       </FadeSideSection>
-      {/* <FadeSideSection>
-        <CanItRunDoom />
-      </FadeSideSection> */}
       <Contact />
     </div>
   )
