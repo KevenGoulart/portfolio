@@ -67,6 +67,11 @@ export function ProjectModal({
             <p className="text-xl text-white/80">{description}</p>
 
             <p className="text-xl text-white/80">{tech}</p>
+
+            <p className="text-white/40 leading-4 text-sm my-2">
+              As aplicações online podem demorar a inicializar por completo por
+              estarem hospedadas em serviços gratuitos.
+            </p>
           </div>
 
           <Button className="bg-purple-700 hover:bg-purple-600 text-white text-2xl w-[60%] max-sm:py-6 md:w-fit mx-auto mb-4 p-5 rounded-xl max-sm:mt-6">

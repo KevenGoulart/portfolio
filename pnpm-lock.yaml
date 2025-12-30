@@ -53,6 +53,9 @@ importers:
       globals:
         specifier: ^16.2.0
         version: 16.4.0
+      gsap:
+        specifier: ^3.14.2
+        version: 3.14.2
       lucide-react:
         specifier: ^0.548.0
         version: 0.548.0(react@18.3.1)
@@ -68,6 +71,9 @@ importers:
       next-intl:
         specifier: ^4.4.0
         version: 4.4.0(next@16.0.7(@babel/core@7.28.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+      ogl:
+        specifier: ^1.0.11
+        version: 1.0.11
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -2008,8 +2014,8 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
-  eslint-plugin-react-hooks@7.1.0-canary-55480b4d-20251208:
-    resolution: {integrity: sha512-6aHVv9p+a7mLC/mW5YTaV5+gYrIJw5XTiGkEiACb5xnvbYpEToNwfwCpj4rUzIIOa6hQt+PPC7aHkuf6rmbDfQ==}
+  eslint-plugin-react-hooks@7.1.0-canary-65eec428-20251218:
+    resolution: {integrity: sha512-7HtYkBLCNKakC5OOJucfhzxT/Kp+C63yEnh614v9ZiC8PuydYiYs3gQzokbYhy1Uc29XtEXv5GZ/dui1H4Z9Zw==}
     engines: {node: '>=18'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -2264,6 +2270,9 @@ packages:
 
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
+
+  gsap@3.14.2:
+    resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
 
   has-bigints@1.1.0:
     resolution: {integrity: sha512-R3pbpkcIqv2Pm3dUwgjclDRVmWpTJW2DcMzcIhEXEx1oh/CEMObMm3KLmRJOdvhM7o4uQBnwr8pzRK2sJWIqfg==}
@@ -2840,6 +2849,9 @@ packages:
   object.values@1.2.1:
     resolution: {integrity: sha512-gXah6aZrcUxjWg2zR2MwouP2eHlCBzdV4pygudehaKXSGW4v2AsRQUK+lwwXhii6KFZcunEnmSUoYp5CXibxtA==}
     engines: {node: '>= 0.4'}
+
+  ogl@1.0.11:
+    resolution: {integrity: sha512-kUpC154AFfxi16pmZUK4jk3J+8zxwTWGPo03EoYA8QPbzikHoaC82n6pNTbd+oEaJonaE8aPWBlX7ad9zrqLsA==}
 
   on-finished@2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
@@ -4406,7 +4418,7 @@ snapshots:
       '@eslint/js': 9.38.0
       '@types/eslint__js': 8.42.3
       eslint: 9.38.0(jiti@2.6.1)
-      eslint-plugin-react-hooks: 7.1.0-canary-55480b4d-20251208(eslint@9.38.0(jiti@2.6.1))
+      eslint-plugin-react-hooks: 7.1.0-canary-65eec428-20251218(eslint@9.38.0(jiti@2.6.1))
       globals: 15.15.0
       neostandard: 0.11.9(eslint@9.38.0(jiti@2.6.1))(typescript@5.8.3)
       typescript-eslint: 8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.8.3)
@@ -5570,7 +5582,7 @@ snapshots:
     dependencies:
       eslint: 9.38.0(jiti@2.6.1)
 
-  eslint-plugin-react-hooks@7.1.0-canary-55480b4d-20251208(eslint@9.38.0(jiti@2.6.1)):
+  eslint-plugin-react-hooks@7.1.0-canary-65eec428-20251218(eslint@9.38.0(jiti@2.6.1)):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/parser': 7.28.5
@@ -5901,6 +5913,8 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   graphemer@1.4.0: {}
+
+  gsap@3.14.2: {}
 
   has-bigints@1.1.0: {}
 
@@ -6445,6 +6459,8 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
+
+  ogl@1.0.11: {}
 
   on-finished@2.4.1:
     dependencies:

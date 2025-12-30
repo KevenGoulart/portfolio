@@ -1,0 +1,171 @@
+.bubble-menu {
+  left: 0;
+  right: 0;
+  top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 2em;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.bubble-menu.fixed {
+  position: fixed;
+}
+
+.bubble-menu.absolute {
+  position: absolute;
+}
+
+.bubble-menu-items {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 98;
+}
+
+.bubble-menu-items.fixed {
+  position: fixed;
+}
+
+.bubble-menu-items.absolute {
+  position: absolute;
+}
+
+.bubble-menu-items .pill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: auto;
+  justify-content: center;
+}
+
+.bubble-menu-items .pill-list .pill-col {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex: 0 0 calc(100% / 3);
+  box-sizing: border-box;
+}
+
+.bubble-menu-items .pill-list .pill-col:nth-child(4):nth-last-child(2) {
+  margin-left: calc(100% / 6);
+}
+
+.bubble-menu-items .pill-list .pill-col:nth-child(4):last-child {
+  margin-left: calc(100% / 3);
+}
+
+.bubble-menu-items .pill-link {
+  --pill-bg: #ffffff;
+  --pill-color: #111;
+  --item-rot: 0deg;
+  --pill-min-h: 70px;
+  --hover-bg: #f3f4f6;
+  --hover-color: #111;
+
+  width: 100%;
+  max-width: 220px;
+  min-height: var(--pill-min-h);
+  padding: 0.9rem 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  color: var(--pill-color);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+  will-change: transform;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.bubble-menu-items .pill-link .pill-label {
+  display: inline-block;
+  height: 1.1em;
+  line-height: 1.1;
+}
+
+@media (min-width: 900px) {
+  .bubble-menu-items .pill-link {
+    max-width: 200px;
+    min-height: 64px;
+    font-size: 1.7rem;
+    padding: 0.8rem 1.2rem;
+    transform: rotate(var(--item-rot));
+  }
+
+  .bubble-menu-items .pill-link:hover {
+    transform: rotate(var(--item-rot)) scale(1.04);
+    background: var(--hover-bg);
+    color: var(--hover-color);
+  }
+
+  .bubble-menu-items .pill-link:active {
+    transform: rotate(var(--item-rot)) scale(0.96);
+  }
+}
+
+@media (min-width: 1200px) {
+  .bubble-menu-items .pill-link {
+    max-width: 180px;
+    min-height: 60px;
+    font-size: 1.8rem;
+    padding: 0.7rem 1.1rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .bubble-menu-items {
+    align-items: flex-start;
+    padding-top: 120px;
+  }
+
+  .bubble-menu-items .pill-list {
+    row-gap: 16px;
+  }
+
+  .bubble-menu-items .pill-list .pill-col {
+    flex: 0 0 100%;
+    margin-left: 0 !important;
+  }
+
+  .bubble-menu-items .pill-link {
+    max-width: 100%;
+    font-size: 1.4rem;
+    padding: 1rem 1.4rem;
+    min-height: 72px;
+  }
+
+  .bubble-menu-items .pill-link:hover {
+    transform: scale(1.06);
+    background: var(--hover-bg);
+    color: var(--hover-color);
+  }
+
+  .bubble-menu-items .pill-link:active {
+    transform: scale(0.94);
+  }
+}
