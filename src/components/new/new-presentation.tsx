@@ -5,8 +5,8 @@ export default function NewPresentation() {
   return (
     <div className="flex items-center justify-start pl-[10%] w-full">
       <div className="w-[40%]">
-        <h2 className="text-3xl font-semibold text-slate-900/85">
-          Olá! Meu nome é Kéven Goulart Medeiros, trabalho como desenvolvedor
+        <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85">
+          Olá! Meu nome é Keven Goulart, trabalho como desenvolvedor
           especializado em TypeScript, Node.js, React, Next.js e Nest. Tenho
           experiência na construção de aplicações full-stack, atuando tanto no
           front-end quanto no back-end, com foco em soluções escaláveis e bem

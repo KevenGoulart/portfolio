@@ -51,7 +51,7 @@ export default function NewProjects() {
   ]
   return (
     <div id="projects">
-      <h1 className="text-slate-900/85 text-7xl font-bold mb-28">
+      <h1 className="text-slate-900/85 text-7xl font-bold tracking-wider mb-28">
         Projetos Autorais
       </h1>
       <BounceCards

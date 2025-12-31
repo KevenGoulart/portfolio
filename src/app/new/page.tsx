@@ -21,7 +21,7 @@ export default function NewPage() {
       </div>
       <div className="relative z-10">
         <NewHeader />
-        <h1 className="text-6xl pl-[10%] pt-[6%] text-slate-900/85 font-bold">
+        <h1 className="text-6xl pl-[10%] pt-[6%] text-slate-900/85 font-bold tracking-wider">
           Keven Goulart <br /> FullStack Developer
         </h1>
 

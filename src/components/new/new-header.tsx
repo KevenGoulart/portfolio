@@ -28,7 +28,7 @@ const items = [
     href: '#abilities',
     ariaLabel: 'Habilidades',
     rotation: 8,
-    hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
+    hoverStyles: { bgColor: '#F54927', textColor: '#ffffff' }
   },
   {
     label: 'contact',
