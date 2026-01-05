@@ -11,16 +11,16 @@ export default function LanguageSelector() {
     <div className="flex items-center gap-4 md:gap-2">
       <button
         onClick={() => handleChange('en')}
-        className="px-1 rounded-md border hover:bg-gray-100/30"
+        className="rounded-md border hover:bg-gray-100/30 overflow-hidden"
       >
-        🇺🇸
+        <img src="/usa.png" alt="US Flag" className="w-6 h-6 rounded-md" />
       </button>
 
       <button
         onClick={() => handleChange('pt-BR')}
-        className="px-1 rounded-md border hover:bg-gray-100/30"
+        className="rounded-md border hover:bg-gray-100/30"
       >
-        🇧🇷
+        <img src="/brasil.png" alt="US Flag" className="w-6 h-6 rounded-md" />
       </button>
     </div>
   )

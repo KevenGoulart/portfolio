@@ -1,35 +1,52 @@
-import Abilities from '@/components/classic/abilities'
-import Contact from '@/components/classic/contact'
-import Experience from '@/components/classic/experience'
-import Header from '@/components/classic/header'
-import Presentation from '@/components/classic/presentation'
-import Projects from '@/components/classic/projects'
-import LanguageSelector from '@/components/language-selector'
-import { FadeSideSection } from '@/components/fade-side'
-import { FadeInSection } from '@/components/fade-in'
+'use client'
 
-export default function ClassicPage() {
+import Iridescence from '@/components/Iridescence'
+import LanguageSelector from '@/components/language-selector'
+import NewAbilities from '@/components/sections/abilities'
+import NewContact from '@/components/sections/contact'
+import NewExperience from '@/components/sections/experience'
+import NewHeader from '@/components/sections/header'
+import NewPresentation from '@/components/sections/presentation'
+import NewProjects from '@/components/sections/projects'
+import SplashCursor from '@/components/SplashCursor'
+
+export default function NewPage() {
   return (
-    <div className="overflow-hidden">
-      <FadeInSection>
-        <Header />
-      </FadeInSection>
-      <div className="flex justify-end pr-6 md:pr-60 mt-[120px] md:mt-24">
-        <FadeInSection>
-          <LanguageSelector />
-        </FadeInSection>
+    <div className="relative min-h-screen text-slate-900 overflow-hidden">
+      <SplashCursor />
+      <div className="absolute inset-0 z-0">
+        <Iridescence
+          color={[1, 1, 1]}
+          mouseReact={false}
+          amplitude={0.1}
+          speed={0.3}
+        />
       </div>
-      <Presentation />
-      <FadeSideSection>
-        <Projects />
-      </FadeSideSection>
-      <FadeSideSection>
-        <Experience />
-      </FadeSideSection>
-      <FadeSideSection>
-        <Abilities />
-      </FadeSideSection>
-      <Contact />
+      <div className="relative z-10">
+        <NewHeader />
+        <h1 className="text-6xl pl-[10%] pt-[4%] text-slate-900/85 font-bold tracking-wider">
+          Keven Goulart <br /> FullStack Developer
+          <LanguageSelector />
+        </h1>
+
+        <div className="mt-20">
+          <NewPresentation />
+        </div>
+
+        <div className="flex items-center justify-center mt-40">
+          <NewProjects />
+        </div>
+
+        <div className="flex items-center justify-center mt-40">
+          <NewExperience />
+        </div>
+
+        <div className="flex items-center justify-center mt-28">
+          <NewAbilities />
+        </div>
+
+        <NewContact />
+      </div>
     </div>
   )
 }
