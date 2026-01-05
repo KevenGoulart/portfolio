@@ -8,7 +8,10 @@ export default function Presentation() {
   const t = useTranslations('Presentation')
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-12">
+    <div
+      id="about"
+      className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-12"
+    >
       <div className="max-sm:mx-6 md:w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85 max-sm:text-center">
           {t('description')}
@@ -41,9 +44,9 @@ export default function Presentation() {
             pixelRatioProp={
               typeof window !== 'undefined' ? window.devicePixelRatio : 1
             }
-            shapeSize={1.48}
+            shapeSize={1.47}
             roundness={1.5}
-            borderSize={0.1}
+            borderSize={0.05}
             circleSize={0.4}
             circleEdge={3}
           />
@@ -55,6 +58,7 @@ export default function Presentation() {
             alt="shinji"
             fill
             className="object-cover rounded-full"
+            unoptimized
           />
         </div>
       </div>

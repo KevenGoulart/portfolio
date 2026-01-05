@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import * as motion from 'motion/react-client'
+import { useTranslations } from 'next-intl'
 
 interface ProjectModalProps {
   open: boolean
@@ -25,6 +26,8 @@ export function ProjectModal({
   href
 }: ProjectModalProps) {
   if (!open) return null
+
+  const t = useTranslations('Modal')
 
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center">
@@ -69,14 +72,13 @@ export function ProjectModal({
             <p className="text-xl text-white/80">{tech}</p>
 
             <p className="text-white/40 leading-4 text-sm my-2">
-              As aplicações online podem demorar a inicializar por completo por
-              estarem hospedadas em serviços gratuitos.
+              {t('warning')}
             </p>
           </div>
 
           <Button className="bg-purple-700 hover:bg-purple-600 text-white text-2xl w-[60%] max-sm:py-6 md:w-fit mx-auto mb-4 p-5 rounded-xl max-sm:mt-6">
             <Link href={href} target="_blank">
-              Acessar
+              {t('button')}
             </Link>
           </Button>
         </div>

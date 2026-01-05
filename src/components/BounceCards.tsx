@@ -4,6 +4,7 @@ import './BounceCards.css'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { ProjectModal } from './project-modal'
+import { useTranslations } from 'next-intl'
 
 interface BounceCardItem {
   image: string
@@ -43,6 +44,8 @@ export default function BounceCards({
   enableHover = false
 }: BounceCardsProps) {
   const [selected, setSelected] = useState<BounceCardItem | null>(null)
+
+  const t = useTranslations('Modal')
 
   useEffect(() => {
     gsap.fromTo(
@@ -178,7 +181,7 @@ export default function BounceCards({
                   bg-purple-700 hover:bg-purple-600
                   transition-colors text-white                "
               >
-                Ver mais
+                {t('seeMore')}
               </Button>
             </div>
           </div>

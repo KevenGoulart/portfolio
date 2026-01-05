@@ -13,14 +13,14 @@ export default function LanguageSelector() {
         onClick={() => handleChange('en')}
         className="rounded-md border hover:bg-gray-100/30 overflow-hidden"
       >
-        <img src="/usa.png" alt="US Flag" className="w-6 h-6 rounded-md" />
+        <img src="/usa.png" alt="US Flag" className="w-8 h-6 rounded-md" />
       </button>
 
       <button
         onClick={() => handleChange('pt-BR')}
         className="rounded-md border hover:bg-gray-100/30"
       >
-        <img src="/brasil.png" alt="US Flag" className="w-6 h-6 rounded-md" />
+        <img src="/brasil.png" alt="BR Flag" className="w-8 h-6 rounded-md" />
       </button>
     </div>
   )

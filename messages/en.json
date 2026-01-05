@@ -1,18 +1,7 @@
 {
-  "HomePage": {
-    "aboutMe": "About Me",
-    "projects": "Projects",
-    "experience": "Experience"
-  },
-  "About": {
-    "title": "Keven Goulart",
-    "subtitle": "Full-Stack Developer",
-    "presentation": "Hello! I am looking for an opportunity to grow as a professional. I work as a developer specialized in TypeScript, Node.js, React, Next.js, and Nest.js among other technologies.",
-    "experience": "I have experience in developing complete applications, working on both the front-end and back-end, focusing on scalable and well-structured solutions."
-  },
   "Presentation": {
     "greeting": "FullStack Developer",
-    "description": "Hello! My name is Kéven Goulart and I work as a developer specializing in TypeScript, Node.js, React, Next.js, and Nest. I have experience in building full-stack applications, working on both front-end and back-end development, with a focus on scalable and well-structured solutions."
+    "description": "Hello! My name is Kéven Goulart and I work as a developer specializing in TypeScript, Node, React, NextJS, and NestJS. I have experience in building full-stack applications, working on both front-end and back-end development, with a focus on scalable and well-structured solutions, and i have advanced proficiency in English."
   },
   "Projects": {
     "title": "Projects",
@@ -55,5 +44,10 @@
   },
   "Contact": {
     "title": "Contact"
+  },
+  "Modal": {
+    "warning": "The online applications may take some time to fully initialize, as they are hosted on free services.",
+    "button": "Access",
+    "seeMore": "See more"
   }
 }
