@@ -7,10 +7,12 @@ import NewExperience from '@/components/new/new-experience'
 import NewHeader from '@/components/new/new-header'
 import NewPresentation from '@/components/new/new-presentation'
 import NewProjects from '@/components/new/new-projects'
+import SplashCursor from '@/components/SplashCursor'
 
 export default function NewPage() {
   return (
     <div className="relative min-h-screen text-slate-900 overflow-hidden">
+      <SplashCursor />
       <div className="absolute inset-0 z-0">
         <Iridescence
           color={[1, 1, 1]}
@@ -21,11 +23,11 @@ export default function NewPage() {
       </div>
       <div className="relative z-10">
         <NewHeader />
-        <h1 className="text-6xl pl-[10%] pt-[6%] text-slate-900/85 font-bold tracking-wider">
+        <h1 className="text-6xl pl-[10%] pt-[4%] text-slate-900/85 font-bold tracking-wider">
           Keven Goulart <br /> FullStack Developer
         </h1>
 
-        <div className="mt-32">
+        <div className="mt-20">
           <NewPresentation />
         </div>
 

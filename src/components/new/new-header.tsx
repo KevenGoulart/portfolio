@@ -42,7 +42,7 @@ const items = [
 export default function NewHeader() {
   const t = useTranslations('Header')
   return (
-    <div className="absolute top-44 right-[15%] w-[600px]">
+    <div className="absolute top-36 right-[15%] w-[600px]">
       <BubbleMenu
         items={items}
         menuBg="#ffffff"
