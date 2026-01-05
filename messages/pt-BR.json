@@ -28,12 +28,8 @@
     "otherProjectsInParts1": "Você pode conferir outros projetos",
     "otherProjectsInParts2": "no meu GitHub"
   },
-  "ClassicRedirect": {
-    "linkText": "Prefere o estilo normal? Clique aqui"
-  },
   "Presentation": {
-    "greeting1": "Oi, eu sou Keven Goulart",
-    "greeting2": "Desenvolvedor FullStack",
+    "greeting": "Desenvolvedor FullStack",
     "description": "Olá! Meu nome é Kéven Goulart Medeiros, trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest. Tenho experiência na construção de aplicações full-stack, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas."
   },
   "ProjectsClassic": {
@@ -66,7 +62,6 @@
     "current": "atual"
   },
   "Header": {
-    "title": "Desenvolvedor FullStack",
     "aboutMe": "Sobre Mim",
     "projects": "Projetos",
     "experience": "Experiência",
@@ -75,27 +70,6 @@
   },
   "AbilitiesClassic": {
     "title": "Habilidades"
-  },
-  "Doom": {
-    "title": "Mas esse portfólio roda Doom? Sim, sim ele roda",
-    "subtitle": "Aperte enter para abrir o menu",
-    "guide": "Controles do Doom",
-    "controls": {
-      "arrow": "Setas",
-      "ctrl": "Ctrl",
-      "space": "Espaço",
-      "alt": "Alt",
-      "shift": "Shift",
-      "esc": "Esc",
-      "enter": "Enter",
-      "move": "Mover",
-      "fire": "Atirar",
-      "interact": "Abrir porta / Interagir",
-      "strafe": "Deslocar lateralmente",
-      "run": "Correr",
-      "menu": "Menu",
-      "select": "Selecionar"
-    }
   },
   "ContactClassic": {
     "title": "Contato"

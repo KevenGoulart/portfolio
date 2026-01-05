@@ -1,46 +1,47 @@
 import { useTranslations } from 'next-intl'
 import BubbleMenu from '../BubbleMenu'
 
-const items = [
-  {
-    label: 'about',
-    href: '#about',
-    ariaLabel: 'Sobre',
-    rotation: -8,
-    hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }
-  },
-  {
-    label: 'projects',
-    href: '#projects',
-    ariaLabel: 'Projects',
-    rotation: 8,
-    hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
-  },
-  {
-    label: 'experience',
-    href: '#experience',
-    ariaLabel: 'Experiência',
-    rotation: 8,
-    hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
-  },
-  {
-    label: 'abilities',
-    href: '#abilities',
-    ariaLabel: 'Habilidades',
-    rotation: 8,
-    hoverStyles: { bgColor: '#F54927', textColor: '#ffffff' }
-  },
-  {
-    label: 'contact',
-    href: '#contact',
-    ariaLabel: 'Contato',
-    rotation: -8,
-    hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
-  }
-]
-
-export default function NewHeader() {
+export default function Header() {
   const t = useTranslations('Header')
+
+  const items = [
+    {
+      label: t('aboutMe'),
+      href: '#about',
+      ariaLabel: t('aboutMe'),
+      rotation: -8,
+      hoverStyles: { bgColor: '#3b82f6', textColor: '#ffffff' }
+    },
+    {
+      label: t('projects'),
+      href: '#projects',
+      ariaLabel: t('projects'),
+      rotation: 8,
+      hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
+    },
+    {
+      label: t('experience'),
+      href: '#experience',
+      ariaLabel: t('experience'),
+      rotation: 8,
+      hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
+    },
+    {
+      label: t('abilities'),
+      href: '#abilities',
+      ariaLabel: t('abilities'),
+      rotation: 8,
+      hoverStyles: { bgColor: '#F54927', textColor: '#ffffff' }
+    },
+    {
+      label: t('contact'),
+      href: '#contact',
+      ariaLabel: t('contact'),
+      rotation: -8,
+      hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
+    }
+  ]
+
   return (
     <div className="absolute top-36 right-[15%] w-[600px]">
       <BubbleMenu

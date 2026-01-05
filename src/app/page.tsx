@@ -2,15 +2,17 @@
 
 import Iridescence from '@/components/Iridescence'
 import LanguageSelector from '@/components/language-selector'
-import NewAbilities from '@/components/sections/abilities'
+import Abilities from '@/components/sections/abilities'
 import NewContact from '@/components/sections/contact'
-import NewExperience from '@/components/sections/experience'
-import NewHeader from '@/components/sections/header'
-import NewPresentation from '@/components/sections/presentation'
-import NewProjects from '@/components/sections/projects'
+import Experience from '@/components/sections/experience'
+import Header from '@/components/sections/header'
+import Presentation from '@/components/sections/presentation'
+import Projects from '@/components/sections/projects'
 import SplashCursor from '@/components/SplashCursor'
+import { useTranslations } from 'next-intl'
 
 export default function NewPage() {
+  const t = useTranslations('Presentation')
   return (
     <div className="relative min-h-screen text-slate-900 overflow-hidden">
       <SplashCursor />
@@ -22,28 +24,21 @@ export default function NewPage() {
           speed={0.3}
         />
       </div>
+
       <div className="relative z-10">
-        <NewHeader />
+        <Header />
         <h1 className="text-6xl pl-[10%] pt-[4%] text-slate-900/85 font-bold tracking-wider">
-          Keven Goulart <br /> FullStack Developer
+          Keven Goulart <br /> {t('greeting')}
           <LanguageSelector />
         </h1>
 
-        <div className="mt-20">
-          <NewPresentation />
-        </div>
+        <Presentation />
 
-        <div className="flex items-center justify-center mt-40">
-          <NewProjects />
-        </div>
+        <Projects />
 
-        <div className="flex items-center justify-center mt-40">
-          <NewExperience />
-        </div>
+        <Experience />
 
-        <div className="flex items-center justify-center mt-28">
-          <NewAbilities />
-        </div>
+        <Abilities />
 
         <NewContact />
       </div>

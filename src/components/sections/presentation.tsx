@@ -2,17 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import ShapeBlur from '../ShapeBlur'
+import { useTranslations } from 'next-intl'
 
-export default function NewPresentation() {
+export default function Presentation() {
+  const t = useTranslations('Presentation')
+
   return (
-    <div className="flex items-center justify-center w-full gap-36 pr-[5%]">
+    <div className="flex items-center justify-center w-full gap-36 pr-[5%] mt-12">
       <div className="w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85">
-          Olá! Meu nome é Keven Goulart, trabalho como desenvolvedor
-          especializado em TypeScript, Node.js, React, Next.js e Nest. Tenho
-          experiência na construção de aplicações full-stack, atuando tanto no
-          front-end quanto no back-end, com foco em soluções escaláveis e bem
-          estruturadas e possuo inglês avançado.
+          {t('description')}
         </h2>
         <div className="flex items-center justify-center gap-4 mt-4">
           <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
