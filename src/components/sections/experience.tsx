@@ -3,11 +3,11 @@ import { useTranslations } from 'next-intl'
 export default function Experience() {
   const t = useTranslations('Experience')
   return (
-    <div className="flex items-center justify-center mt-20 md:mt-40">
-      <section
-        id="experience"
-        className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6"
-      >
+    <div
+      id="experience"
+      className="flex items-center justify-center mt-20 md:mt-40"
+    >
+      <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
         <h2 className="text-5xl font-bold md:text-7xl text-slate-900/85 self-start tracking-wider md:ml-8">
           {t('title')}
         </h2>
@@ -59,7 +59,7 @@ export default function Experience() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

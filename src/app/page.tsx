@@ -13,6 +13,7 @@ import { useTranslations } from 'next-intl'
 
 export default function NewPage() {
   const t = useTranslations('Presentation')
+
   return (
     <div className="relative min-h-screen text-slate-900 overflow-hidden">
       <SplashCursor />

@@ -104,7 +104,8 @@
     --chart-5: 340 75% 55%;
   }
   .theme {
-    --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
+    --animate-background-position-spin: background-position-spin 3000ms infinite
+      alternate;
   }
 }
 
@@ -119,11 +120,11 @@
 
 @theme inline {
   @keyframes background-position-spin {
-  0% {
-    background-position: top center;
+    0% {
+      background-position: top center;
     }
-  100% {
-    background-position: bottom center;
+    100% {
+      background-position: bottom center;
     }
   }
 }

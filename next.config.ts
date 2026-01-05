@@ -6,10 +6,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         hostname: 'i.scdn.co',
-        protocol: 'https',
-      },
-    ],
-  },
+        protocol: 'https'
+      }
+    ]
+  }
 }
 
 const withNextIntl = createNextIntlPlugin()

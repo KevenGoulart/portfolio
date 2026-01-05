@@ -12,7 +12,6 @@ import prettierConfig from 'eslint-config-prettier'
 import pluginQuery from '@tanstack/eslint-plugin-query'
 
 /**
- * A shared ESLint configuration for the repository.
  *
  * @type {import("eslint").Linter.Config}
  * */
@@ -68,7 +67,6 @@ export default defineConfig([
     settings: { react: { version: 'detect' } },
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
-      // React scope no longer necessary with new JSX transform.
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react/jsx-handler-names': 'off',
