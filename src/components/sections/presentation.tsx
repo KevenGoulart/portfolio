@@ -10,7 +10,7 @@ export default function Presentation() {
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-10"
+      className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-6"
     >
       <div className="max-sm:mx-6 md:w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85 max-sm:text-center">
@@ -40,7 +40,7 @@ export default function Presentation() {
         </div>
       </div>
 
-      <div className="relative size-[530px] flex items-center justify-center max-sm:hidden">
+      <div className="relative size-[530px] flex items-center justify-center max-sm:hidden mb-10">
         <div className="absolute inset-0 scale-110 pointer-events-none z-0">
           <ShapeBlur
             variation={0}

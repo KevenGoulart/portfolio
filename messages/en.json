@@ -24,16 +24,16 @@
   },
   "ProfessionalProjects": {
     "title": "Professional Projects",
-    "upslimDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
-    "upslimTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
-    "draVictoriaDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
-    "draVictoriaTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
-    "goldCicloDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
-    "goldCicloTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
-    "maisVitDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
-    "maisVitTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
-    "metibalaDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
-    "metibalaTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc."
+    "upslimDescription": "Web platform developed to manage user access to a subscription-based service focused on a weight loss method. The system provides secure authentication, subscription management, exclusive content, and a smooth experience for returning users.",
+    "upslimTech": "Technologies used: Next.js, NestJS, Tailwind CSS, TypeScript, PostgreSQL, Prisma, Redis, Docker, etc.",
+    "draVictoriaDescription": "Institutional landing page developed to present the doctor, her services, and areas of expertise, with a focus on credibility, clear information, and converting visitors into qualified leads.",
+    "draVictoriaTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
+    "goldCicloDescription": "Landing page developed to promote a vitamin supplement, focusing on clear presentation of the product, its differentiators, and composition, prioritizing credibility, usability, and conversion.",
+    "goldCicloTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
+    "maisVitDescription": "Landing page developed for the institutional presentation of a vitamin supplement brand, focusing on strengthening brand positioning.",
+    "maisVitTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
+    "metibalaDescription": "Landing page developed to promote a vitamin supplement, focusing on clear presentation of the product, its differentiators, and composition, prioritizing credibility, usability, and conversion.",
+    "metibalaTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker."
   },
   "Experience": {
     "title": "Work Experience and Studies",
