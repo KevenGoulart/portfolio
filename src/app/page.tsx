@@ -27,9 +27,11 @@ export default function NewPage() {
 
       <div className="relative z-10">
         <Header />
-        <h1 className="text-5xl md:text-6xl pl-[10%] pt-[4%] text-slate-900/85 font-bold tracking-wider">
+        <h1 className="text-6xl md:text-6xl md:pl-[10%] pt-[4%] text-slate-900/85 font-bold md:tracking-wider max-sm:text-center">
           Keven Goulart <br /> {t('greeting')}
-          <LanguageSelector />
+          <div className="max-sm:pl-[40%] max-sm:pt-4">
+            <LanguageSelector />
+          </div>
         </h1>
 
         <Presentation />

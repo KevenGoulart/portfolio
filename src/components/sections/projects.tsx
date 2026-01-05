@@ -50,11 +50,14 @@ export default function Projects() {
     }
   ]
   return (
-    <div className="flex items-center justify-center mt-20">
-      <div id="projects">
-        <h1 className="text-slate-900/85 text-7xl font-bold tracking-wider mb-28">
+    <div className="flex items-center justify-center mt-8 md:mt-20">
+      <div
+        id="projects"
+        className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6"
+      >
+        <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-28">
           {t('title')}
-        </h1>
+        </h2>
         <BounceCards
           className="custom-bounceCards"
           cards={cards}
