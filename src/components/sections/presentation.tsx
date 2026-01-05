@@ -8,12 +8,12 @@ export default function Presentation() {
   const t = useTranslations('Presentation')
 
   return (
-    <div className="flex items-center justify-center w-full gap-36 pr-[5%] mt-12">
-      <div className="w-[40%]">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-12">
+      <div className="max-sm:mx-4 md:w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85">
           {t('description')}
         </h2>
-        <div className="flex items-center justify-center gap-4 mt-4">
+        <div className="flex items-center justify-center gap-4 mt-6">
           <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
             <Link
               href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"

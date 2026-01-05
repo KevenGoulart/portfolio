@@ -4,7 +4,7 @@ import { FadeDownSection } from '../fade-down'
 import { useTranslations } from 'next-intl'
 
 export default function NewContact() {
-  const t = useTranslations('ContactClassic')
+  const t = useTranslations('Contact')
 
   return (
     <footer id="contact">

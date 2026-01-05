@@ -19,14 +19,14 @@ import {
 } from 'react-icons/si'
 
 export default function Abilities() {
-  const t = useTranslations('AbilitiesClassic')
+  const t = useTranslations('Abilities')
   return (
-    <div className="flex items-center justify-center mt-28">
+    <div className="flex items-center justify-center mt-20">
       <section
         id="abilities"
         className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-auto mt-8 md:mt-28 mb-20"
       >
-        <h2 className="text-7xl font-bold text-slate-900/85 self-start tracking-wider ml-8">
+        <h2 className="text-6xl font-bold text-slate-900/85 self-start tracking-wider md:ml-8">
           {t('title')}
         </h2>
 

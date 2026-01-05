@@ -10,7 +10,7 @@ const transformStyles = [
 ]
 
 export default function Projects() {
-  const t = useTranslations('ProjectsClassic')
+  const t = useTranslations('Projects')
 
   const cards = [
     {

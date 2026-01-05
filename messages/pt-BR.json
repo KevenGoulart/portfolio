@@ -10,29 +10,11 @@
     "presentation": "Olá! Estou em busca de uma oportunidade para crescer como profissional. Trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest.js entre outras tecnologias.",
     "experience": "Tenho experiência no desenvolvimento de aplicações completas, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas."
   },
-  "Experience": {
-    "title": "Experiência profissional",
-    "secondPartTitle": "e estudos",
-    "academicTitle": "Histórico acadêmico:",
-    "degree": "Bacharelado em Sistemas de Informação",
-    "university": "Universidade Vale do Rio Doce Univale – Governador Valadares",
-    "workTitle": "Experiência profissional:",
-    "thirdExperience": "Desenvolvedor FullStack – Bttis – Governador Valadares (2025-04 – atual)",
-    "secondExperience": "Analista de Sistemas – X3 Contabilidade – Governador Valadares (2023-08 – 2025-04)",
-    "firstExperience": "Desenvolvedor Estagiário – Ols Tecnologia – Governador Valadares (2023-01 – 2023-03)"
-  },
-  "Projects": {
-    "title": "Projetos",
-    "biggestProject": "Meu maior projeto até agora, trata-se de uma rede social baseada na avaliação de diferentes tipos de obras e no compartilhamento com amigos.",
-    "otherProjects": "Você pode conferir outros projetos no meu GitHub",
-    "otherProjectsInParts1": "Você pode conferir outros projetos",
-    "otherProjectsInParts2": "no meu GitHub"
-  },
   "Presentation": {
     "greeting": "Desenvolvedor FullStack",
     "description": "Olá! Meu nome é Kéven Goulart Medeiros, trabalho como desenvolvedor especializado em TypeScript, Node.js, React, Next.js e Nest. Tenho experiência na construção de aplicações full-stack, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas."
   },
-  "ProjectsClassic": {
+  "Projects": {
     "title": "Projetos",
     "description": "Pode levar algum tempo para os projetos online carregarem, pois são hospedados em serviços gratuitos.",
     "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
@@ -51,7 +33,7 @@
     "otherProjectsDescription": "Você pode conferir meus outros projetos no meu perfil do GitHub",
     "otherProjectsTech": ""
   },
-  "ExperienceClassic": {
+  "Experience": {
     "title": "Experiência Profissional e Estudos",
     "workTitle": "Experiência profissional :",
     "academicTitle": "Histórico acadêmico :",
@@ -62,16 +44,16 @@
     "current": "atual"
   },
   "Header": {
-    "aboutMe": "Sobre Mim",
-    "projects": "Projetos",
-    "experience": "Experiência",
-    "abilities": "Habilidades",
-    "contact": "Contato"
+    "aboutMe": "sobre mim",
+    "projects": "projetos",
+    "experience": "experiência",
+    "abilities": "habilidades",
+    "contact": "contato"
   },
-  "AbilitiesClassic": {
+  "Abilities": {
     "title": "Habilidades"
   },
-  "ContactClassic": {
+  "Contact": {
     "title": "Contato"
   }
 }
