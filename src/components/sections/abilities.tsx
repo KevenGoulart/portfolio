@@ -22,7 +22,7 @@ export default function Abilities() {
   const t = useTranslations('Abilities')
 
   return (
-    <div id="abilities" className="flex items-center justify-center mt-20">
+    <div id="abilities" className="flex items-center justify-center mt-12">
       <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-auto mt-8 md:mt-28 mb-20">
         <h2 className="text-6xl font-bold text-slate-900/85 self-start tracking-wider md:ml-8">
           {t('title')}
