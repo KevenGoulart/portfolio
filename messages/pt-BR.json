@@ -4,7 +4,7 @@
     "description": "Olá! Meu nome é Kéven Goulart, trabalho como desenvolvedor especializado em TypeScript, Node, React, NextJS e NestJS. Tenho experiência na construção de aplicações full-stack, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas, e possuo proficiência avançada em inglês."
   },
   "Projects": {
-    "title": "Projetos",
+    "title": "Projetos Autorais",
     "description": "Pode levar algum tempo para os projetos online carregarem, pois são hospedados em serviços gratuitos.",
     "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
     "geeklogTech": "Tecnologias utilizadas: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
@@ -21,6 +21,19 @@
     "otherProjects": "Outros Projetos",
     "otherProjectsDescription": "Você pode conferir meus outros projetos no meu perfil do GitHub",
     "otherProjectsTech": ""
+  },
+  "ProfessionalProjects": {
+    "title": "Projetos Profissionais",
+    "upslimDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
+    "upslimTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
+    "draVictoriaDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
+    "draVictoriaTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
+    "goldCicloDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
+    "goldCicloTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
+    "maisVitDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
+    "maisVitTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc.",
+    "metibalaDescription": "A social platform I developed for reviewing and sharing different types of media — such as movies, tv shows, books, games and others — with friends",
+    "metibalaTech": "Technologies used: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker, etc."
   },
   "Experience": {
     "title": "Experiência Profissional e Estudos",

@@ -7,6 +7,7 @@ import NewContact from '@/components/sections/contact'
 import Experience from '@/components/sections/experience'
 import Header from '@/components/sections/header'
 import Presentation from '@/components/sections/presentation'
+import ProfessionalProjects from '@/components/sections/professional-projects'
 import Projects from '@/components/sections/projects'
 import SplashCursor from '@/components/SplashCursor'
 import { useTranslations } from 'next-intl'
@@ -38,6 +39,8 @@ export default function NewPage() {
         <Presentation />
 
         <Projects />
+
+        <ProfessionalProjects />
 
         <Experience />
 
