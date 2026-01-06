@@ -11,19 +11,19 @@ type BlobProps = {
 export default function BlobComponentShinji(): JSX.Element {
   return (
     <div className="absolute inset-0 w-full h-full">
-      <Blob
+      <BlobShinji
         color="#000000"
         style={{ opacity: 0.2, position: 'absolute', top: 0, left: 0 }}
       />
-      <Blob
+      <BlobShinji
         color="#000000"
         style={{ opacity: 0.4, position: 'absolute', top: 0, left: 0 }}
       />
-      <Blob
+      <BlobShinji
         color="#000000"
         style={{ opacity: 0.5, position: 'absolute', top: 0, left: 0 }}
       />
-      <Blob
+      <BlobShinji
         image
         style={{
           width: '100%',
@@ -35,26 +35,25 @@ export default function BlobComponentShinji(): JSX.Element {
   )
 }
 
-function getRandomPath(): string {
+function getRandomPathShinji(): string {
   return blobshape({
     growth: 20,
     edges: 40
   }).path
 }
 
-function Blob({ color, image, style }: BlobProps): JSX.Element {
+function BlobShinji({ color, image, style }: BlobProps): JSX.Element {
   const [flip, setFlip] = useState(false)
+  const [clipId] = useState(
+    () => `blob-clip-shinji-${Math.random().toString(36).slice(2)}`
+  )
 
   const { path } = useSpring<{ path: string }>({
-    to: { path: getRandomPath() },
-    from: { path: getRandomPath() },
+    to: { path: getRandomPathShinji() },
+    from: { path: getRandomPathShinji() },
     reverse: flip,
-    config: {
-      duration: image ? 9000 : 6000
-    },
-    onRest: () => {
-      setFlip((prev) => !prev)
-    }
+    config: { duration: image ? 9000 : 6000 },
+    onRest: () => setFlip((prev) => !prev)
   })
 
   return (
@@ -63,18 +62,17 @@ function Blob({ color, image, style }: BlobProps): JSX.Element {
       style={{ width: '100%', height: '100%', ...style }}
     >
       {!image && <animated.path fill={color} d={path} />}
-
       {image && (
         <>
           <defs>
-            <clipPath id="blob-clip">
+            <clipPath id={clipId}>
               <animated.path d={path} />
             </clipPath>
           </defs>
           <image
             width="100%"
             height="100%"
-            clipPath="url(#blob-clip)"
+            clipPath={`url(#${clipId})`}
             href="/shinji.gif"
             preserveAspectRatio="xMidYMid slice"
           />

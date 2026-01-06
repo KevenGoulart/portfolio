@@ -44,6 +44,9 @@ function getRandomPath(): string {
 
 function Blob({ color, image, style }: BlobProps): JSX.Element {
   const [flip, setFlip] = useState(false)
+  const [clipId] = useState(
+    () => `blob-clip-${Math.random().toString(36).slice(2)}`
+  )
 
   const { path } = useSpring<{ path: string }>({
     to: { path: getRandomPath() },
@@ -52,9 +55,7 @@ function Blob({ color, image, style }: BlobProps): JSX.Element {
     config: {
       duration: image ? 9000 : 6000
     },
-    onRest: () => {
-      setFlip((prev) => !prev)
-    }
+    onRest: () => setFlip((prev) => !prev)
   })
 
   return (
@@ -67,14 +68,14 @@ function Blob({ color, image, style }: BlobProps): JSX.Element {
       {image && (
         <>
           <defs>
-            <clipPath id="blob-clip">
+            <clipPath id={clipId}>
               <animated.path d={path} />
             </clipPath>
           </defs>
           <image
             width="100%"
             height="100%"
-            clipPath="url(#blob-clip)"
+            clipPath={`url(#${clipId})`}
             href="/rei.gif"
             preserveAspectRatio="xMidYMid slice"
           />
