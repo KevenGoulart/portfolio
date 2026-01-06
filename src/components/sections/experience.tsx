@@ -16,7 +16,7 @@ export default function Experience() {
           <div className="w-full">
             <h3 className="text-5xl mb-4">{t('workTitle')}</h3>
             <ul className="flex flex-col gap-4 tracking-wider text-xl">
-              <li className="border-l-8 border-purple-700 pl-4">
+              <li className="border-l-8 border-purple-500 pl-4">
                 <p className="font-medium tracking-widest text-2xl">
                   {t('job1')}
                 </p>
@@ -25,7 +25,7 @@ export default function Experience() {
                   2025-04 – {t('current')}
                 </p>
               </li>
-              <li className="border-l-8 border-purple-700 pl-4">
+              <li className="border-l-8 border-purple-500 pl-4">
                 <p className="font-medium tracking-widest text-2xl">
                   {t('job2')}
                 </p>
@@ -34,7 +34,7 @@ export default function Experience() {
                 </p>
                 <p className="text-slate-800 text-sm">2023-08 – 2025-04</p>
               </li>
-              <li className="border-l-8 border-purple-700 pl-4">
+              <li className="border-l-8 border-purple-500 pl-4">
                 <p className="font-medium tracking-widest text-2xl">
                   {t('job3')}
                 </p>
@@ -48,7 +48,7 @@ export default function Experience() {
 
           <div className="w-full">
             <h3 className="text-5xl mb-4">{t('academicTitle')}</h3>
-            <div className="border-l-8 border-purple-700 pl-4 tracking-wider text-xl">
+            <div className="border-l-8 border-purple-500 pl-4 tracking-wider text-xl">
               <p className="font-medium tracking-widest text-2xl">
                 {t('degree')}
               </p>

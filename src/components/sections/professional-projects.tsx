@@ -55,7 +55,7 @@ export default function ProfessionalProjects() {
       id="projects"
       className="flex items-center justify-center mt-8 md:mt-28"
     >
-      <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
+      <div className="flex flex-col items-center gap-14 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
         <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-24 max-sm:mb-4 max-sm:pl-[5%]">
           {t('title')}
         </h2>

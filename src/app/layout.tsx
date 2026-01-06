@@ -21,7 +21,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="dark scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="pt-BR"
+      className="dark scroll-smooth no-scrollbar overflow-auto"
+      suppressHydrationWarning
+    >
       <body className={`${evaFont.className}`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

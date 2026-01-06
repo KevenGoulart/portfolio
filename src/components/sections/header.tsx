@@ -43,7 +43,7 @@ export default function Header() {
   ]
 
   return (
-    <div className="absolute top-36 right-[15%] w-[600px] max-sm:hidden">
+    <div className="absolute top-36 right-[10%] w-[600px] max-sm:hidden">
       <BubbleMenu
         items={items}
         menuBg="#ffffff"

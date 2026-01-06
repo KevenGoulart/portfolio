@@ -10,7 +10,7 @@ export default function Presentation() {
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row items-center justify-center w-full gap-36 pr-[5%] mt-6"
+      className="flex flex-col md:flex-row items-center justify-center w-full gap-28 mt-6 pr-[3%]"
     >
       <div className="max-sm:mx-6 md:w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85 max-sm:text-center">
