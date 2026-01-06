@@ -1,5 +1,6 @@
 import BounceCards from '@/components/BounceCards'
 import { useTranslations } from 'next-intl'
+import { ProjectCards } from '../project-cards'
 
 const transformStyles = [
   'rotate(5deg) translate(-250px)',
@@ -52,23 +53,28 @@ export default function ProfessionalProjects() {
   return (
     <div
       id="projects"
-      className="flex items-center justify-center mt-8 md:mt-32"
+      className="flex items-center justify-center mt-8 md:mt-28"
     >
       <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
-        <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-28">
+        <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-24 max-sm:mb-4 max-sm:pl-[5%]">
           {t('title')}
         </h2>
-        <BounceCards
-          className="custom-bounceCards"
-          cards={cards}
-          containerWidth={1200}
-          containerHeight={300}
-          animationDelay={1}
-          animationStagger={0.8}
-          easeType="elastic.out(1, 0.5)"
-          transformStyles={transformStyles}
-          enableHover={true}
-        />
+        <div className="max-sm:hidden">
+          <BounceCards
+            className="custom-bounceCards"
+            cards={cards}
+            containerWidth={1200}
+            containerHeight={300}
+            animationDelay={1}
+            animationStagger={0.8}
+            easeType="elastic.out(1, 0.5)"
+            transformStyles={transformStyles}
+            enableHover={true}
+          />
+        </div>
+        <div className="md:hidden">
+          <ProjectCards cards={cards} />
+        </div>
       </div>
     </div>
   )

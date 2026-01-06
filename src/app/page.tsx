@@ -12,7 +12,7 @@ import Projects from '@/components/sections/projects'
 import SplashCursor from '@/components/SplashCursor'
 import { useTranslations } from 'next-intl'
 
-export default function NewPage() {
+export default function Page() {
   const t = useTranslations('Presentation')
 
   return (
