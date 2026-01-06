@@ -1,8 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
-import ShapeBlur from '../ShapeBlur'
 import { useTranslations } from 'next-intl'
+import BlobComponentShinji from '../Blob-shinji'
 
 export default function Presentation() {
   const t = useTranslations('Presentation')
@@ -10,7 +9,7 @@ export default function Presentation() {
   return (
     <div
       id="about"
-      className="flex flex-col md:flex-row items-center justify-center w-full gap-28 mt-6 pr-[3%]"
+      className="flex flex-col md:flex-row items-center justify-center w-full gap-28 pr-[3%]"
     >
       <div className="max-sm:mx-6 md:w-[40%]">
         <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85 max-sm:text-center">
@@ -40,30 +39,8 @@ export default function Presentation() {
         </div>
       </div>
 
-      <div className="relative size-[530px] flex items-center justify-center max-sm:hidden mb-10">
-        <div className="absolute inset-0 scale-110 pointer-events-none z-0">
-          <ShapeBlur
-            variation={0}
-            pixelRatioProp={
-              typeof window !== 'undefined' ? window.devicePixelRatio : 1
-            }
-            shapeSize={1.47}
-            roundness={1.5}
-            borderSize={0.05}
-            circleSize={0.4}
-            circleEdge={3}
-          />
-        </div>
-
-        <div className="relative size-[400px] overflow-hidden z-10 rounded-full">
-          <Image
-            src="/shinji.gif"
-            alt="shinji"
-            fill
-            className="object-cover rounded-full"
-            unoptimized
-          />
-        </div>
+      <div className="relative size-[600px] flex items-center justify-center max-sm:hidden mb-16">
+        <BlobComponentShinji />
       </div>
     </div>
   )
