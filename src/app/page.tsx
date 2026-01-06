@@ -3,7 +3,7 @@
 import Iridescence from '@/components/Iridescence'
 import LanguageSelector from '@/components/language-selector'
 import Abilities from '@/components/sections/abilities'
-import NewContact from '@/components/sections/contact'
+import Contact from '@/components/sections/contact'
 import Experience from '@/components/sections/experience'
 import Header from '@/components/sections/header'
 import Presentation from '@/components/sections/presentation'
@@ -46,7 +46,7 @@ export default function Page() {
 
         <Abilities />
 
-        <NewContact />
+        <Contact />
       </div>
     </div>
   )

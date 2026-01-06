@@ -3,7 +3,7 @@ import { SiGithub, SiLinkedin } from 'react-icons/si'
 import { FadeDownSection } from '../fade-down'
 import { useTranslations } from 'next-intl'
 
-export default function NewContact() {
+export default function Contact() {
   const t = useTranslations('Contact')
 
   return (
