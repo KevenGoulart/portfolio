@@ -2,14 +2,6 @@ import BounceCards from '@/components/BounceCards'
 import { useTranslations } from 'next-intl'
 import { ProjectCards } from '../project-cards'
 
-const transformStyles = [
-  'rotate(5deg) translate(-250px)',
-  'rotate(0deg) translate(-150px)',
-  'rotate(-5deg)',
-  'rotate(5deg) translate(150px)',
-  'rotate(-5deg) translate(250px)'
-]
-
 export default function ProfessionalProjects() {
   const t = useTranslations('ProfessionalProjects')
 
@@ -68,7 +60,6 @@ export default function ProfessionalProjects() {
             animationDelay={1}
             animationStagger={0.8}
             easeType="elastic.out(1, 0.5)"
-            transformStyles={transformStyles}
             enableHover={true}
           />
         </div>

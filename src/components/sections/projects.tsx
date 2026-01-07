@@ -2,14 +2,6 @@ import BounceCards from '@/components/BounceCards'
 import { useTranslations } from 'next-intl'
 import { ProjectCards } from '../project-cards'
 
-const transformStyles = [
-  'rotate(5deg) translate(-250px)',
-  'rotate(0deg) translate(-150px)',
-  'rotate(-5deg)',
-  'rotate(5deg) translate(150px)',
-  'rotate(-5deg) translate(250px)'
-]
-
 export default function Projects() {
   const t = useTranslations('Projects')
 
@@ -29,6 +21,13 @@ export default function Projects() {
       link: 'https://pokeguesser-beryl.vercel.app/'
     },
     {
+      image: '/geeklog.png',
+      title: 'GeekLog',
+      description: t('geeklogDescription'),
+      tech: t('geeklogTech'),
+      link: 'https://geeklog.app/'
+    },
+    {
       image: '/whatsgood.png',
       title: 'Whats Good',
       description: t('whatsGoodDescription'),
@@ -41,13 +40,6 @@ export default function Projects() {
       description: t('otherProjectsDescription'),
       tech: t('otherProjectsTech'),
       link: 'https://github.com/KevenGoulart?tab=repositories'
-    },
-    {
-      image: '/geeklog.png',
-      title: 'GeekLog',
-      description: t('geeklogDescription'),
-      tech: t('geeklogTech'),
-      link: 'https://geeklog.app/'
     }
   ]
   return (
@@ -65,7 +57,6 @@ export default function Projects() {
             animationDelay={1}
             animationStagger={0.8}
             easeType="elastic.out(1, 0.5)"
-            transformStyles={transformStyles}
             enableHover={true}
           />
         </div>

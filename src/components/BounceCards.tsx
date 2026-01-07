@@ -35,11 +35,11 @@ export default function BounceCards({
   animationStagger = 0.06,
   easeType = 'elastic.out(1, 0.8)',
   transformStyles = [
-    'rotate(10deg) translate(-170px)',
-    'rotate(5deg) translate(-85px)',
-    'rotate(-3deg)',
-    'rotate(-10deg) translate(85px)',
-    'rotate(2deg) translate(170px)'
+    'rotate(5deg) translate(-400px)',
+    'rotate(0deg) translate(-250px)',
+    'rotate(-5deg)',
+    'rotate(5deg) translate(250px)',
+    'rotate(-5deg) translate(400px)'
   ],
   enableHover = false
 }: BounceCardsProps) {
@@ -170,7 +170,7 @@ export default function BounceCards({
                 transition-opacity duration-300 text-white
               "
             >
-              <p className="text-3xl font-semibold drop-shadow-lg text-center">
+              <p className="text-5xl font-semibold drop-shadow-lg text-center">
                 {card.title}
               </p>
 
