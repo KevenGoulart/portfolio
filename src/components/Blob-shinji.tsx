@@ -11,14 +11,14 @@ type BlobProps = {
 export default function BlobComponentShinji(): JSX.Element {
   return (
     <div className="absolute inset-0 w-full h-full">
-      <BlobShinji
+      {/* <BlobShinji
         color="#000000"
         style={{ opacity: 0.2, position: 'absolute', top: 0, left: 0 }}
       />
       <BlobShinji
         color="#000000"
         style={{ opacity: 0.4, position: 'absolute', top: 0, left: 0 }}
-      />
+      /> */}
       <BlobShinji
         color="#000000"
         style={{ opacity: 0.5, position: 'absolute', top: 0, left: 0 }}
