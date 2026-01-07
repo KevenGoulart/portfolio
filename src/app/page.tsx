@@ -9,7 +9,6 @@ import Header from '@/components/sections/header'
 import Presentation from '@/components/sections/presentation'
 import ProfessionalProjects from '@/components/sections/professional-projects'
 import Projects from '@/components/sections/projects'
-import SplashCursor from '@/components/SplashCursor'
 import { useTranslations } from 'next-intl'
 
 export default function Page() {
@@ -17,7 +16,6 @@ export default function Page() {
 
   return (
     <div className="relative min-h-screen text-slate-900 overflow-hidden">
-      <SplashCursor />
       <div className="absolute inset-0 z-0">
         <Iridescence
           color={[1, 1, 1]}

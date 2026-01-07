@@ -28,7 +28,7 @@ export default function Abilities() {
           {t('title')}
         </h2>
 
-        <ul className="grid grid-cols-3 md:grid-cols-4 gap-2 text-2xl">
+        <ul className="grid grid-cols-3 md:grid-cols-4 gap-1 text-2xl">
           <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
             <p className="font-semibold tracking-widest text-gray-900/85">
               TypeScript
@@ -87,7 +87,7 @@ export default function Abilities() {
 
           <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
             <p className="font-semibold tracking-widest text-gray-900/85">
-              PostgreSQL
+              PostgreSql
             </p>
             <SiPostgresql className="size-16 mb-3" />
           </li>

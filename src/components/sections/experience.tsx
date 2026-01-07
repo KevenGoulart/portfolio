@@ -17,7 +17,7 @@ export default function Experience() {
             <h3 className="text-5xl mb-4">{t('workTitle')}</h3>
             <ul className="flex flex-col gap-4 tracking-wider text-xl">
               <li className="border-l-8 border-purple-500 pl-4">
-                <p className="font-medium tracking-widest text-2xl">
+                <p className="font-medium tracking-widest text-3xl">
                   {t('job1')}
                 </p>
                 <p className="text-slate-900">Bttis – Governador Valadares</p>
@@ -26,7 +26,7 @@ export default function Experience() {
                 </p>
               </li>
               <li className="border-l-8 border-purple-500 pl-4">
-                <p className="font-medium tracking-widest text-2xl">
+                <p className="font-medium tracking-widest text-3xl">
                   {t('job2')}
                 </p>
                 <p className="text-slate-900">
@@ -35,7 +35,7 @@ export default function Experience() {
                 <p className="text-slate-800 text-sm">2023-08 – 2025-04</p>
               </li>
               <li className="border-l-8 border-purple-500 pl-4">
-                <p className="font-medium tracking-widest text-2xl">
+                <p className="font-medium tracking-widest text-3xl">
                   {t('job3')}
                 </p>
                 <p className="text-slate-900">
