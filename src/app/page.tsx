@@ -1,6 +1,5 @@
 'use client'
 
-import BlobComponent from '@/components/Blob'
 import Iridescence from '@/components/Iridescence'
 import LanguageSelector from '@/components/language-selector'
 import Abilities from '@/components/sections/abilities'
