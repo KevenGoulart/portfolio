@@ -13,9 +13,13 @@ import {
   SiNodedotjs,
   SiPostgresql,
   SiPostman,
+  SiPrisma,
   SiReact,
+  SiReactquery,
   SiTailwindcss,
-  SiTypescript
+  SiTypescript,
+  SiVite,
+  SiVitest
 } from 'react-icons/si'
 
 export default function Abilities() {
@@ -139,6 +143,34 @@ export default function Abilities() {
               BitBucket
             </p>
             <SiBitbucket className="size-16 mb-3" />
+          </li>
+
+          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+            <p className="font-semibold tracking-widest text-gray-900/85">
+              Vite
+            </p>
+            <SiVite className="size-16 mb-3" />
+          </li>
+
+          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+            <p className="font-semibold tracking-widest text-gray-900/85">
+              Vitest
+            </p>
+            <SiVitest className="size-16 mb-3" />
+          </li>
+
+          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+            <p className="font-semibold tracking-widest text-gray-900/85">
+              React Query
+            </p>
+            <SiReactquery className="size-16 mb-3" />
+          </li>
+
+          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
+            <p className="font-semibold tracking-widest text-gray-900/85">
+              Prisma
+            </p>
+            <SiPrisma className="size-16 mb-3" />
           </li>
         </ul>
       </div>
