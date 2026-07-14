@@ -32,7 +32,7 @@ export default function Contact() {
                 className="flex items-center gap-4"
                 style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.7)' }}
               >
-                <FaPhoneAlt className="size-6" /> Phone: +55 (33) 9 9808-8464
+                <FaPhoneAlt className="size-6" /> Phone: +55 (33) 9 9806-2123
               </li>
               <li
                 className="flex items-center gap-4"
