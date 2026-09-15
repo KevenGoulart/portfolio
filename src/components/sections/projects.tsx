@@ -28,11 +28,11 @@ export default function Projects() {
       link: 'https://geeklog.app/'
     },
     {
-      image: '/whatsgood.png',
-      title: 'Whats Good',
-      description: t('whatsGoodDescription'),
-      tech: t('whatsGoodTech'),
-      link: 'https://whats-good-eight.vercel.app/'
+      image: '/garimpada.png',
+      title: 'Garimpada',
+      description: t('garimpadaDescription'),
+      tech: t('garimpadaTech'),
+      link: 'https://garimpada-tau.vercel.app/'
     },
     {
       image: '/github.png',
@@ -57,7 +57,7 @@ export default function Projects() {
             animationDelay={1}
             animationStagger={0.8}
             easeType="elastic.out(1, 0.5)"
-            enableHover={true}
+            enableHover
           />
         </div>
         <div className="md:hidden">

@@ -13,8 +13,8 @@
     "pokeGuesserTech": "Technologies used: NestJS, TailwindCSS, Typescript, Prisma, Docker, Postgres, NestJS",
     "typeBattleDescription": "Online game to compete in real time with another person to see who types the displayed words the fastest — the first to complete all 10 words wins.",
     "typeBattleTech": "Technologies used: NextJS, TypeScript, TailwindCSS, WebSocket.",
-    "whatsGoodDescription": "A web application that shows the highest rated movies and TV shows of some of the most popular streaming services.",
-    "whatsGoodTech": "Technologies used: NextJS, NestJS, TailwindCSS, TypeScript.",
+    "garimpadaDescription": "Garimpada is a Next.js web app that searches OLX listings server-side, scraping and returning ad results through a custom API route with spoofed browser headers to bypass restrictions.",
+    "garimpadaTech": "Technologies used: Next.js, React, TypeScript, Tailwind CSS, Node.js API routes, curl (bundled binary for HTTP requests).",
     "otherProjects": "Other Projects",
     "otherProjectsDescription": "You can check out my other projects on my GitHub profile.",
     "otherProjectsTech": ""
