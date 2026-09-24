@@ -14,11 +14,11 @@ export default function Projects() {
       link: 'https://typebattle-one.vercel.app/'
     },
     {
-      image: '/pokeguesser.png',
-      title: 'PokeGuesser',
-      description: t('pokeGuesserDescription'),
-      tech: t('pokeGuesserTech'),
-      link: 'https://pokeguesser-beryl.vercel.app/'
+      image: '/nft.png',
+      title: 'Nft Marketplace',
+      description: t('nftMarketplaceDescription'),
+      tech: t('nftMarketplaceTech'),
+      link: 'https://nft-marketplace-theta-bay-72.vercel.app/?sort=recent&page=1'
     },
     {
       image: '/geeklog.png',
