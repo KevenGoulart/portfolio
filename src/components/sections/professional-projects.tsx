@@ -1,11 +1,11 @@
-import BounceCards from '@/components/BounceCards'
 import { useTranslations } from 'next-intl'
-import { ProjectCards } from '../project-cards'
+import { ProjectCard, type ProjectCardItem } from '../project-cards'
+import { Signpost } from '../journey/pixel'
 
 export default function ProfessionalProjects() {
   const t = useTranslations('ProfessionalProjects')
 
-  const cards = [
+  const cards: ProjectCardItem[] = [
     {
       image: '/dravictoria.png',
       title: 'Dra. Victoria',
@@ -21,18 +21,18 @@ export default function ProfessionalProjects() {
       link: 'https://goldciclo.com/'
     },
     {
-      image: '/maisvit.png',
+      image: '/maisvit-shopify.png',
       title: 'Mais Vit',
       description: t('maisVitDescription'),
       tech: t('maisVitTech'),
       link: 'https://conheca.maisvit.com/'
     },
     {
-      image: '/metibala.png',
-      title: 'Metibala',
+      image: '/libid365.png',
+      title: 'Libid365',
       description: t('metibalaDescription'),
       tech: t('metibalaTech'),
-      link: 'https://www.metibala.com/'
+      link: 'https://www.libid365.com/'
     },
     {
       image: '/upslim.png',
@@ -42,31 +42,17 @@ export default function ProfessionalProjects() {
       link: 'https://upslim.com.br/'
     }
   ]
+
   return (
-    <div
-      id="projects"
-      className="flex items-center justify-center mt-8 md:mt-28"
+    <section
+      id="professional-projects"
+      aria-labelledby="professional-projects-title"
+      className="journey-section"
     >
-      <div className="flex flex-col items-center gap-14 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
-        <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-24 max-sm:mb-4 max-sm:pl-[5%]">
-          {t('title')}
-        </h2>
-        <div className="max-sm:hidden">
-          <BounceCards
-            className="custom-bounceCards"
-            cards={cards}
-            containerWidth={1200}
-            containerHeight={300}
-            animationDelay={1}
-            animationStagger={0.8}
-            easeType="elastic.out(1, 0.5)"
-            enableHover={true}
-          />
-        </div>
-        <div className="md:hidden">
-          <ProjectCards cards={cards} />
-        </div>
-      </div>
-    </div>
+      <Signpost id="professional-projects-title">{t('title')}</Signpost>
+      {cards.map((card) => (
+        <ProjectCard key={card.title} card={card} />
+      ))}
+    </section>
   )
 }

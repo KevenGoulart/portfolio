@@ -1,53 +1,57 @@
-import Link from 'next/link'
 import { FaEnvelope, FaFilePdf, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { useTranslations } from 'next-intl'
-import BlobComponentShinji from '../Blob-shinji'
+import { Panel, PixelLink, Signpost } from '../journey/pixel'
 
 export default function Presentation() {
   const t = useTranslations('Presentation')
+  const tHeader = useTranslations('Header')
+
+  const links = [
+    {
+      href: 'https://www.linkedin.com/in/keven-goulart-890248215/',
+      label: 'LinkedIn',
+      icon: <FaLinkedin className="size-4" />
+    },
+    {
+      href: 'https://github.com/KevenGoulart',
+      label: 'GitHub',
+      icon: <FaGithub className="size-4" />
+    },
+    {
+      href: 'mailto:kevengoulartmm@gmail.com',
+      label: 'E-mail',
+      icon: <FaEnvelope className="size-4" />
+    },
+    {
+      href: t('link'),
+      label: t('resume'),
+      icon: <FaFilePdf className="size-4" />
+    }
+  ]
 
   return (
-    <div
+    <section
       id="about"
-      className="flex flex-col md:flex-row items-center justify-center w-full gap-28 pr-[3%]"
+      aria-labelledby="about-title"
+      className="journey-section"
     >
-      <div className="max-sm:mx-6 md:w-[40%]">
-        <h2 className="text-3xl tracking-wide font-semibold text-slate-900/85 max-sm:text-center">
+      <Signpost id="about-title">{tHeader('aboutMe')}</Signpost>
+      <Panel className="w-[min(86vw,560px)]">
+        <p className="font-pixel text-3xl leading-none">Keven Goulart</p>
+        <p className="mt-2 font-pixel text-base uppercase tracking-wider text-[#b33831]">
+          {t('greeting')}
+        </p>
+        <p className="mt-4 text-base leading-relaxed md:text-lg">
           {t('description')}
-        </h2>
-        <div className="flex items-center justify-center gap-6 mt-6">
-          <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
-            <Link
-              href="https://www.linkedin.com/in/k%C3%A9ven-goulart-890248215/"
-              target="_blank"
-            >
-              <FaLinkedin className="size-12 group-hover:text-slate-900/70" />
-            </Link>
-          </div>
-
-          <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
-            <Link href="https://github.com/KevenGoulart" target="_blank">
-              <FaGithub className="size-12 group-hover:text-slate-900/70" />
-            </Link>
-          </div>
-
-          <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
-            <Link href="mailto:kevengoulartmm@gmail.com" target="_blank">
-              <FaEnvelope className="size-12 group-hover:text-slate-900/70" />
-            </Link>
-          </div>
-
-          <div className="flex items-center justify-center border-2 border-slate-900 rounded-full p-2 group cursor-pointer hover:border-slate-900/50 hover:scale-125 transition-transform duration-300">
-            <Link href={t('link')} target="_blank">
-              <FaFilePdf className="size-12 group-hover:text-slate-900/70" />
-            </Link>
-          </div>
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {links.map((link) => (
+            <PixelLink key={link.label} href={link.href} icon={link.icon}>
+              {link.label}
+            </PixelLink>
+          ))}
         </div>
-      </div>
-
-      <div className="relative size-[600px] flex items-center justify-center max-sm:hidden mb-16">
-        <BlobComponentShinji />
-      </div>
-    </div>
+      </Panel>
+    </section>
   )
 }

@@ -21,159 +21,56 @@ import {
   SiVite,
   SiVitest
 } from 'react-icons/si'
+import { Panel, Signpost } from '../journey/pixel'
+
+const SKILLS = [
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Javascript', icon: SiJavascript },
+  { name: 'HTML', icon: SiHtml5 },
+  { name: 'CSS', icon: SiCss3 },
+  { name: 'NodeJS', icon: SiNodedotjs },
+  { name: 'React', icon: SiReact },
+  { name: 'NestJS', icon: SiNestjs },
+  { name: 'NextJS', icon: SiNextdotjs },
+  { name: 'PostgreSql', icon: SiPostgresql },
+  { name: 'Docker', icon: SiDocker },
+  { name: 'Tailwind Css', icon: SiTailwindcss },
+  { name: 'Git', icon: SiGit },
+  { name: 'Figma', icon: SiFigma },
+  { name: 'Postman', icon: SiPostman },
+  { name: 'Jira', icon: SiJira },
+  { name: 'BitBucket', icon: SiBitbucket },
+  { name: 'Vite', icon: SiVite },
+  { name: 'Vitest', icon: SiVitest },
+  { name: 'React Query', icon: SiReactquery },
+  { name: 'Prisma', icon: SiPrisma }
+]
 
 export default function Abilities() {
   const t = useTranslations('Abilities')
 
   return (
-    <div id="abilities" className="flex items-center justify-center mt-12">
-      <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-auto mt-8 md:mt-28 mb-20">
-        <h2 className="text-6xl font-bold text-slate-900/85 self-start tracking-wider md:ml-8 max-sm:pl-[5%]">
-          {t('title')}
-        </h2>
-
-        <ul className="grid grid-cols-3 md:grid-cols-4 gap-1 text-2xl">
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              TypeScript
-            </p>
-            <SiTypescript className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Javascript
-            </p>
-            <SiJavascript className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              HTML
-            </p>
-            <SiHtml5 className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              CSS
-            </p>
-            <SiCss3 className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              NodeJS
-            </p>
-            <SiNodedotjs className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              React
-            </p>
-            <SiReact className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              NestJS
-            </p>
-            <SiNestjs className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              NextJS
-            </p>
-            <SiNextdotjs className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              PostgreSql
-            </p>
-            <SiPostgresql className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Docker
-            </p>
-            <SiDocker className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Tailwind Css
-            </p>
-            <SiTailwindcss className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Git
-            </p>
-            <SiGit className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Figma
-            </p>
-            <SiFigma className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Postman
-            </p>
-            <SiPostman className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Jira
-            </p>
-            <SiJira className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              BitBucket
-            </p>
-            <SiBitbucket className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Vite
-            </p>
-            <SiVite className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Vitest
-            </p>
-            <SiVitest className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              React Query
-            </p>
-            <SiReactquery className="size-16 mb-3" />
-          </li>
-
-          <li className="border-b-4 border-purple-700 flex flex-col items-center justify-center gap-2 mt-4 mx-16 cursor-pointer hover:scale-125 transition-transform duration-300">
-            <p className="font-semibold tracking-widest text-gray-900/85">
-              Prisma
-            </p>
-            <SiPrisma className="size-16 mb-3" />
-          </li>
+    <section
+      id="abilities"
+      aria-labelledby="abilities-title"
+      className="journey-section"
+    >
+      <Signpost id="abilities-title">{t('title')}</Signpost>
+      <Panel className="w-[min(90vw,580px)] shrink-0 !p-4">
+        <ul className="grid grid-cols-4 gap-2 sm:grid-cols-5">
+          {SKILLS.map(({ name, icon: Icon }) => (
+            <li
+              key={name}
+              className="flex flex-col items-center gap-1 bg-[#efe3c8] px-1 py-2 text-center shadow-[inset_0_-3px_0_0_#e0cfae]"
+            >
+              <Icon className="size-7 md:size-8" aria-hidden="true" />
+              <span className="font-pixel text-[11px] leading-tight md:text-xs">
+                {name}
+              </span>
+            </li>
+          ))}
         </ul>
-      </div>
-    </div>
+      </Panel>
+    </section>
   )
 }

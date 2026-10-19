@@ -1,11 +1,11 @@
-import BounceCards from '@/components/BounceCards'
 import { useTranslations } from 'next-intl'
-import { ProjectCards } from '../project-cards'
+import { ProjectCard, type ProjectCardItem } from '../project-cards'
+import { Signpost } from '../journey/pixel'
 
 export default function Projects() {
   const t = useTranslations('Projects')
 
-  const cards = [
+  const cards: ProjectCardItem[] = [
     {
       image: '/type-battle.png',
       title: 'Typing Battle',
@@ -42,28 +42,17 @@ export default function Projects() {
       link: 'https://github.com/KevenGoulart?tab=repositories'
     }
   ]
+
   return (
-    <div id="projects" className="flex items-center justify-center">
-      <div className="flex flex-col items-center gap-12 w-[400px] md:w-[1200px] mx-2 md:mx-auto mt-12 md:mt-6">
-        <h2 className="text-slate-900/85 text-6xl md:text-7xl font-bold self-start tracking-wider mb-24 max-sm:mb-4 max-sm:pl-[5%]">
-          {t('title')}
-        </h2>
-        <div className="max-sm:hidden">
-          <BounceCards
-            className="custom-bounceCards"
-            cards={cards}
-            containerWidth={1200}
-            containerHeight={300}
-            animationDelay={1}
-            animationStagger={0.8}
-            easeType="elastic.out(1, 0.5)"
-            enableHover
-          />
-        </div>
-        <div className="md:hidden">
-          <ProjectCards cards={cards} />
-        </div>
-      </div>
-    </div>
+    <section
+      id="projects"
+      aria-labelledby="projects-title"
+      className="journey-section"
+    >
+      <Signpost id="projects-title">{t('title')}</Signpost>
+      {cards.map((card) => (
+        <ProjectCard key={card.title} card={card} />
+      ))}
+    </section>
   )
 }

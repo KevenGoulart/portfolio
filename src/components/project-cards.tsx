@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from './ui/button'
 import { useTranslations } from 'next-intl'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { ProjectModal } from './project-modal'
+import { Panel, PixelLink } from './journey/pixel'
 
 export interface ProjectCardItem {
   image: string
@@ -13,49 +15,48 @@ export interface ProjectCardItem {
   link: string
 }
 
-interface ProjectCardsProps {
-  cards: ProjectCardItem[]
-}
-
-export function ProjectCards({ cards }: ProjectCardsProps) {
+export function ProjectCard({ card }: { card: ProjectCardItem }) {
   const t = useTranslations('Modal')
+  const [open, setOpen] = useState(false)
 
   return (
-    <div className="grid grid-cols gap-4 w-full">
-      {cards.map((card, index) => (
-        <div
-          key={index}
-          className="
-            bg-slate-950 border border-purple-500/40
-            rounded-2xl p-6 shadow-2xl
-            flex flex-col gap-2
-          "
+    <Panel className="flex w-[min(78vw,300px)] shrink-0 flex-col gap-3 !p-4">
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-[3px] border-[#2e222f] bg-[#2e222f]">
+        <Image
+          src={card.image}
+          alt={card.title}
+          fill
+          sizes="300px"
+          className="object-cover"
+        />
+      </div>
+      <h3 className="font-pixel text-2xl leading-none">{card.title}</h3>
+      <p className="line-clamp-3 text-sm leading-relaxed">{card.description}</p>
+      <div className="mt-auto flex flex-wrap gap-2">
+        <button
+          type="button"
+          className="pixel-button"
+          data-variant="paper"
+          onClick={() => setOpen(true)}
         >
-          <Image
-            src={card.image}
-            alt={card.title}
-            width={500}
-            height={500}
-            className="rounded-xl border border-purple-500/40 w-full"
-          />
-
-          <div className="flex flex-col justify-between gap-2">
-            <div className="flex flex-col gap-4">
-              <h2 className="text-4xl text-white">{card.title}</h2>
-
-              <p className="text-lg text-white/80">{card.description}</p>
-
-              <p className="text-lg text-white/80">{card.tech}</p>
-            </div>
-
-            <Button className="bg-purple-700 hover:bg-purple-600 text-white text-xl w-fit px-6 rounded-xl mx-auto">
-              <Link href={card.link} target="_blank">
-                {t('seeMore')}
-              </Link>
-            </Button>
-          </div>
-        </div>
-      ))}
-    </div>
+          {t('seeMore')}
+        </button>
+        <PixelLink
+          href={card.link}
+          icon={<FaExternalLinkAlt className="size-3" />}
+        >
+          {t('button')}
+        </PixelLink>
+      </div>
+      <ProjectModal
+        open={open}
+        onClose={() => setOpen(false)}
+        title={card.title}
+        description={card.description}
+        tech={card.tech}
+        image={card.image}
+        href={card.link}
+      />
+    </Panel>
   )
 }

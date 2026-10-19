@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import localFont from 'next/font/local'
+import { Pixelify_Sans } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 
 const evaFont = localFont({
   src: '../../public/fonts/coolveltica.otf',
   variable: '--font-eva',
+  display: 'swap'
+})
+
+const pixelFont = Pixelify_Sans({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-pixel',
   display: 'swap'
 })
 
@@ -23,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className="dark scroll-smooth no-scrollbar overflow-auto"
+      className={`dark scroll-smooth no-scrollbar overflow-auto ${pixelFont.variable}`}
       suppressHydrationWarning
     >
       <body className={`${evaFont.className}`}>

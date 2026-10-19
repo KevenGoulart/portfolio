@@ -1,8 +1,12 @@
 {
+  "Landscape": {
+    "description": "Pixel art landscape of the Swiss Alps: snowy peaks, a valley with lakes and a chalet on the slope with a flag reading Keven Goulart, FullStack Developer. Thorfinn sits on the edge of a rock, looking at the valley."
+  },
   "Presentation": {
     "greeting": "FullStack Developer",
     "description": "Hello! My name is Kéven Goulart and I work as a developer specializing in TypeScript, Node, React, NextJS and NestJS. I have experience in building full-stack applications, working on both front-end and back-end development, with a focus on scalable and well-structured solutions, and i have advanced proficiency in English.",
-    "link": "https://drive.google.com/file/d/178MouOCd54YfO1wFHvhpmXDFlTKr4p-_/view?usp=sharing"
+    "link": "https://drive.google.com/file/d/178MouOCd54YfO1wFHvhpmXDFlTKr4p-_/view?usp=sharing",
+    "resume": "Resume"
   },
   "Projects": {
     "title": "Personal Projects",
@@ -27,8 +31,8 @@
     "draVictoriaTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
     "goldCicloDescription": "Landing page developed to promote a vitamin supplement, focusing on clear presentation of the product, its differentiators, and composition, prioritizing credibility, usability, and conversion.",
     "goldCicloTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
-    "maisVitDescription": "Landing page developed for the institutional presentation of a vitamin supplement brand, focusing on strengthening brand positioning.",
-    "maisVitTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker.",
+    "maisVitDescription": "Supplement online store built on Shopify, focused on a smooth shopping experience, clear product presentation and conversion.",
+    "maisVitTech": "Technologies used: Shopify, Liquid.",
     "metibalaDescription": "Landing page developed to promote a vitamin supplement, focusing on clear presentation of the product, its differentiators, and composition, prioritizing credibility, usability, and conversion.",
     "metibalaTech": "Technologies used: Next.js, Tailwind CSS, TypeScript, Docker."
   },
@@ -53,11 +57,22 @@
     "title": "Abilities"
   },
   "Contact": {
-    "title": "Contact"
+    "title": "Contact",
+    "email": "E-mail",
+    "phone": "Phone"
   },
   "Modal": {
     "warning": "The online applications may take some time to fully initialize, as they are hosted on free services.",
     "button": "Access",
-    "seeMore": "See more"
+    "seeMore": "See more",
+    "close": "Close"
+  },
+  "Journey": {
+    "scrollHint": "Scroll to explore",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "end": "Thanks for visiting!",
+    "backToStart": "Back to start",
+    "home": "Home"
   }
 }

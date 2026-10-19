@@ -1,27 +1,36 @@
 'use client'
 
+const LOCALES = [
+  { locale: 'en', flag: '/usa.png', label: 'English' },
+  { locale: 'pt-BR', flag: '/brasil.png', label: 'Português' }
+]
+
 export default function LanguageSelector() {
-  const handleChange = async (locale: string) => {
+  const handleChange = (locale: string) => {
     document.cookie = `locale=${locale}; path=/; max-age=${60 * 60 * 24 * 365}`
 
     window.location.reload()
   }
 
   return (
-    <div className="flex items-center gap-4 md:gap-2">
-      <button
-        onClick={() => handleChange('en')}
-        className="rounded-md border hover:bg-gray-100/30 overflow-hidden"
-      >
-        <img src="/usa.png" alt="US Flag" className="w-8 h-6 rounded-md" />
-      </button>
-
-      <button
-        onClick={() => handleChange('pt-BR')}
-        className="rounded-md border hover:bg-gray-100/30"
-      >
-        <img src="/brasil.png" alt="BR Flag" className="w-8 h-6 rounded-md" />
-      </button>
+    <div className="flex items-center gap-1">
+      {LOCALES.map(({ locale, flag, label }) => (
+        <button
+          key={locale}
+          type="button"
+          onClick={() => handleChange(locale)}
+          className="pixel-button !px-2 !py-1.5"
+          data-variant="paper"
+          aria-label={label}
+          title={label}
+        >
+          <img
+            src={flag}
+            alt=""
+            className="h-4 w-6 [image-rendering:pixelated]"
+          />
+        </button>
+      ))}
     </div>
   )
 }
