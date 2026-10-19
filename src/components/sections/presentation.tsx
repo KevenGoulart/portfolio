@@ -35,7 +35,7 @@ export default function Presentation() {
       aria-labelledby="about-title"
       className="journey-section"
     >
-      <Signpost id="about-title">{tHeader('aboutMe')}</Signpost>
+      <Signpost id="about-title" className="ml-12">{tHeader('aboutMe')}</Signpost>
       <Panel className="w-[min(86vw,560px)]">
         <p className="font-pixel text-3xl leading-none">Keven Goulart</p>
         <p className="mt-2 font-pixel text-base uppercase tracking-wider text-[#b33831]">

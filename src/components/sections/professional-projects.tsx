@@ -18,7 +18,8 @@ export default function ProfessionalProjects() {
       title: 'Gold Ciclo',
       description: t('goldCicloDescription'),
       tech: t('goldCicloTech'),
-      link: 'https://goldciclo.com/'
+      link: 'https://goldciclo.com/',
+      offline: true
     },
     {
       image: '/maisvit-shopify.png',
@@ -39,7 +40,8 @@ export default function ProfessionalProjects() {
       title: 'UPSlim',
       description: t('upslimDescription'),
       tech: t('upslimTech'),
-      link: 'https://upslim.com.br/'
+      link: 'https://upslim.com.br/',
+      offline: true
     }
   ]
 

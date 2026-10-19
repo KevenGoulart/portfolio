@@ -1,4 +1,9 @@
 {
+  "Metadata": {
+    "title": "Keven Goulart — FullStack Developer",
+    "description": "Portfolio of Keven Goulart, a FullStack developer from Brazil specialized in TypeScript, React, Next.js, Node and NestJS. Projects, experience and contact.",
+    "ogAlt": "Pixel art Alps landscape with a chalet and a flag reading Keven Goulart, FullStack Developer"
+  },
   "Landscape": {
     "description": "Pixel art landscape of the Swiss Alps: snowy peaks, a valley with lakes and a chalet on the slope with a flag reading Keven Goulart, FullStack Developer. Thorfinn sits on the edge of a rock, looking at the valley."
   },
@@ -64,6 +69,7 @@
   "Modal": {
     "warning": "The online applications may take some time to fully initialize, as they are hosted on free services.",
     "button": "Access",
+    "offline": "Offline",
     "seeMore": "See more",
     "close": "Close"
   },

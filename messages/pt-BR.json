@@ -1,4 +1,9 @@
 {
+  "Metadata": {
+    "title": "Keven Goulart — Desenvolvedor FullStack",
+    "description": "Portfólio de Keven Goulart, desenvolvedor FullStack em Governador Valadares (MG) especializado em TypeScript, React, Next.js, Node e NestJS. Projetos, experiência e contato.",
+    "ogAlt": "Paisagem em pixel art dos Alpes com um chalé e uma bandeira escrita Keven Goulart, Desenvolvedor FullStack"
+  },
   "Landscape": {
     "description": "Paisagem em pixel art dos Alpes suíços: montanhas nevadas, um vale com lagos e um chalé na encosta com uma bandeira escrita Keven Goulart, Desenvolvedor FullStack. Thorfinn está sentado na beira de uma pedra, olhando o vale."
   },
@@ -64,6 +69,7 @@
   "Modal": {
     "warning": "As aplicações online podem demorar a inicializar por completo por estarem hospedadas em serviços gratuitos.",
     "button": "Acessar",
+    "offline": "Fora do ar",
     "seeMore": "Ver mais",
     "close": "Fechar"
   },

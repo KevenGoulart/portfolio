@@ -13,6 +13,7 @@ export interface ProjectCardItem {
   description: string
   tech: string
   link: string
+  offline?: boolean
 }
 
 export function ProjectCard({ card }: { card: ProjectCardItem }) {
@@ -41,12 +42,18 @@ export function ProjectCard({ card }: { card: ProjectCardItem }) {
         >
           {t('seeMore')}
         </button>
-        <PixelLink
-          href={card.link}
-          icon={<FaExternalLinkAlt className="size-3" />}
-        >
-          {t('button')}
-        </PixelLink>
+        {card.offline ? (
+          <span className="pixel-button" aria-disabled="true">
+            {t('offline')}
+          </span>
+        ) : (
+          <PixelLink
+            href={card.link}
+            icon={<FaExternalLinkAlt className="size-3" />}
+          >
+            {t('button')}
+          </PixelLink>
+        )}
       </div>
       <ProjectModal
         open={open}
@@ -56,6 +63,7 @@ export function ProjectCard({ card }: { card: ProjectCardItem }) {
         tech={card.tech}
         image={card.image}
         href={card.link}
+        offline={card.offline}
       />
     </Panel>
   )

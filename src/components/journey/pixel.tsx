@@ -16,13 +16,15 @@ export function Panel({
 // section title on a wooden sign whose posts stand on the town street
 export function Signpost({
   id,
+  className,
   children
 }: {
   id?: string
+  className?: string
   children: ReactNode
 }) {
   return (
-    <div className="signpost">
+    <div className={cn('signpost', className)}>
       <h2 id={id} className="sign-board">
         {children}
       </h2>

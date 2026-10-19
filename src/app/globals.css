@@ -268,6 +268,24 @@
       inset 0 var(--px) 0 0 #ffffff;
   }
 
+  .pixel-button[aria-disabled='true'] {
+    background: #c7b9a6;
+    color: #625565;
+    cursor: not-allowed;
+    box-shadow:
+      0 calc(var(--px) * -1) 0 0 #2e222f,
+      0 var(--px) 0 0 #2e222f,
+      calc(var(--px) * -1) 0 0 0 #2e222f,
+      var(--px) 0 0 0 #2e222f,
+      inset 0 calc(var(--px) * -1) 0 0 #a8977f,
+      inset 0 var(--px) 0 0 #ddd1bf;
+  }
+
+  .pixel-button[aria-disabled='true']:hover,
+  .pixel-button[aria-disabled='true']:active {
+    transform: none;
+  }
+
   .pixel-button[aria-current='true'] {
     background: #91db69;
     box-shadow:

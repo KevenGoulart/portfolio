@@ -1,0 +1,38 @@
+# Keven Goulart
+
+> Keven Goulart (Kéven Goulart) is a FullStack developer from Governador Valadares, Minas Gerais, Brazil, specialized in TypeScript, Node.js, React, Next.js and NestJS. He builds full-stack web applications on both the front-end and the back-end, focused on scalable and well-structured solutions, and has advanced proficiency in English. This is his portfolio: https://kezgoulart.dev
+
+## Contact
+
+- Email: kevengoulartmm@gmail.com
+- LinkedIn: https://www.linkedin.com/in/keven-goulart-890248215/
+- GitHub: https://github.com/KevenGoulart
+- Resume (English): https://drive.google.com/file/d/178MouOCd54YfO1wFHvhpmXDFlTKr4p-_/view?usp=sharing
+- Currículo (Português): https://drive.google.com/file/d/1mZbM_NjjqYAQq-_HFxAt7uK8sIOOJDZT/view?usp=sharing
+
+## Experience
+
+- FullStack Developer at Bttis, Governador Valadares (April 2025 – present)
+- Systems Analyst at X3 Contabilidade, Governador Valadares (August 2023 – April 2025)
+- Developer Intern at Ols Tecnologia, Governador Valadares (January 2023 – March 2023)
+- Bachelor's degree in Information Systems, Universidade Vale do Rio Doce (Univale) (2021 – 2024)
+
+## Skills
+
+TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Tailwind CSS, PostgreSQL, MongoDB, Prisma, Redis, Docker, WebSocket, Shopify and Liquid.
+
+## Professional projects
+
+- [Dra. Victoria](https://dravictoriabarbalho.com/): institutional landing page presenting a doctor, her services and areas of practice, focused on credibility and turning visitors into qualified contacts. Next.js, Tailwind CSS, TypeScript, Docker.
+- Gold Ciclo: landing page promoting a vitamin supplement, presenting the product, its differentiators and composition. Next.js, Tailwind CSS, TypeScript, Docker. (currently offline)
+- [Mais Vit](https://conheca.maisvit.com/): supplement online store built on Shopify, focused on a smooth shopping experience and conversion. Shopify, Liquid.
+- [Libid365](https://www.libid365.com/): landing page promoting a vitamin supplement. Next.js, Tailwind CSS, TypeScript, Docker.
+- UPSlim: web platform that manages user access to a subscription service for a weight loss method, with secure authentication, subscription management and exclusive content. Next.js, NestJS, Tailwind CSS, TypeScript, PostgreSQL, Prisma, Redis, Docker. (currently offline)
+
+## Personal projects
+
+- [Typing Battle](https://typebattle-one.vercel.app/): real-time online game where two people race to type the displayed words; the first to finish 10 words wins. Next.js, TypeScript, Tailwind CSS, WebSocket.
+- [NFT Marketplace](https://nft-marketplace-theta-bay-72.vercel.app/): marketplace for buying and selling digital assets. NestJS, Tailwind CSS, TypeScript, Prisma, PostgreSQL, Docker.
+- [GeekLog](https://geeklog.app/): social network to review and share movies, series, books and games with friends. Next.js, NestJS, Tailwind CSS, TypeScript, MongoDB, Prisma, Redis, Docker.
+- [Garimpada](https://garimpada-tau.vercel.app/): Next.js web app that searches OLX listings server-side through its own API route.
+- [More projects on GitHub](https://github.com/KevenGoulart?tab=repositories)

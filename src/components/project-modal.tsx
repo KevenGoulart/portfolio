@@ -16,6 +16,7 @@ interface ProjectModalProps {
   tech: string
   image: string
   href: string
+  offline?: boolean
 }
 
 export function ProjectModal({
@@ -25,7 +26,8 @@ export function ProjectModal({
   description,
   tech,
   image,
-  href
+  href,
+  offline
 }: ProjectModalProps) {
   const t = useTranslations('Modal')
 
@@ -83,12 +85,18 @@ export function ProjectModal({
           <p className="text-base leading-relaxed md:text-lg">{tech}</p>
           <p className="text-sm text-[#625565]">{t('warning')}</p>
           <div className="mt-auto">
-            <PixelLink
-              href={href}
-              icon={<FaExternalLinkAlt className="size-3" />}
-            >
-              {t('button')}
-            </PixelLink>
+            {offline ? (
+              <span className="pixel-button" aria-disabled="true">
+                {t('offline')}
+              </span>
+            ) : (
+              <PixelLink
+                href={href}
+                icon={<FaExternalLinkAlt className="size-3" />}
+              >
+                {t('button')}
+              </PixelLink>
+            )}
           </div>
         </div>
       </motion.div>

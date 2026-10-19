@@ -1068,15 +1068,6 @@ function drawFoliage(s: Surface) {
     set(s, 2 + Math.floor(hash(y, 0, 3) * 8), y, 0x2a1e16)
     set(s, 11, y + 2, bark)
   }
-  for (const [x1, y1, y0] of [
-    [40, 40, 70],
-    [70, 12, 40]
-  ]) {
-    for (let o = 0; o < 4; o++) {
-      line(s, 12, y0 * K + o, x1 * K, y1 * K + o, o === 0 ? 0x4f3a28 : bark)
-    }
-  }
-
   const clusters: [number, number, number][] = []
   const spine: [number, number][] = [
     [0, 0],
@@ -1101,23 +1092,105 @@ function drawFoliage(s: Surface) {
       ])
     }
   }
-  // branches hanging in the top right corner
-  for (let i = 0; i < 14; i++) {
-    clusters.push([470 + rand() * 50, rand() * 22, 5 + rand() * 6])
-  }
-  clusters.push([432, 2, 7], [448, 10, 6])
-
   // canopy above the hero frame, only seen on tall screens
   const above = mulberry32(14)
   const crown: [number, number, number][] = []
   for (let i = 0; i < 40; i++) {
     crown.push([above() * 150, -30 - above() * 100, 6 + above() * 6])
   }
-  for (let i = 0; i < 16; i++) {
-    crown.push([440 + above() * 80, -24 - above() * 100, 5 + above() * 6])
+
+  // limbs from the trunk out to every part of the canopy, thinning to the tip
+  const limbs: [number, number][][] = [
+    [
+      [6, 80],
+      [36, 46],
+      [78, 14],
+      [118, 18],
+      [140, 30]
+    ],
+    [
+      [36, 46],
+      [60, 34]
+    ],
+    [
+      [56, 28],
+      [40, 4]
+    ],
+    [
+      [6, 44],
+      [30, 30]
+    ],
+    [
+      [6, 74],
+      [20, 60],
+      [44, 64]
+    ],
+    [
+      [6, 108],
+      [30, 104]
+    ],
+    [
+      [6, -16],
+      [50, -60],
+      [100, -86],
+      [140, -70]
+    ],
+    [
+      [50, -60],
+      [86, -36]
+    ],
+    [
+      [100, -86],
+      [126, -54]
+    ],
+    [
+      [100, -86],
+      [132, -120]
+    ],
+    [
+      [6, -70],
+      [40, -108],
+      [70, -126]
+    ],
+    [
+      [40, -108],
+      [16, -128]
+    ]
+  ]
+  const wood: [number, number][] = []
+  for (const limb of limbs) {
+    for (let i = 1; i < limb.length; i++) {
+      const [ax, ay] = limb[i - 1]
+      const [bx, by] = limb[i]
+      const steps = Math.ceil(Math.hypot(bx - ax, by - ay))
+      for (let j = 0; j <= steps; j++) {
+        const t = j / steps
+        const x = ax + (bx - ax) * t
+        const y = ay + (by - ay) * t
+        const r = Math.max(1, 3 - (i - 1 + t) * 0.7)
+        disc(s, x * K, y * K, r * K, bark)
+        set(s, x * K, (y - r) * K + 1, 0x4f3a28)
+        wood.push([x, y])
+      }
+    }
   }
-  for (let o = 0; o < 4; o++) {
-    line(s, 1010 + o, WORLD_TOP, 980 + o, -20, bark)
+  // a twig from every leaf cluster to the closest limb
+  for (const [cx, cy, cr] of [...clusters, ...crown]) {
+    let best = wood[0]
+    let dist = Infinity
+    for (const p of wood) {
+      const d = (p[0] - cx) ** 2 + (p[1] - cy) ** 2
+      if (d < dist) [best, dist] = [p, d]
+    }
+    // clusters resting on a limb already hide it
+    if (dist < cr * cr) continue
+    const steps = Math.ceil(Math.sqrt(dist))
+    for (let j = 0; j <= steps; j++) {
+      const t = j / steps
+      const x = best[0] + (cx - best[0]) * t
+      const y = best[1] + (cy - best[1]) * t
+      disc(s, x * K, y * K, 0.8 * K, bark)
+    }
   }
 
   const canopy = (list: [number, number, number][], r: () => number) => {
