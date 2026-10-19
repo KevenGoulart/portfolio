@@ -1301,13 +1301,14 @@ function drawBanner(s: Surface, layout: BannerLayout, time: number) {
     const phase = time * 3 - x * 0.09
     const offset = Math.round(Math.sin(phase) * (0.4 + (1.6 * x) / width))
     const slope = Math.cos(phase)
-    const cloth = slope > 0.55 ? 0xea4f36 : slope < -0.55 ? 0xae2334 : 0xb33831
+    // dark green cloth, lighter on the folds facing the sun
+    const cloth = slope > 0.55 ? 0x239063 : slope < -0.55 ? 0x374e4a : 0x165a4c
     for (let y = 0; y < height; y++) {
       let color = cloth
-      if (y === 0 || y === height - 1 || x === width - 1) color = 0x6e2727
+      if (y === 0 || y === height - 1 || x === width - 1) color = 0x313638
       const cell = mask[y * width + x]
       if (cell === 1) color = slope < -0.55 ? 0xc7dcd0 : 0xffffff
-      else if (cell === 2) color = 0x6e2727
+      else if (cell === 2) color = 0x313638
       set(s, x0 + x, y0 + y + offset, color)
     }
   }

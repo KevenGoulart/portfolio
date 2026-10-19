@@ -50,7 +50,7 @@ export default function Experience() {
             {entry.title}
           </h3>
           <p className="mt-3 text-base leading-snug">{entry.place}</p>
-          <p className="mt-3 inline-block bg-[#2e222f] px-2 py-1 font-pixel text-sm text-[#fbf5e6]">
+          <p className="mt-3 inline-block bg-[#2e222f] px-2 pb-0.5 pt-1 font-terminal text-xl leading-none tracking-wide text-[#fbf5e6]">
             {entry.period}
           </p>
         </Panel>

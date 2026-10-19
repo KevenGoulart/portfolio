@@ -53,7 +53,8 @@ export default {
       },
       fontFamily: {
         eva: ['var(--font-eva)'],
-        pixel: ['var(--font-pixel)', 'monospace']
+        pixel: ['var(--font-pixel)', 'monospace'],
+        terminal: ['var(--font-terminal)', 'monospace']
       },
       borderRadius: {
         lg: 'var(--radius)',
