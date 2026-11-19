@@ -49,7 +49,7 @@ export default function ProfessionalProjects() {
     <section
       id="professional-projects"
       aria-labelledby="professional-projects-title"
-      className="journey-section"
+      className="journey-section gap-[clamp(10px,1.2vw,20px)]"
     >
       <Signpost id="professional-projects-title">{t('title')}</Signpost>
       {cards.map((card) => (

@@ -20,12 +20,12 @@
     "geeklogTech": "Tecnologias utilizadas: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker e etc.",
     "nftMarketplaceDescription": "Marketplace de NFTs desenvolvido com tecnologias modernas para uma experiência de compra e venda de ativos digitais.",
     "nftMarketplaceTech": "Tecnologias utilizadas: NestJS, TailwindCSS, Typescript, Prisma, Docker, PostgreSQL e NestJS",
-    "typeBattleDescription": "Jogo online para disputar com outra pessoa em tempo real quem digite mais rápido as palavras exibidas, o primeiro a completar as 10 palavras vence",
-    "typeBattleTech": "Tecnologias utilizadas: NextJS, TypeScript, TailwindCSS e WebSocket.",
+    "clothShowcaseDescription": "Provador online 3D onde é possível experimentar diferentes roupas em um personagem 3D e girá-lo para ver o visual de todos os ângulos.",
+    "clothShowcaseTech": "Tecnologias utilizadas: NextJS, React, TypeScript, Three.js, React Three Fiber, Drei e TailwindCSS.",
     "garimpadaDescription": "Garimpada é um app web em Next.js que busca anúncios da OLX no lado do servidor, coletando e retornando resultados via uma rota de API própria com headers de navegador simulados para evitar bloqueios.",
     "garimpadaTech": "Tecnologias utilizadas: Next.js, React, TypeScript, Tailwind CSS, rotas de API do Node.js, curl (binário embutido para requisições HTTP)",
-    "otherProjects": "Outros Projetos",
-    "otherProjectsDescription": "Você pode conferir meus outros projetos no meu perfil do GitHub",
+    "otherProjects": "Todos Projetos",
+    "otherProjectsDescription": "Confira esses e outros projetos no meu perfil do GitHub.",
     "otherProjectsTech": ""
   },
   "ProfessionalProjects": {
@@ -67,7 +67,7 @@
     "phone": "Telefone"
   },
   "Modal": {
-    "warning": "As aplicações online podem demorar a inicializar por completo por estarem hospedadas em serviços gratuitos.",
+    "warning": "Algumas das aplicações online podem demorar a inicializar por completo por estarem hospedadas em serviços gratuitos.",
     "button": "Acessar",
     "offline": "Fora do ar",
     "seeMore": "Ver mais",

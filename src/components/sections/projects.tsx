@@ -7,11 +7,11 @@ export default function Projects() {
 
   const cards: ProjectCardItem[] = [
     {
-      image: '/type-battle.png',
-      title: 'Typing Battle',
-      description: t('typeBattleDescription'),
-      tech: t('typeBattleTech'),
-      link: 'https://typebattle-one.vercel.app/'
+      image: '/cloth-showcase.png',
+      title: 'Cloth Showcase',
+      description: t('clothShowcaseDescription'),
+      tech: t('clothShowcaseTech'),
+      link: 'https://cloth-showcase.vercel.app/'
     },
     {
       image: '/nft.png',
@@ -47,7 +47,7 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="journey-section"
+      className="journey-section gap-[clamp(10px,1.2vw,20px)]"
     >
       <Signpost id="projects-title">{t('title')}</Signpost>
       {cards.map((card) => (

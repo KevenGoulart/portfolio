@@ -21,13 +21,13 @@ export function ProjectCard({ card }: { card: ProjectCardItem }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <Panel className="flex w-[min(78vw,300px)] shrink-0 flex-col gap-3 !p-4">
+    <Panel className="flex w-[min(84vw,380px)] shrink-0 flex-col gap-3 !p-4">
       <div className="relative aspect-[16/10] w-full overflow-hidden border-[3px] border-[#2e222f] bg-[#2e222f]">
         <Image
           src={card.image}
           alt={card.title}
           fill
-          sizes="300px"
+          sizes="380px"
           className="object-cover"
         />
       </div>
