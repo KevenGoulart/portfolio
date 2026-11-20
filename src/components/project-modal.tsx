@@ -69,7 +69,7 @@ export function ProjectModal({
           ✕
         </button>
 
-        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden border-[3px] border-[#2e222f] md:w-[45%]">
+        <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden border-[3px] border-[#2e222f] md:w-[45%] md:self-start">
           <Image
             src={image}
             alt={title}
