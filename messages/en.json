@@ -22,8 +22,8 @@
     "nftMarketplaceTech": "Technologies used: NestJS, TailwindCSS, Typescript, Prisma, Docker, PostgreSQL and NestJS",
     "clothShowcaseDescription": "Online 3D fitting room where you can try different clothes on a 3D character and rotate it to see the outfit from every angle.",
     "clothShowcaseTech": "Technologies used: NextJS, React, TypeScript, Three.js, React Three Fiber, Drei, TailwindCSS.",
-    "garimpadaDescription": "Garimpada is a Next.js web app that searches OLX listings server-side, scraping and returning ad results through a custom API route with spoofed browser headers to bypass restrictions.",
-    "garimpadaTech": "Technologies used: Next.js, React, TypeScript, Tailwind CSS, Node.js API routes, curl (bundled binary for HTTP requests).",
+    "raioXDescription": "Raio-X Público is a platform to explore the public spending of Brazilian congresspeople using official open data: search a deputy or senator, see how they use the parliamentary allowance, their budget amendments, compare them side by side and find out which suppliers received public money.",
+    "raioXTech": "Technologies used: Turborepo monorepo, Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, TanStack Query, NestJS, BullMQ, Redis, PostgreSQL, Prisma, Zod, Docker, Vercel and Render.",
     "otherProjects": "All Projects",
     "otherProjectsDescription": "Check out these and other projects on my GitHub profile.",
     "otherProjectsTech": ""

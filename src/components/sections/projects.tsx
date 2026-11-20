@@ -28,11 +28,11 @@ export default function Projects() {
       link: 'https://geeklog.app/'
     },
     {
-      image: '/garimpada.png',
-      title: 'Garimpada',
-      description: t('garimpadaDescription'),
-      tech: t('garimpadaTech'),
-      link: 'https://garimpada-tau.vercel.app/'
+      image: '/raio-x-publico.png',
+      title: 'Raio-X Público',
+      description: t('raioXDescription'),
+      tech: t('raioXTech'),
+      link: 'https://github.com/KevenGoulart/Government-Tracking'
     },
     {
       image: '/github.png',

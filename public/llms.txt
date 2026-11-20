@@ -34,5 +34,5 @@ TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Tailwind CSS, PostgreSQ
 - [Typing Battle](https://typebattle-one.vercel.app/): real-time online game where two people race to type the displayed words; the first to finish 10 words wins. Next.js, TypeScript, Tailwind CSS, WebSocket.
 - [NFT Marketplace](https://nft-marketplace-theta-bay-72.vercel.app/): marketplace for buying and selling digital assets. NestJS, Tailwind CSS, TypeScript, Prisma, PostgreSQL, Docker.
 - [GeekLog](https://geeklog.app/): social network to review and share movies, series, books and games with friends. Next.js, NestJS, Tailwind CSS, TypeScript, MongoDB, Prisma, Redis, Docker.
-- [Garimpada](https://garimpada-tau.vercel.app/): Next.js web app that searches OLX listings server-side through its own API route.
+- [Raio-X Público](https://github.com/KevenGoulart/Government-Tracking): Platform to explore public spending of Brazilian congresspeople from official open data (Next.js, NestJS, BullMQ, PostgreSQL).
 - [More projects on GitHub](https://github.com/KevenGoulart?tab=repositories)
