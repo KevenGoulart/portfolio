@@ -47,7 +47,8 @@ export function PixelLink({
   variant?: 'paper'
   children: ReactNode
 }) {
-  const external = /^https?:/.test(href)
+  // other sites and PDFs open in a new tab so the journey stays where it was
+  const external = /^https?:/.test(href) || href.endsWith('.pdf')
   return (
     <a
       href={href}

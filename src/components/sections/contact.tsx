@@ -1,6 +1,7 @@
 import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
 import { SiGithub, SiLinkedin } from 'react-icons/si'
 import { useTranslations } from 'next-intl'
+import { CONTACT } from '@/lib/site'
 import { Panel, Signpost } from '../journey/pixel'
 
 export default function Contact() {
@@ -10,26 +11,26 @@ export default function Contact() {
     {
       icon: FaEnvelope,
       label: t('email'),
-      value: 'kevengoulartmm@gmail.com',
-      href: 'mailto:kevengoulartmm@gmail.com'
+      value: CONTACT.email,
+      href: `mailto:${CONTACT.email}`
     },
     {
       icon: FaPhoneAlt,
       label: t('phone'),
-      value: '+55 (33) 9 9806-2123',
-      href: 'tel:+5533998062123'
+      value: CONTACT.phone,
+      href: CONTACT.phoneHref
     },
     {
       icon: SiLinkedin,
       label: 'LinkedIn',
       value: '@kevengoulart',
-      href: 'https://www.linkedin.com/in/keven-goulart-890248215/'
+      href: CONTACT.linkedin
     },
     {
       icon: SiGithub,
       label: 'GitHub',
       value: '@KevenGoulart',
-      href: 'https://github.com/KevenGoulart'
+      href: CONTACT.github
     }
   ]
 

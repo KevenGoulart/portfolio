@@ -9,45 +9,90 @@
   },
   "Presentation": {
     "greeting": "Desenvolvedor FullStack",
-    "description": "Olá! Meu nome é Kéven Goulart, trabalho como desenvolvedor especializado em TypeScript, Node, React, NextJS e NestJS. Tenho experiência na construção de aplicações full-stack, atuando tanto no front-end quanto no back-end, com foco em soluções escaláveis e bem estruturadas, e possuo proficiência avançada em inglês.",
-    "link": "https://drive.google.com/file/d/1mZbM_NjjqYAQq-_HFxAt7uK8sIOOJDZT/view?usp=sharing",
-    "resume": "Currículo"
+    "description": "Desenvolvedor FullStack com {years}+ anos de experiência construindo aplicações web de ponta a ponta com TypeScript, React/Next.js e Node/NestJS. Gosto de construir produtos completos: no GeekLog desenvolvi o site e o app Android de uma rede social para filmes, séries, livros e jogos, com API em NestJS, tempo real com Socket.IO, filas e pagamentos com Stripe. Hoje, na Bttis, cuido de APIs, interfaces, deploy e suporte à produção.",
+    "experienceYears": "{years}+ anos de experiência",
+    "stack": "TypeScript · React · Next.js · Node · NestJS",
+    "english": "Inglês avançado",
+    "link": "/curriculo-keven-goulart.pdf",
+    "resume": "Currículo (PDF)",
+    "quickView": "Versão rápida"
   },
   "Projects": {
     "title": "Projetos Autorais",
-    "description": "Pode levar algum tempo para os projetos online carregarem, pois são hospedados em serviços gratuitos.",
-    "geeklogDescription": "Uma rede social que desenvolvi para analisar e compartilhar diferentes tipos de mídia — como filmes, séries, livros e jogos — com amigos",
-    "geeklogTech": "Tecnologias utilizadas: NextJS, NestJS, TailwindCSS, Typescript, MongoDB, Prisma, Redis, Docker e etc.",
-    "nftMarketplaceDescription": "Marketplace de NFTs desenvolvido com tecnologias modernas para uma experiência de compra e venda de ativos digitais.",
-    "nftMarketplaceTech": "Tecnologias utilizadas: NestJS, TailwindCSS, Typescript, Prisma, Docker, PostgreSQL e NestJS",
-    "clothShowcaseDescription": "Provador online 3D onde é possível experimentar diferentes roupas em um personagem 3D e girá-lo para ver o visual de todos os ângulos.",
-    "clothShowcaseTech": "Tecnologias utilizadas: NextJS, React, TypeScript, Three.js, React Three Fiber, Drei e TailwindCSS.",
-    "raioXDescription": "Raio-X Público é uma plataforma para explorar os gastos públicos de parlamentares brasileiros a partir de dados abertos oficiais: pesquise um deputado ou senador, veja como usa a cota parlamentar, quais emendas apresentou, compare parlamentares lado a lado e descubra quais fornecedores receberam dinheiro público.",
-    "raioXTech": "Tecnologias utilizadas: monorepo com Turborepo, Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, TanStack Query, NestJS, BullMQ, Redis, PostgreSQL, Prisma, Zod, Docker, Vercel e Render.",
-    "otherProjects": "Todos Projetos",
-    "otherProjectsDescription": "Confira esses e outros projetos no meu perfil do GitHub.",
-    "otherProjectsTech": ""
+    "raioX": {
+      "summary": "Plataforma para explorar os gastos públicos de deputados e senadores a partir de dados abertos oficiais: cota parlamentar, emendas, fornecedores, rankings e comparação lado a lado.",
+      "problem": "Os gastos dos parlamentares são públicos, mas ficam espalhados em APIs e planilhas diferentes da Câmara, do Senado e do Portal da Transparência, o que torna difícil cruzar as informações. O Raio-X junta tudo em um só lugar e mostra em cada página a fonte oficial e a data da última sincronização.",
+      "highlights": [
+        "Ingestão com NestJS + BullMQ: jobs agendados e idempotentes trazem APIs e CSVs oficiais para o PostgreSQL. O front-end nunca chama o governo direto, então o site continua no ar mesmo quando as fontes oficiais estão fora.",
+        "Monorepo com Turborepo: web, API e worker compartilham os schemas Zod e o client Prisma, com TypeScript strict e ESLint sem \"any\".",
+        "API REST documentada com Swagger e cache em Redis nos endpoints de agregação.",
+        "\"Pontos de atenção\" estatísticos: despesas acima do percentil 99 e de Q3 + 3×IQR da categoria, e concentração de gastos em um único fornecedor.",
+        "Testes unitários com Vitest, e2e da API com Supertest e do front com Playwright + axe-core, tudo rodando no CI do GitHub Actions."
+      ]
+    },
+    "geeklog": {
+      "summary": "Rede social para avaliar e compartilhar filmes, séries, livros e jogos com amigos, com site e app Android.",
+      "problem": "Quem consome vários tipos de mídia acaba com listas e notas espalhadas em vários apps: um para filmes, outro para livros, outro para jogos. O GeekLog reúne tudo em um perfil só, com feed social entre amigos.",
+      "highlights": [
+        "Monorepo com Turborepo e três apps: site em Next.js, API em NestJS (Fastify) e app Android em React Native com Expo.",
+        "Tempo real com Socket.IO e tarefas em segundo plano com filas Bull, monitoradas pelo Bull Board.",
+        "Autenticação JWT, upload de mídia no AWS S3 com URLs pré-assinadas, pagamentos com Stripe e e-mails com React Email.",
+        "MongoDB com Prisma, cache em Redis e métricas expostas para Prometheus e Grafana.",
+        "Testes com Vitest e CI no GitHub Actions que gera e publica a imagem Docker da API."
+      ]
+    },
+    "clothShowcase": {
+      "summary": "Provador 3D: a partir da foto de uma roupa, a peça é vestida em um personagem 3D que você gira e ajusta direto no navegador.",
+      "problem": "A foto de um produto não mostra como a roupa fica no corpo. O provador transforma uma foto comum em uma peça 3D vestida no personagem, sem instalar nada.",
+      "highlights": [
+        "Análise da foto no navegador: separa a roupa do fundo e identifica a cor predominante do tecido, a gola, a cintura e se a peça tem manga.",
+        "Encaixe da peça pelos ossos do esqueleto: ombros, gola, peito e ângulo dos braços são medidos no próprio modelo.",
+        "As shape keys do corpo viram controles (peso, músculo, quadril) e a roupa acompanha as deformações.",
+        "Pipeline de modelos 3D automatizado com scripts Python no Blender: rig, shape keys, roupas e animação."
+      ]
+    },
+    "nftMarketplace": {
+      "summary": "Marketplace de NFTs com catálogo, carrinho, checkout com carteira simulada, atualizações em tempo real e conta do usuário.",
+      "problem": "Desafio de front-end: construir a experiência completa de compra sem backend, mas lidando com os problemas de uma API real, como latência, quedas, erros e preço mudando no meio da compra.",
+      "highlights": [
+        "API inteira simulada no navegador com MSW (banco em memória persistido no localStorage), incluindo o tempo real via Socket.IO.",
+        "Cenários de falha controláveis: latência, modo offline, erro 500 pontual, pagamento recusado e cupom expirado.",
+        "Criação de pedido com Idempotency-Key, que se recupera de timeouts sem duplicar a compra.",
+        "Rotas e dados com TanStack Router e TanStack Query, formulários com React Hook Form + Zod.",
+        "Testes e2e com Playwright + axe-core e auditoria de performance com Lighthouse."
+      ]
+    },
+    "otherProjects": "Todos os projetos",
+    "otherProjectsDescription": "Confira esses e outros projetos no meu perfil do GitHub."
   },
   "ProfessionalProjects": {
     "title": "Projetos Profissionais",
-    "upslimDescription": "Plataforma web desenvolvida para gerenciar o acesso de usuários a um serviço de assinatura focado em um método de emagrecimento. O sistema oferece autenticação segura, controle de assinaturas, conteúdo exclusivo e uma experiência fluida para usuários recorrentes.",
-    "upslimTech": "Tecnologias usadas: NextJS, NestJS, TailwindCSS, Typescript, PostgreSQL, Prisma, Redis, Docker, etc.",
-    "draVictoriaDescription": "Landing page institucional desenvolvida para apresentar a doutora, seus serviços e áreas de atuação, com foco em credibilidade, clareza das informações e conversão de visitantes em contatos qualificados.",
-    "draVictoriaTech": "Tecnologias usadas: NextJS, TailwindCSS, Typescript e Docker.",
-    "goldCicloDescription": "Landing page desenvolvida para a divulgação de um suplemento vitamínico, com foco em apresentação clara do produto, seus diferenciais e composição, priorizando credibilidade, usabilidade e conversão.",
-    "goldCicloTech": "Tecnologias usadas: NextJS, TailwindCSS, Typescript e Docker.",
-    "maisVitDescription": "Loja virtual de suplementos desenvolvida na Shopify, com foco em uma experiência de compra fluida, apresentação clara dos produtos e conversão.",
-    "maisVitTech": "Tecnologias usadas: Shopify e Liquid.",
-    "metibalaDescription": "Landing page desenvolvida para a divulgação de um suplemento vitamínico, com foco em apresentação clara do produto, seus diferenciais e composição, priorizando credibilidade, usabilidade e conversão.",
-    "metibalaTech": "Tecnologias usadas: NextJS, TailwindCSS, Typescript e Docker."
+    "upslim": {
+      "summary": "Plataforma web para gerenciar o acesso de usuários a um serviço de assinatura focado em um método de emagrecimento, com autenticação segura, controle de assinaturas, conteúdo exclusivo e uma experiência fluida para usuários recorrentes."
+    },
+    "draVictoria": {
+      "summary": "Landing page institucional para apresentar a doutora, seus serviços e áreas de atuação, com foco em credibilidade, clareza das informações e conversão de visitantes em contatos qualificados."
+    },
+    "goldCiclo": {
+      "summary": "Landing page para a divulgação de um suplemento vitamínico, com apresentação clara do produto, seus diferenciais e composição, priorizando credibilidade, usabilidade e conversão."
+    },
+    "maisVit": {
+      "summary": "Loja virtual de suplementos desenvolvida na Shopify, com foco em uma experiência de compra fluida, apresentação clara dos produtos e conversão."
+    },
+    "libid365": {
+      "summary": "Landing page para a divulgação de um suplemento vitamínico, com apresentação clara do produto, seus diferenciais e composição, priorizando credibilidade, usabilidade e conversão."
+    }
   },
   "Experience": {
     "title": "Experiência Profissional e Estudos",
-    "workTitle": "Experiência profissional :",
-    "academicTitle": "Histórico acadêmico :",
+    "workTitle": "Experiência profissional",
+    "academicTitle": "Histórico acadêmico",
     "job1": "Desenvolvedor FullStack",
+    "job1Description": "Desenvolvimento e manutenção de aplicações full-stack: criação de interfaces, APIs REST, integração entre sistemas, testes, correção de bugs e novas funcionalidades. Responsável pelo deploy das aplicações, suporte ao ambiente de produção e aplicação de boas práticas para garantir desempenho, qualidade e escalabilidade.",
     "job2": "Analista de Sistemas",
+    "job2Description": "Treinamento e capacitação em desenvolvimento full-stack, contribuindo com a implementação de telas front-end e de uma API, além de aprofundar conhecimentos em arquitetura de sistemas e boas práticas de desenvolvimento.",
     "job3": "Desenvolvedor Estagiário",
+    "job3Description": "Integração e capacitação técnica com foco na arquitetura dos sistemas da empresa, treinamentos em desenvolvimento full-stack e acompanhamento dos processos e do fluxo de trabalho da equipe.",
     "degree": "Bacharelado em Sistemas de Informação",
     "current": "atual"
   },
@@ -56,10 +101,15 @@
     "projects": "projetos",
     "experience": "experiência",
     "abilities": "habilidades",
-    "contact": "contato"
+    "contact": "contato",
+    "resume": "currículo"
   },
   "Abilities": {
-    "title": "Habilidades"
+    "title": "Habilidades",
+    "frontend": "Front-end",
+    "backend": "Back-end",
+    "infra": "Infra e qualidade",
+    "tools": "Ferramentas"
   },
   "Contact": {
     "title": "Contato",
@@ -67,11 +117,16 @@
     "phone": "Telefone"
   },
   "Modal": {
-    "warning": "Algumas das aplicações online podem demorar a inicializar por completo por estarem hospedadas em serviços gratuitos.",
-    "button": "Acessar",
+    "warning": "A demo está hospedada em um serviço gratuito e pode demorar alguns segundos para carregar na primeira visita.",
+    "demo": "Ver demo",
+    "code": "Ver código",
+    "site": "Ver site",
     "offline": "Fora do ar",
-    "seeMore": "Ver mais",
-    "close": "Fechar"
+    "seeMore": "Ver detalhes",
+    "close": "Fechar",
+    "problem": "O problema",
+    "highlights": "Destaques técnicos",
+    "stack": "Stack"
   },
   "Journey": {
     "scrollHint": "Role para explorar",
@@ -80,5 +135,25 @@
     "end": "Obrigado pela visita!",
     "backToStart": "Voltar ao início",
     "home": "Início"
+  },
+  "Resume": {
+    "metaTitle": "Keven Goulart — Currículo",
+    "metaDescription": "Currículo de Keven Goulart, desenvolvedor FullStack (TypeScript, React, Next.js, Node e NestJS): experiência, projetos, habilidades e contato.",
+    "back": "Voltar ao portfólio",
+    "download": "Baixar PDF",
+    "summary": "Resumo",
+    "summaryText": "Desenvolvedor FullStack graduado em Sistemas de Informação pela Univale, com experiência no desenvolvimento de aplicações web e participação em todas as etapas do ciclo de desenvolvimento. Busco criar soluções escaláveis, manter boas práticas de desenvolvimento e evoluir continuamente como profissional.",
+    "experience": "Experiência",
+    "projects": "Projetos em destaque",
+    "professionalProjects": "Projetos profissionais",
+    "skills": "Habilidades",
+    "education": "Formação",
+    "languages": "Idiomas",
+    "languagesValue": "Português (nativo) · Inglês (avançado)",
+    "contact": "Contato",
+    "location": "Governador Valadares, MG, Brasil",
+    "demo": "demo",
+    "code": "código",
+    "site": "site"
   }
 }

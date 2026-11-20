@@ -70,7 +70,9 @@ export default defineConfig([
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react/jsx-handler-names': 'off',
-      'prettier/prettier': 'warn'
+      'prettier/prettier': 'warn',
+      // TypeScript already reports undefined names, and knows the DOM types
+      'no-undef': 'off'
     }
   },
   prettierConfig,

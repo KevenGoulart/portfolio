@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import { Pixelify_Sans, VT323 } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { SITE_URL } from '@/lib/site'
+import { CONTACT, SITE_URL } from '@/lib/site'
 
 const evaFont = localFont({
   src: '../../public/fonts/coolveltica.otf',
@@ -84,7 +84,6 @@ const personJsonLd = {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: 'Keven Goulart',
-      alternateName: 'Kéven Goulart',
       url: SITE_URL,
       image: `${SITE_URL}/og.png`,
       email: 'mailto:kevengoulartmm@gmail.com',
@@ -113,14 +112,17 @@ const personJsonLd = {
         'MongoDB',
         'Prisma',
         'Redis',
+        'BullMQ',
+        'Three.js',
         'Docker',
+        'AWS',
+        'GitHub Actions',
+        'Vitest',
+        'Playwright',
         'WebSocket',
         'Shopify'
       ],
-      sameAs: [
-        'https://www.linkedin.com/in/keven-goulart-890248215/',
-        'https://github.com/KevenGoulart'
-      ]
+      sameAs: [CONTACT.linkedin, CONTACT.github]
     },
     {
       '@type': 'WebSite',

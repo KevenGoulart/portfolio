@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { useTranslations } from 'next-intl'
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa'
+import { EDUCATION, JOBS } from '@/lib/experience'
 import { Panel, Signpost } from '../journey/pixel'
 
 interface Entry {
@@ -31,10 +32,7 @@ function ExperienceGroup({
       </p>
       <div className="flex gap-[clamp(10px,1.2vw,20px)]">
         {entries.map((entry) => (
-          <Panel
-            key={entry.title}
-            className="w-[min(78vw,290px)] shrink-0"
-          >
+          <Panel key={entry.title} className="w-[min(78vw,290px)] shrink-0">
             <div
               className="-mx-5 -mt-5 mb-4 h-2 md:-mx-6 md:-mt-6"
               style={{ backgroundColor: color }}
@@ -54,33 +52,18 @@ function ExperienceGroup({
 
 export default function Experience() {
   const t = useTranslations('Experience')
-  // the labels end with " :" in the messages
-  const label = (key: 'workTitle' | 'academicTitle') =>
-    t(key).replace(/\s*:\s*$/, '')
 
-  const work: Entry[] = [
-    {
-      title: t('job1'),
-      place: 'Bttis – Governador Valadares',
-      period: `2025-04 – ${t('current')}`
-    },
-    {
-      title: t('job2'),
-      place: 'X3 Contabilidade – Governador Valadares',
-      period: '2023-08 – 2025-04'
-    },
-    {
-      title: t('job3'),
-      place: 'Ols Tecnologia – Governador Valadares',
-      period: '2023-01 – 2023-03'
-    }
-  ]
+  const work: Entry[] = JOBS.map((job) => ({
+    title: t(job.key),
+    place: `${job.company} – ${job.city}`,
+    period: `${job.start} – ${job.end ?? t('current')}`
+  }))
 
   const academic: Entry[] = [
     {
       title: t('degree'),
-      place: 'Universidade Vale do Rio Doce Univale – Governador Valadares',
-      period: '2021-04 – 2024-11'
+      place: `${EDUCATION.institution} – ${EDUCATION.city}`,
+      period: `${EDUCATION.start} – ${EDUCATION.end}`
     }
   ]
 
@@ -92,7 +75,7 @@ export default function Experience() {
     >
       <Signpost id="experience-title">{t('title')}</Signpost>
       <ExperienceGroup
-        label={label('workTitle')}
+        label={t('workTitle')}
         icon={<FaBriefcase className="size-3.5" />}
         color="#b33831"
         entries={work}
@@ -102,7 +85,7 @@ export default function Experience() {
         aria-hidden="true"
       />
       <ExperienceGroup
-        label={label('academicTitle')}
+        label={t('academicTitle')}
         icon={<FaGraduationCap className="size-4" />}
         color="#4d65b4"
         entries={academic}

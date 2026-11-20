@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { FaIdCard } from 'react-icons/fa'
 import LanguageSelector from '../language-selector'
 
 export const NAV_SECTIONS = [
@@ -66,6 +67,14 @@ export function Hud({ active, onNavigate }: HudProps) {
       </nav>
 
       <div className="pointer-events-auto flex items-center gap-1">
+        {/* the resume stays one click away anywhere along the journey */}
+        <a
+          href="/resume"
+          className="pixel-button hidden capitalize sm:inline-flex"
+        >
+          <FaIdCard className="size-4" aria-hidden="true" />
+          {t('resume')}
+        </a>
         <LanguageSelector />
         <button
           type="button"
@@ -85,6 +94,10 @@ export function Hud({ active, onNavigate }: HudProps) {
           className="pixel-panel pointer-events-auto absolute right-3 top-16 flex flex-col items-stretch gap-1 p-3 lg:hidden"
         >
           {links}
+          <a href="/resume" className="pixel-button capitalize sm:hidden">
+            <FaIdCard className="size-4" aria-hidden="true" />
+            {t('resume')}
+          </a>
         </nav>
       )}
     </header>

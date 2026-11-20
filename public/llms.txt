@@ -1,25 +1,38 @@
 # Keven Goulart
 
-> Keven Goulart (Kéven Goulart) is a FullStack developer from Governador Valadares, Minas Gerais, Brazil, specialized in TypeScript, Node.js, React, Next.js and NestJS. He builds full-stack web applications on both the front-end and the back-end, focused on scalable and well-structured solutions, and has advanced proficiency in English. This is his portfolio: https://kezgoulart.dev
+> Keven Goulart is a FullStack developer from Governador Valadares, Minas Gerais, Brazil, specialized in TypeScript, Node.js, React, Next.js and NestJS. He builds full-stack web applications on both the front-end and the back-end, focused on scalable and well-structured solutions, and has advanced proficiency in English. This is his portfolio: https://kezgoulart.dev
 
 ## Contact
 
 - Email: kevengoulartmm@gmail.com
 - LinkedIn: https://www.linkedin.com/in/keven-goulart-890248215/
 - GitHub: https://github.com/KevenGoulart
-- Resume (English): https://drive.google.com/file/d/178MouOCd54YfO1wFHvhpmXDFlTKr4p-_/view?usp=sharing
-- Currículo (Português): https://drive.google.com/file/d/1mZbM_NjjqYAQq-_HFxAt7uK8sIOOJDZT/view?usp=sharing
+- Resume (web page): https://kezgoulart.dev/resume
+- Resume (English, PDF): https://kezgoulart.dev/resume-keven-goulart.pdf
+- Currículo (Português, PDF): https://kezgoulart.dev/curriculo-keven-goulart.pdf
 
 ## Experience
 
-- FullStack Developer at Bttis, Governador Valadares (April 2025 – present)
+- FullStack Developer at Bttis, Governador Valadares (April 2025 – present): full-stack applications, REST APIs, system integrations, testing, deployment and production support.
 - Systems Analyst at X3 Contabilidade, Governador Valadares (August 2023 – April 2025)
 - Developer Intern at Ols Tecnologia, Governador Valadares (January 2023 – March 2023)
 - Bachelor's degree in Information Systems, Universidade Vale do Rio Doce (Univale) (2021 – 2024)
 
 ## Skills
 
-TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Tailwind CSS, PostgreSQL, MongoDB, Prisma, Redis, Docker, WebSocket, Shopify and Liquid.
+- Front-end: TypeScript, JavaScript, React, Next.js, Tailwind CSS, React Query, Three.js, Vite, HTML, CSS
+- Back-end: Node.js, NestJS, PostgreSQL, MongoDB, Redis, Prisma, BullMQ
+- Infra and quality: Docker, AWS, GitHub Actions, Vitest, Playwright
+- Tools: Git, Bitbucket, Figma, Postman
+- Also: Shopify and Liquid
+
+## Personal projects
+
+- [Raio-X Público](https://github.com/KevenGoulart/Government-Tracking): platform to explore the public spending of Brazilian congresspeople from official open data. Turborepo monorepo with a Next.js front-end, a NestJS REST API (Swagger, Redis cache) and a NestJS + BullMQ worker that runs scheduled, idempotent ingestion jobs into PostgreSQL. Tested with Vitest, Supertest and Playwright + axe-core in GitHub Actions CI.
+- [GeekLog](https://geeklog.app/): social network to review and share movies, TV shows, books and games with friends, with a website and an Android app. Turborepo monorepo with a Next.js website, a NestJS (Fastify) API and a React Native (Expo) Android app; MongoDB, Prisma, Redis, Socket.IO, Bull queues, AWS S3, Stripe, Prometheus and Grafana.
+- [Cloth Showcase](https://cloth-showcase.vercel.app/) ([code](https://github.com/KevenGoulart/conversor-3d)): 3D fitting room that turns a photo of a garment into a piece dressed on a rigged 3D character. Next.js, Three.js, React Three Fiber, Drei and Blender Python scripts.
+- [NFT Marketplace](https://nft-marketplace-theta-bay-72.vercel.app/) ([code](https://github.com/KevenGoulart/nft-marketplace)): front-end NFT marketplace with catalog, cart, checkout and real-time updates, with the whole API mocked in the browser with MSW. React, Vite, TanStack Router and Query, React Hook Form, Zod, Playwright.
+- [More projects on GitHub](https://github.com/KevenGoulart?tab=repositories)
 
 ## Professional projects
 
@@ -28,11 +41,3 @@ TypeScript, JavaScript, React, Next.js, Node.js, NestJS, Tailwind CSS, PostgreSQ
 - [Mais Vit](https://conheca.maisvit.com/): supplement online store built on Shopify, focused on a smooth shopping experience and conversion. Shopify, Liquid.
 - [Libid365](https://www.libid365.com/): landing page promoting a vitamin supplement. Next.js, Tailwind CSS, TypeScript, Docker.
 - UPSlim: web platform that manages user access to a subscription service for a weight loss method, with secure authentication, subscription management and exclusive content. Next.js, NestJS, Tailwind CSS, TypeScript, PostgreSQL, Prisma, Redis, Docker. (currently offline)
-
-## Personal projects
-
-- [Typing Battle](https://typebattle-one.vercel.app/): real-time online game where two people race to type the displayed words; the first to finish 10 words wins. Next.js, TypeScript, Tailwind CSS, WebSocket.
-- [NFT Marketplace](https://nft-marketplace-theta-bay-72.vercel.app/): marketplace for buying and selling digital assets. NestJS, Tailwind CSS, TypeScript, Prisma, PostgreSQL, Docker.
-- [GeekLog](https://geeklog.app/): social network to review and share movies, series, books and games with friends. Next.js, NestJS, Tailwind CSS, TypeScript, MongoDB, Prisma, Redis, Docker.
-- [Raio-X Público](https://github.com/KevenGoulart/Government-Tracking): Platform to explore public spending of Brazilian congresspeople from official open data (Next.js, NestJS, BullMQ, PostgreSQL).
-- [More projects on GitHub](https://github.com/KevenGoulart?tab=repositories)

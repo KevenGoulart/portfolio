@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl'
+import { ALL_PROJECTS_URL, PERSONAL_PROJECTS } from '@/lib/projects'
 import { ProjectCard, type ProjectCardItem } from '../project-cards'
 import { Signpost } from '../journey/pixel'
 
@@ -6,40 +7,22 @@ export default function Projects() {
   const t = useTranslations('Projects')
 
   const cards: ProjectCardItem[] = [
+    ...PERSONAL_PROJECTS.map(({ key, caseStudy, ...project }) => ({
+      ...project,
+      summary: t(`${key}.summary`),
+      ...(caseStudy
+        ? {
+            problem: t(`${key}.problem`),
+            highlights: t.raw(`${key}.highlights`) as string[]
+          }
+        : {})
+    })),
     {
-      image: '/cloth-showcase.png',
-      title: 'Cloth Showcase',
-      description: t('clothShowcaseDescription'),
-      tech: t('clothShowcaseTech'),
-      link: 'https://cloth-showcase.vercel.app/'
-    },
-    {
-      image: '/nft.png',
-      title: 'Nft Marketplace',
-      description: t('nftMarketplaceDescription'),
-      tech: t('nftMarketplaceTech'),
-      link: 'https://nft-marketplace-theta-bay-72.vercel.app/?sort=recent&page=1'
-    },
-    {
-      image: '/geeklog.png',
-      title: 'GeekLog',
-      description: t('geeklogDescription'),
-      tech: t('geeklogTech'),
-      link: 'https://geeklog.app/'
-    },
-    {
-      image: '/raio-x-publico.png',
-      title: 'Raio-X Público',
-      description: t('raioXDescription'),
-      tech: t('raioXTech'),
-      link: 'https://github.com/KevenGoulart/Government-Tracking'
-    },
-    {
-      image: '/github.png',
+      image: '/github.webp',
       title: t('otherProjects'),
-      description: t('otherProjectsDescription'),
-      tech: t('otherProjectsTech'),
-      link: 'https://github.com/KevenGoulart?tab=repositories'
+      summary: t('otherProjectsDescription'),
+      tech: [],
+      code: ALL_PROJECTS_URL
     }
   ]
 

@@ -1,49 +1,14 @@
 import { useTranslations } from 'next-intl'
+import { PROFESSIONAL_PROJECTS } from '@/lib/projects'
 import { ProjectCard, type ProjectCardItem } from '../project-cards'
 import { Signpost } from '../journey/pixel'
 
 export default function ProfessionalProjects() {
   const t = useTranslations('ProfessionalProjects')
 
-  const cards: ProjectCardItem[] = [
-    {
-      image: '/dravictoria.png',
-      title: 'Dra. Victoria',
-      description: t('draVictoriaDescription'),
-      tech: t('draVictoriaTech'),
-      link: 'https://dravictoriabarbalho.com/'
-    },
-    {
-      image: '/goldciclo.png',
-      title: 'Gold Ciclo',
-      description: t('goldCicloDescription'),
-      tech: t('goldCicloTech'),
-      link: 'https://goldciclo.com/',
-      offline: true
-    },
-    {
-      image: '/maisvit-shopify.png',
-      title: 'Mais Vit',
-      description: t('maisVitDescription'),
-      tech: t('maisVitTech'),
-      link: 'https://conheca.maisvit.com/'
-    },
-    {
-      image: '/libid365.png',
-      title: 'Libid365',
-      description: t('metibalaDescription'),
-      tech: t('metibalaTech'),
-      link: 'https://www.libid365.com/'
-    },
-    {
-      image: '/upslim.png',
-      title: 'UPSlim',
-      description: t('upslimDescription'),
-      tech: t('upslimTech'),
-      link: 'https://upslim.com.br/',
-      offline: true
-    }
-  ]
+  const cards: ProjectCardItem[] = PROFESSIONAL_PROJECTS.map(
+    ({ key, ...project }) => ({ ...project, summary: t(`${key}.summary`) })
+  )
 
   return (
     <section
