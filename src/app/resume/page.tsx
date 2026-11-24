@@ -52,13 +52,14 @@ function ProjectLinks({
   labels
 }: {
   project: Project
-  labels: Record<'demo' | 'code' | 'site', string>
+  labels: Record<'demo' | 'code' | 'site' | 'playStore', string>
 }) {
   const links = [
     !project.offline &&
       project.demo && { href: project.demo, label: labels.demo },
     !project.offline &&
       project.site && { href: project.site, label: labels.site },
+    project.playStore && { href: project.playStore, label: labels.playStore },
     project.code && { href: project.code, label: labels.code }
   ].filter(Boolean) as { href: string; label: string }[]
 
@@ -90,7 +91,12 @@ export default async function ResumePage() {
   const tProfessional = await getTranslations('ProfessionalProjects')
   const tAbilities = await getTranslations('Abilities')
 
-  const labels = { demo: t('demo'), code: t('code'), site: t('site') }
+  const labels = {
+    demo: t('demo'),
+    code: t('code'),
+    site: t('site'),
+    playStore: t('playStore')
+  }
   const contacts = [
     { icon: FaEnvelope, label: CONTACT.email, href: `mailto:${CONTACT.email}` },
     { icon: FaPhoneAlt, label: CONTACT.phone, href: CONTACT.phoneHref },

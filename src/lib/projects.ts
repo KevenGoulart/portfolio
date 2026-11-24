@@ -9,6 +9,8 @@ export interface Project {
   tech: string[]
   demo?: string
   code?: string
+  /** Google Play store page (Android app) */
+  playStore?: string
   /** client website (professional projects) */
   site?: string
   offline?: boolean
@@ -60,6 +62,8 @@ export const PERSONAL_PROJECTS: Project[] = [
       'Turborepo'
     ],
     demo: 'https://geeklog.app/',
+    playStore:
+      'https://play.google.com/store/apps/details?id=com.geeklog.app&hl=pt_BR',
     caseStudy: true
   },
   {

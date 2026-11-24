@@ -121,6 +121,7 @@
     "demo": "Live demo",
     "code": "Source code",
     "site": "Visit site",
+    "playStore": "Android app",
     "offline": "Offline",
     "seeMore": "See details",
     "close": "Close",
@@ -154,6 +155,7 @@
     "location": "Governador Valadares, MG, Brazil",
     "demo": "demo",
     "code": "code",
-    "site": "site"
+    "site": "site",
+    "playStore": "Android app"
   }
 }

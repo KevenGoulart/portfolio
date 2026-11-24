@@ -3,7 +3,7 @@
 import { useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaGithub, FaGooglePlay } from 'react-icons/fa'
 import { ProjectModal } from './project-modal'
 import { Panel, PixelLink } from './journey/pixel'
 
@@ -14,6 +14,7 @@ export interface ProjectCardItem {
   tech: string[]
   demo?: string
   code?: string
+  playStore?: string
   site?: string
   offline?: boolean
   freeHosting?: boolean
@@ -45,7 +46,7 @@ export function TechTags({ tech, limit }: { tech: string[]; limit?: number }) {
   )
 }
 
-// demo, site and code links, or the offline badge when the site is down
+// demo, site, Play Store and code links, or the offline badge when the site is down
 export function ProjectLinks({
   card,
   primaryOnly
@@ -70,6 +71,18 @@ export function ProjectLinks({
         icon={<FaExternalLinkAlt className="size-3" />}
       >
         {card.demo ? t('demo') : t('site')}
+      </PixelLink>
+    )
+  }
+  if (card.playStore) {
+    links.push(
+      <PixelLink
+        key="playStore"
+        href={card.playStore}
+        variant={links.length ? 'paper' : undefined}
+        icon={<FaGooglePlay className="size-3" />}
+      >
+        {t('playStore')}
       </PixelLink>
     )
   }
